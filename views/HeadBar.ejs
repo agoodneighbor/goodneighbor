@@ -1,0 +1,111 @@
+<div class="mainBar">
+
+</div>
+
+<div id="modal_window" class="modal_back">
+    <div class="modalPage">
+        <%- include("Login.ejs") %>
+    </div>
+</div>
+
+
+<script type='text/javascript'>
+    console.log($(".mainBar").width());
+    if ($(".mainBar").width() > 852) {
+        $(".mainBar").html(`<%- include("HeadbarMenu.ejs") %>`)
+    } 
+    else {
+        $(".mainBar").html(`<%- include("HeadbarMenu2.ejs") %>`)
+        let menu_div = document.getElementById("menu");
+            let side_menu = document.getElementById("side_menu")
+            menu_div.addEventListener("mouseover", (event) => {
+                $(".side").css({
+                    "left": "0",
+                    "transition": "1s"
+                })
+            })
+            side_menu.addEventListener("mouseover", (event) => {
+                $(".side").css({
+                    "left": "0",
+                    "transition": "1s"
+                })
+            })
+            side_menu.addEventListener("mouseout", (event) => {
+                $(".side").css({
+                    "left": "-150px",
+                    "transition": "1s"
+                })
+            })
+    }
+    $(window).resize(function () {
+        if ($(".mainBar").width() > 852) {
+            $(".mainBar").html(`<%- include("HeadbarMenu.ejs") %>`)
+        } else {
+            $(".mainBar").html(`<%- include("HeadbarMenu2.ejs") %>`)
+            let menu_div = document.getElementById("menu");
+            let side_menu = document.getElementById("side_menu")
+            menu_div.addEventListener("mouseover", (event) => {
+                $(".side").css({
+                    "left": "0",
+                    "transition": "1s"
+                })
+            })
+            side_menu.addEventListener("mouseover", (event) => {
+                $(".side").css({
+                    "left": "0",
+                    "transition": "1s"
+                })
+            })
+            side_menu.addEventListener("mouseout", (event) => {
+                $(".side").css({
+                    "left": "-150px",
+                    "transition": "1s"
+                })
+            })
+
+        }
+    })
+    $(function () {
+        //Keep track of last scroll
+        var lastScroll = 0;
+        $(window).scroll(function (event) {
+            //Sets the current scroll position
+            var st = $(this).scrollTop();
+            //Determines up-or-down scrolling
+            if (st > lastScroll) {
+                //Replace this with your function call for downward-scrolling
+                $(".navBar").css({
+                    "top": "-80px",
+                    "transition": "1s",
+                })
+            }
+            else {
+                //Replace this with your function call for upward-scrolling
+                let height = $(".mainBar").height();
+                if ($(this).scrollTop() < height) {
+                    $(".navBar").css({
+                        "top": "0px",
+                        "transition": "1s",
+                        "background-color": "transparent"
+                    })
+                } else {
+                    $(".navBar").css({
+                        "top": "0px",
+                        "transition": "1s",
+                        "background-color": "white"
+                    })
+                }
+            }
+            //Updates scroll position
+            lastScroll = st;
+        });
+    });
+    const Login = () => {
+        $("#modal_window").show();
+    }
+    const closeModal = () => {
+        $("#modal_window").hide();
+    }
+    console.log(sessionStorage.key.length);
+
+</script>
