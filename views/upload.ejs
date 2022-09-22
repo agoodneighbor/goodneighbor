@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    a{
+      text-decoration: none;
+    }
+    .container{
+      position:fixed;
+      bottom: 0;
+      right: 0;
+      margin-right: 30px;
+      width: 100%;
+      margin-bottom: 30PX;
+      /* background-color: pink; */
+      display: flex;
+      align-items: right;
+      justify-content: right;
+    }
+    .container__button{
+      padding: 10px 20px;
+      border-radius: 50px;
+      background-color: #76ff03;
+      color:#fff;
+      font-size:25px;
+    }
+    .container__button:hover{
+      background-color: #76ff03;
+      color: black;
+    }
+    .popup{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      /* background-color: rgb(168, 114, 13); */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      /* transition: opacity 0.3s linear,
+      visibility 0.3s linear; */
+    }
+    .popup--active{
+      opacity: 1;
+      visibility: visible;
+    }
+    .popup__body{
+      position: fixed;
+      top: 15px;
+      margin:0 20px;
+      padding: 20px;
+      background-color: lightblue;
+      width: 500px;
+      height: 600px;
+      /* border-radius: 10px; */
+    }
+    .popup__items{
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .popup__title{
+      font-size: 50px;
+      padding: 30px 0 40px;
+    }
+    .popup__button{
+      /* margin-top: 20px; 왜안먹어?*/
+      padding: 10px;
+      font-weight: 400;
+      font-size: 15px;
+      color: #fff;
+      font-weight: bold;
+      background-color:#9658fe;
+      letter-spacing: 1px;
+      border:none;
+      border-radius: 10px;
+      transition: background-color 0.3s linear;
+    }
+    .popup__button:hover{
+      background-color:rgb(196, 23, 37) ;
+    }
+    .hidden{
+    display: none;
+    }
+  /* 사진업로드 */
+    .upload__container{
+      height: 250px;
+      width: 250px;
+    }
+    .upload__container .wrapper{
+      position: relative;
+      height: 200px;
+      width:100%;
+      border: 1px dashed #c2cdda;
+      border-radius: 10px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .wrapper .upload__img{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wrapper .upload__img img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .wrapper .upload__icon{
+      font-size: 20px;
+      color: #9658fe;
+      text-align: center;
+    }
+    .wrapper .upload__text{
+      font-size: 20px;
+      font-weight: 400;
+      color: blue;
+    }
+    .wrapper .file__name{
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      color: #fff;
+      padding: 8px 0;
+      font-size: 20px;
+      background:#9658fe;
+    }
+    .upload__container #custom-btn{
+      margin-top: 20px;
+      width: 100%;
+      height: 30px;
+      display: block;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      color: #fff;
+      background: #9658fe;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  /* 폼 */
+    form.upload__form {
+      text-align: end;
+    }
+    .upload__list {
+      border-radius: 5px;
+      margin: 5px;
+    }
+    input.upload__title{
+    width: 400px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+  }
+  input.upload__price{
+    width: 400px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+  }
+  .upload__content{
+    width: 400px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+  }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="container__btn-body">
+      <a id="container-btn" class="container__button" href="#">
+        <i class="fa-solid fa-plus"></i>
+      </a>
+    </div>
+    <div id="popup" class="popup">
+      <div class="popup__body">
+        <div class="popup__items">
+          
+          <div class="upload__container">
+            <div class="wrapper">
+              <div class="upload__img">
+                <img>
+              </div>
+              <div class="upload-content">
+                <div class="upload__icon"><i class="fa-solid fa-cloud-arrow-up" style="font-size: 50px;"></i></div>
+                <div class="upload__text">No file chosen, yet!</div>
+              </div>
+            </div>
+            <input id="default-btn"type="file" hidden>
+            <button onclick="defaultBtnActive()" id="custom-btn">choose a file</button>
+          </div>
+    
+          <form class="upload__form" >
+            <p>
+              <select class="upload__list" name="category">
+                <option name="category" value="카테고리">카테고리</option>
+                <option value="과일">과일</option>
+                <option value="야채">야채</option>
+              </select>
+            </p>
+            <p>상품명:&nbsp<input class="upload__title" type="text" name="upload-name" placeholder=""></p>
+            <p>가격:&nbsp<input class="upload__price" type="text"  name="upload-price"placeholder="10,000원"></p>
+            <p><textarea class="upload__content" type="text" name="upload-explain" placeholder="상품설명"></textarea></p>
+            <a id="popup-nook" class="popup__button" href="#">취소</a>
+            <a id="popup-ok" class="popup__button" href="#">올리기</a>
+          </form>
+          
+        </div>
+      </div>
+    </div>  
+  </div>
+
+  <script>
+  var containerBtn = document.getElementById('container-btn');
+  var popUp = document.getElementById('popup');
+  var popupNook = document.getElementById('popup-nook');
+  var popupOk = document.getElementById('popup-ok');
+//upload
+  const defaultBtn = document.querySelector('#default-btn');
+  const customBtn = document.querySelector('#custom-btn');
+  const uploadImg = document.querySelector("img");
+
+
+  function showPopup(arg){
+    containerBtn.classList.add('hidden');
+    popUp.classList.add('popup--active');
+  }
+  function hidePopup(arg){
+    popUp.classList.remove('popup--active');
+  }
+
+  containerBtn.onclick = showPopup;
+  popupNook.onclick = hidePopup;
+  
+
+  popupOk.onclick = function(){
+}
+// 이미지이름 상품명 상품내용 사진 업로드시간
+
+//업로드사진
+    function defaultBtnActive(){
+      defaultBtn.click();
+    }
+    defaultBtn.addEventListener('change',function(){
+      const file = this.files[0];
+      if(file){
+        const reader = new FileReader();
+        reader.onload = function(){
+          const result = reader.result;
+          uploadImg.src = result;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+                
+
+
+
+
+  </script>
+</body>
+</html>
