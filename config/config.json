@@ -1,0 +1,17 @@
+{
+	"development": {
+		"host": "localhost",
+		"database": "good_neighbors",
+		"username": "user",
+		"password": "sqlQlqjs!1",
+		"dialect": "mysql",
+		"port": "3306"
+	},
+	"product": {
+		"host": "",
+		"database": "",
+		"username": "",
+		"password": "",
+		"dialect": "mysql"
+	}
+}
