@@ -15,10 +15,11 @@
 
 .navBar {
     position: fixed;
+    top: 0;
     height: 80px;
     background-color: transparent;
     display: flex;
-    width: 100%;
+    width: 100vw;
     align-items: center;
 }
 
@@ -30,7 +31,9 @@
 }
 
 .LoginMenu {
-    width: 20%;
+    position: absolute;
+    right: 0px;
+    width: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,12 +73,28 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transition: 0.5s;
+    z-index: 10000;
 }
 
 .hamberger {
     position: relative;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     width: 10%;
+}
+
+@media screen and (max-width:852px) {
+    .hamberger {
+        display: flex;
+    }
+
+    .navMenu {
+        display: none;
+    }
+
+    .Logo {
+        display: none;
+    }
 }
