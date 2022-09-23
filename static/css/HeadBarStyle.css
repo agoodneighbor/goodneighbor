@@ -1,17 +1,19 @@
-.mainBar{
+.mainBar {
     height: 400px;
     width: 100%;
     background-color: aqua;
 }
-.navMenu{
+
+.navMenu {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 70%;
-    
+
 }
-.navBar{
+
+.navBar {
     position: fixed;
     height: 80px;
     background-color: transparent;
@@ -19,40 +21,46 @@
     width: 100%;
     align-items: center;
 }
-.menu{
+
+.menu {
     display: flex;
     align-items: center;
     margin-left: 80px;
     cursor: pointer;
 }
-.LoginMenu{
+
+.LoginMenu {
     width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.Login{
+
+.Login {
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
-.Assign{
+
+.Assign {
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
-.Logo{
+
+.Logo {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 10%;
 }
-.side{
+
+.side {
     position: fixed;
     height: 100vh;
     width: 150px;
@@ -63,7 +71,8 @@
     justify-content: center;
     flex-direction: column;
 }
-.hamberger{
+
+.hamberger {
     position: relative;
     display: flex;
     align-items: center;

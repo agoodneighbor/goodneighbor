@@ -6,3 +6,7 @@ exports.main = (req, res) => {
 exports.upload = (req,res) => {
 	res.render('upload');
 };
+
+exports.product = (req,res) => {
+	res.render('product');
+};
