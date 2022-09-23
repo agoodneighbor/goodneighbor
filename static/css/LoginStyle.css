@@ -5,6 +5,7 @@
     position: fixed;
     top: 0;
     display: none;
+    z-index: 100;
 
 }
 
@@ -14,6 +15,7 @@
     height: 500px;
     position: relative;
     overflow-y: scroll;
+    z-index: 100;
 }
 .modal-cont::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
