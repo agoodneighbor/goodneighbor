@@ -101,7 +101,6 @@
             lastScroll = st;
         });
     });
-
     const Login = () => {
         $("#modal_window").show();
     }
@@ -113,7 +112,6 @@
             center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
             level: 3 //지도의 레벨(확대, 축소 정도)
         };
-
         map = new kakao.maps.Map(container, options);
     }
     const close_Assign = () => {
@@ -122,7 +120,6 @@
     const closeModal = () => {
         $("#modal_window").hide();
     }
-
     $("#b").click(function () {
         $(".detail_user").animate({ scrollTop: 40 }, 1000);
     })
@@ -137,20 +134,16 @@
         }
         console.log(add_string)
         var geocoder = new kakao.maps.services.Geocoder();
-
         // 주소로 좌표를 검색합니다
         geocoder.addressSearch(add_string, function (result, status) {
-
             // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
                 // 결과값으로 받은 위치를 마커로 표시합니다
                 var marker = new kakao.maps.Marker({
                     map: map,
                     position: coords
                 });
-
                 // 인포윈도우로 장소에 대한 설명을 표시합니다
                 var infowindow = new kakao.maps.InfoWindow({
                     content: '<div style="width:150px;text-align:center;padding:6px 0;">내 위치</div>'
@@ -164,10 +157,7 @@
                 // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
                 map.setCenter(coords);
             }
-
         });
-
-
     }
     const takeplace = () => {
         if (check == "결정하기") {
@@ -206,12 +196,10 @@
     const Log_in_to = () => {
         let Login_val_Id = $("#Login_Id").val();
         let Login_val_Pw = $("#Login_Pw").val();
-
         let Login_data = {
             id: Login_val_Id,
             pw: Login_val_Pw
         }
-
         axios({
             url: "/api/login",
             method: "post",

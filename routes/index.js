@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const controller = require("../Controller/mainController");
-router.get("/", controller.main);
+const memberController = require("../Controller/MemberController");
+
+router.get("/", memberController.member);
+router.post("/api/assign", memberController.asign);
+// router.post("/api/loadadress", controller.roadaddress);
 
 module.exports = router;
