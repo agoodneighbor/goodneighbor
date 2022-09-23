@@ -25,7 +25,7 @@ const Member = (Sequelize, DataTypes) => {
 			// database 모델 정의 부분. mysql은 db 생성 시 적용함.
 			tableName: "member",
 			freezeTableName: true,
-			timestamps: true,
+			timestamps: false,
 		}
 	);
 	return model;

@@ -4,6 +4,7 @@ const router = express.Router();
 const controller = require("../Controller/MemberController");
 
 router.get("/", controller.member);
-router.get("/memberinfo", controller.get_visitors);
+router.post("/api/assign", controller.asign);
+// router.post("/api/loadadress", controller.roadaddress);
 
 module.exports = router;
