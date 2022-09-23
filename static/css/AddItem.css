@@ -1,0 +1,49 @@
+.Circle{
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.AddItemsModal{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 100;
+}
+
+.ItemUploadPage{
+    visibility: visible;
+    border-radius: 10px;
+    background-color: white;
+    width: 500px;
+    height: 600px;
+    animation-name: fadeout ;
+    animation-duration: 1s;
+    animation-duration: leaner;
+}
+
+
+@keyframes fadeout{
+    0%{
+        visibility: hidden;
+        width: 0px;
+    }
+    100%{
+        visibility: visible;
+        width: 500px;
+    }
+}
