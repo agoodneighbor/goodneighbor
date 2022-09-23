@@ -16,7 +16,7 @@ exports.asign = async (req, res) => {
 			// console.log(result[i].dataValues["user_id"], req.body.id, 123123123123);
 			if (result[i].dataValues["user_id"] === req.body.id) {
 				isOkay = false;
-				console.log(isOkay, i);
+				// console.log(isOkay, i);
 			}
 		}
 		// console.log(result[0].dataValues, 1123123);
