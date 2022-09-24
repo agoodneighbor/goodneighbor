@@ -10,16 +10,108 @@
 <div id="AddItemModal" class="AddItemsModal">
     <div id="Modal2" class="modalPage">
         <div id="ItemUploadPage" class="ItemUploadPage">
-
+            <div id="close_AddItem" class="close_btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                </svg>
+            </div>
+            <div class="UploadLogo">
+                <Strong>업로드</Strong>
+            </div>
+            <div class="UploadPage">
+                <div class="imgUpload">
+                    <div class="CameraImg">
+                        <div class="filebox">
+                            <label for="ex_file">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi bi-camera" viewBox="0 0 16 16">
+                                    <path
+                                        d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z" />
+                                    <path
+                                        d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                                </svg></label>
+                            <input type="file" id="ex_file" onchange="setThumbnail(event)" multiple>
+                        </div>
+                    </div>
+                    <div class="imgDiv">
+                    </div>
+                </div>
+                <div class="categoryOption">
+                    옵션
+                </div>
+                <div class="price">
+                    옵션
+                </div>
+                <div class="itemName">
+                    옵션
+                </div>
+                <div class="itemDetail">
+                    옵션
+                </div>
+                <div>
+                    <button onclick="submitItems()" class="custom-btn btn-3"><span>상품추가</span></button>
+                </div>
+            </div>
         </div>
     </div>
 
 </div>
 
 <script>
+
+    var form_data = {
+        name:"곱창난 고구마",
+        detail:"사는 사람이 병신이지 ㅋㅋㅋ",
+        price:"100000000",
+        category:"고구마"
+    }
+    var img_data = []
+
     let openAddItems = document.getElementById("openPage");
-    let ModalP=document.getElementById("Modal2")
+    let ModalP = document.getElementById("Modal2")
+    let Modal_down = document.getElementById("close_AddItem")
     openAddItems.addEventListener("click", () => {
-        $("#AddItemModal").show();  
+        $("#AddItemModal").show();
     })
+    Modal_down.addEventListener("click", () => {
+        $("#AddItemModal").hide();
+    })
+    const setThumbnail = (event) => {
+        //console.log(event)
+        for (var image of event.target.files) {
+            var reader = new FileReader();
+
+            reader.onload = function (event) {
+                //var img = document.createElement("img");
+                //img.setAttribute("src", event.target.result);
+                $(".imgDiv").append(`<div class="ThumnailImg">
+                <img src="${event.target.result}" alt="">
+            </div>`)
+            };
+            img_data.push(img_data);
+            console.log(image.name);
+            reader.readAsDataURL(image);
+        }
+    }
+    const submitItems=()=>{
+        axios({
+            url: "/api/assign",
+            method: "post",
+            // post방식 일때는 params가 data로 변경
+            data: {item_data:form_data,Img_data:img_data}
+        }).then((response) => {
+            console.log(response);
+            if (response.data) {
+                alert("회원가입 성공");
+                $("#AddItemModal").hide();
+            }
+            else {
+                alert("예기치못한 오류가 ㄷ ㄷ ㄷ ㄷ ㄷ ㄷ 이이이잉 다시해줘잉");
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
 </script>
