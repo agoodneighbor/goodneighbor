@@ -26,6 +26,7 @@
 }
 
 .ItemUploadPage{
+    position: relative;
     visibility: visible;
     border-radius: 10px;
     background-color: white;
@@ -46,4 +47,104 @@
         visibility: visible;
         width: 500px;
     }
+}
+
+.UploadLogo{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.UploadPage{
+    overflow-y: scroll;
+    width: 100%;
+    height: 500px;
+}
+
+.imgUpload{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    padding: 3px;
+}
+
+.imgDiv{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    padding: 10px;
+    padding-left: 0px;
+    align-items: center;
+    border: 1px solid black;
+    
+}
+
+.CameraImg{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+
+}
+
+.filebox label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: #999;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
+}
+
+.filebox input[type="file"] {  /* 파일 필드 숨기기 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+    border: 0;
+}
+
+.ThumnailImg{
+    border: 1px solid black;
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.categoryOption{
+    width: 100%;
+    height:80px;
+}
+
+.price{
+    width: 100%;
+    height:80px;
+}
+
+.itemName{
+    width: 100%;
+    height:80px;
+}
+
+.itemDetail{
+    width: 100%;
+    height:80px;
 }
