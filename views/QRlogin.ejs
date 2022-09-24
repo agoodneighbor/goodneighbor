@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>이웃채팅</title>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+			}
+
+			.main-content-wrapper {
+				max-width: 840px;
+				/* min-width: 600px; */
+				/* height: 800px; */
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 2rem;
+				gap: 2rem;
+			}
+			.qr-left-wrapper {
+				min-width: 324px;
+			}
+			.qr-title {
+				font-size: 34px;
+			}
+			.qr-sub-title {
+				margin-top: 16px;
+				font-size: 18px;
+			}
+			.qr-ol-wrapper {
+				margin: 32px 0px;
+			}
+			.qr-wrapper {
+				background: rgb(224, 222, 222);
+				padding: 4rem;
+				border-radius: 16px;
+			}
+			.qr-title-wrapper {
+				padding: 0;
+			}
+			.qr-login {
+				width: 200px;
+			}
+			.sigh_up_text {
+				color: grey;
+			}
+			.ol-title {
+				font-weight: 600;
+				padding-bottom: 20px;
+			}
+			.ol-order-list {
+				padding-left: 16px;
+			}
+			.ol-order-list li:nth-of-type(-n + 3) {
+				line-height: 1.5;
+			}
+			.sigh_up_link {
+				text-decoration: none;
+				color: grey;
+			}
+			.sigh_up_link:hover {
+				color: royalblue;
+			}
+		</style>
+	</head>
+	<body>
+		<header>header</header>
+		<main class="main-content-wrapper">
+			<article class="qr-left-wrapper">
+				<section class="qr-title-wrapper">
+					<h1 class="qr-title">이웃 채팅 로그인</h1>
+					<div class="qr-sub-title">
+						휴대전화의 카메라로 QR코드를 촬영해주세요.
+					</div>
+				</section>
+				<section class="qr-ol-wrapper">
+					<div class="ol-title">휴대전화로 QR 코드 촬영하기</div>
+					<ol class="ol-order-list">
+						<li>휴대전화에서 카메라 앱을 열어요.</li>
+						<li>카메라로 코드를 스캔해요.</li>
+						<li>이웃채팅 로그인하기 팝업을 클릭해요.</li>
+					</ol>
+				</section>
+				<div class="sigh_up_text">
+					아직 계정이 없다면 모바일 앱에서
+					<a class="sigh_up_link" href="">회원가입</a> 해주세요.
+				</div>
+			</article>
+			<div class="qr-wrapper">
+				<img class="qr-login" src="../static/qr/qr.svg" alt="qr-login" />
+			</div>
+		</main>
+		<footer>footer</footer>
+	</body>
+</html>
