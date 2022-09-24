@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="../static/css/product.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   <meta charset="UTF-8">
@@ -8,54 +9,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<style>
-.product-title{
-  background-color: blue;
-  text-align: center;
-  padding: 30px;
-  font-size: 50px;
-  margin: 50px;
-}
-.aa{
-  margin: 50px;
-  height: 200px;
-  background-color: aqua;
-}
-.carousel-caption{
-
-  background-color: blue;
-}
-img{
-  width: 200px;
-  height: 200px;
-}
-</style>
 <body>
+ 
   <!--  메인캐러셀 -->
   <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></>
-      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></>
-      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></>
-    </ol>
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-          <h2>이웃사촌</h2>
-          <p>이웃끼리 신선하게 먹어볼까?</p>
+        <img src=".././static/img/main/vege.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>이웃사촌</h1>
+          <h4>이웃끼리 신선하게 먹어볼까?</h4>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src=".././static/img/main/www.jpg" class="d-block w-100" alt="...">
+        <img src=".././static/img/main/vege2.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>이웃사촌</h5>
-          <p>이웃끼리 신선하게 먹어볼까?</p>
+          <h1>이웃사촌</h1>
+          <h4>이웃끼리 신선하게 먹어볼까?</h4>
         </div>
       </div>
       <div class="carousel-item">
-        <img src=".././static/img/main/www.jpg" class="d-block w-100" alt="...">
+        <img src=".././static/img/main/banana.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>이웃사촌</h5>
-          <p>이웃끼리 신선하게 먹어볼까?</p>
+          <h1>이웃사촌</h1>
+          <h4>이웃끼리 신선하게 먹어볼까?</h4>
         </div>
       </div>
     </div>
@@ -68,7 +50,7 @@ img{
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <div class="aa"></div>
+  <div class="sideimg"><img src="../static/img/main/vege2.jpg"></div>
   <div class="product-title">
     상품목록
   </div>

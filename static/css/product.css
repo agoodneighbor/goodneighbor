@@ -1,0 +1,26 @@
+.product-title {
+  text-align: center;
+  padding: 30px;
+  font-size: 50px;
+  margin: 50px;
+}
+
+.carousel-caption {
+  transform: translateY(-50%);
+  bottom: initial;
+  top: 50%;
+}
+
+.carousel-item>img {
+  height: 400px;
+}
+
+.sideimg {
+  text-align: center;
+}
+
+.sideimg img {
+  margin: 30px;
+  height: 100px;
+  width: 700px;
+}

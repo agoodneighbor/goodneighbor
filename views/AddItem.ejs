@@ -11,6 +11,36 @@
     <div id="Modal2" class="modalPage">
         <div id="ItemUploadPage" class="ItemUploadPage">
 
+            <div id="closeBtn" class="close-btn" onclick="closepopup()">X</div>
+            <div class="upload__container">
+                <div class="wrapper">
+                  <div class="upload__img">
+                    <img>
+                  </div>
+                  <div class="upload-content">
+                    <div class="upload__icon"><i class="fa-solid fa-cloud-arrow-up" style="font-size: 50px;"></i></div>
+                    <div class="upload__text">No file chosen, yet!</div>
+                  </div>
+                </div>
+                <input id="default-btn"type="file" hidden>
+                <button onclick="defaultBtnActive()" id="custom-btn">choose photos</button>
+              </div>
+        
+              <form class="upload__form" >
+                <p>
+                  <select class="upload__list" name="category">
+                    <option name="category" value="카테고리">카테고리</option>
+                    <option value="과일">과일</option>
+                    <option value="야채">야채</option>
+                  </select>
+                </p>
+                <p><input class="upload__title" type="text" name="upload-name" placeholder="상품명을 입력해주세요"></p>
+                <p><input class="upload__price" type="text"  name="upload-price"placeholder="가격을 입력해주세요"></p>
+                <p><input class="upload__content" type="text" name="upload-explain" placeholder="상품설명을 입력해주세요"></p>
+                <a id="sellupload" class="sellbtn"  onclick="upload()">올리기</a>
+              </form>
+              
+            </div>
         </div>
     </div>
 
@@ -22,4 +52,33 @@
     openAddItems.addEventListener("click", () => {
         $("#AddItemModal").show();  
     })
+
+    var closeBtn = document.getElementById('closeBtn');
+    var sellUpload = document.getElementById('sellupload');
+    const defaultBtn = document.querySelector('#default-btn');
+    const customBtn = document.querySelector('#custom-btn');
+    const uploadImg = document.querySelector("img");
+
+    function closepopup(){
+    $("#AddItemModal").css('display','none');
+    }
+
+
+
+  function upload(){
+    alert('rrrr');
+    }
+    // 이미지이름 상품명 상품내용 사진 업로드시간
+
+
+
+    //업로드사진
+        function defaultBtnActive(){
+          defaultBtn.click();
+        }
+        defaultBtn.addEventListener('change',function(){
+      
+        });
+                    
+
 </script>
