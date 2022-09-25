@@ -1,3 +1,7 @@
+
+<%-include("Head.ejs")%>
+
+
 <div id="openPage" class="Circle">
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-plus"
         viewBox="0 0 16 16">
@@ -10,8 +14,7 @@
 <div id="AddItemModal" class="AddItemsModal">
     <div id="Modal2" class="modalPage">
         <div id="ItemUploadPage" class="ItemUploadPage">
-
-            <div id="closeBtn" class="close-btn" onclick="closepopup()">X</div>
+            <div id="closeBtn" class="close-btn" onclick="closepopup()"><i class="fa-regular fa-xmark"></i></div>
             <div class="upload__container">
                 <div class="wrapper">
                   <div class="upload__img">
@@ -37,7 +40,7 @@
                 <p><input class="upload__title" type="text" name="upload-name" placeholder="상품명을 입력해주세요"></p>
                 <p><input class="upload__price" type="text"  name="upload-price"placeholder="가격을 입력해주세요"></p>
                 <p><input class="upload__content" type="text" name="upload-explain" placeholder="상품설명을 입력해주세요"></p>
-                <a id="sellupload" class="sellbtn"  onclick="upload()">올리기</a>
+                <a id="sellUpload" class="sellbtn"  onclick="upload()">올리기</a>
               </form>
               
             </div>
@@ -54,7 +57,7 @@
     })
 
     var closeBtn = document.getElementById('closeBtn');
-    var sellUpload = document.getElementById('sellupload');
+    var sellUpload = document.getElementById('sellUpload');
     const defaultBtn = document.querySelector('#default-btn');
     const customBtn = document.querySelector('#custom-btn');
     const uploadImg = document.querySelector("img");
@@ -64,11 +67,39 @@
     }
 
 
-
   function upload(){
-    alert('rrrr');
-    }
-    // 이미지이름 상품명 상품내용 사진 업로드시간
+
+    const formData = new FormData();
+    const file = document.getElementById("file");
+    const form = document.querySelector(".upload__form");
+      formData.append("name",form.upload-name.value);
+      formData.append("price",form.upload-price.value);
+      formData.append("explain",form.upload-explain.value);
+
+    //   var categorybox = document.querySelectorAll('input[type=category]:checked');  
+    // var categoryclick = "";
+    // for( var i = 0; i < markedCheckbox.length; i++ ) {
+    //   like += markedCheckbox[i].value + ", ";
+    
+  
+
+      formData.append("category",form.category.value);
+      formData.append("userfile",file.files[0]);
+
+      axios({
+          headers : {
+            "Content-Type" : "multipart/form-data"
+          },
+          url: "/upload",
+          method : "post",
+          data : formData
+
+        })
+        .then((response) => {
+
+        });
+      }
+    // 이미지이름업로드시간?
 
 
 

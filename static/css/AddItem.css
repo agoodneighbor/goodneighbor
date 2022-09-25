@@ -166,7 +166,7 @@ a {
 
 a:hover {
     background: transparent;
-    box-shadow: none;
+    /* box-shadow: none; */
 }
 
 
