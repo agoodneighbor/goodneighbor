@@ -15,9 +15,15 @@ const upload =multer({
     limits:{fileSize:5*1024*1024}
 })
 const memberController = require("../Controller/MemberController");
+const productController = require("../Controller/ProductController");
 
 router.get("/", memberController.member);
 router.post("/api/assign", memberController.asign);
-// router.post("/api/loadadress", controller.roadaddress);
+router.post("/api/login", memberController.login);
+
+// #1, 라우트 추가
+// router.post("/api/upload", productController.product);
+// router.post("/api/mywishlist", productController.wishlist);
+// router.post("/api/myorderlist", productController.orderlist);
 
 module.exports = router;

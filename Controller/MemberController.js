@@ -13,13 +13,10 @@ exports.asign = async (req, res) => {
 		attributes: ["user_id"],
 	}).then((result) => {
 		for (let i = 0; i < result.length; i++) {
-			// console.log(result[i].dataValues["user_id"], req.body.id, 123123123123);
 			if (result[i].dataValues["user_id"] === req.body.id) {
 				isOkay = false;
-				// console.log(isOkay, i);
 			}
 		}
-		// console.log(result[0].dataValues, 1123123);
 	});
 
 	if (isOkay) {
@@ -35,11 +32,36 @@ exports.asign = async (req, res) => {
 		};
 		await Address.create(address).then((result) => {
 			data["address_id"] = result.dataValues["address_id"];
-			Member.create(data).then((result) => {
-				// console.log(result);
-			});
+			Member.create(data).then((result) => {});
 		});
 	}
-	// console.log(isOkay);
 	res.send(isOkay);
 };
+
+exports.login = async (req, res) => {
+	let isOkay = false;
+
+	await Member.findAll({
+		attributes: ["user_id", "user_pw"],
+	}).then((result) => {
+		for (let i = 0; i < result.length; i++) {
+			if (
+				result[i].dataValues["user_id"] === req.body.id &&
+				result[i].dataValues["user_pw"] === req.body.pw
+			) {
+				isOkay = true;
+			}
+		}
+	});
+	res.send(isOkay);
+};
+
+// exports.delete_comment = (req,res) => {
+//     Visitor.destroy({
+//         where : { id: req.body.id }
+//     }).then((result)=>{
+//         console.log( result );
+//         res.send( "삭제 성공" );
+//     })
+//     //delete from visitor where id = req.body.id
+// }
