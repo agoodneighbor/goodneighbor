@@ -62,13 +62,14 @@
 <script>
 
     var form_data = {
-        name:"곱창난 고구마",
-        detail:"사는 사람이 병신이지 ㅋㅋㅋ",
-        price:"100000000",
-        category:"고구마"
+        name: "곱창난 고구마",
+        detail: "사는 사람이 병신이지 ㅋㅋㅋ",
+        price: "100000000",
+        category: "고구마"
     }
-    var img_data = []
-
+    const formData = new FormData();
+    formData.append("userdata", JSON.stringify(form_data));
+    img_data = []
     let openAddItems = document.getElementById("openPage");
     let ModalP = document.getElementById("Modal2")
     let Modal_down = document.getElementById("close_AddItem")
@@ -90,17 +91,24 @@
                 <img src="${event.target.result}" alt="">
             </div>`)
             };
+            console.log(image);
+            formData.append("uploadfile", image);
             img_data.push(img_data);
-            console.log(image.name);
             reader.readAsDataURL(image);
         }
     }
-    const submitItems=()=>{
+    const submitItems = () => {
+        for(let key of formData.values()){
+            console.log(key);
+        }
         axios({
-            url: "/api/assign",
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+            url: "/api/additem",
             method: "post",
             // post방식 일때는 params가 data로 변경
-            data: {item_data:form_data,Img_data:img_data}
+            data: formData 
         }).then((response) => {
             console.log(response);
             if (response.data) {
