@@ -9,6 +9,13 @@ exports.product = (req, res) => {
 	res.send("haha");
 };
 
+
+exports.ProductAdd=(req,res)=>{
+	console.log(req.files);
+	console.log(JSON.parse(req.body["userdata"]))
+
+}
+
 // exports.wishlist = (req, res) => {
 // 	console.log(1);
 // 	res.send("wish_list here");
