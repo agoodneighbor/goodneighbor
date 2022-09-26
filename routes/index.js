@@ -18,16 +18,25 @@ const upload = multer({
 
 const memberController = require("../Controller/MemberController");
 const productController = require("../Controller/ProductController");
+const { Product } = require("../Model");
 
 router.get("/", memberController.member);
 router.post("/api/assign", memberController.asign);
 router.post("/api/login", memberController.login);
 router.post("/api/additem", upload, productController.ProductAdd);
+router.get("/product", (req, res) => {
+	let is_login = false;
+
+	if (req.session.user !== undefined) {
+		is_login = true;
+	}
+	console.log(is_login);
+	res.render("Product", { is_login: is_login });
+});
 
 // #1, 라우트 추가
 // router.post("/api/upload", productController.product);
 // router.post("/api/mywishlist", productController.wishlist);
 // router.post("/api/myorderlist", productController.orderlist);
-
 
 module.exports = router;
