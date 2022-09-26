@@ -1,32 +1,36 @@
-.mainBar{
+.mainBar {
     height: 400px;
     width: 100%;
     background-color: aqua;
 }
-.navMenu{
+
+.navMenu {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 70%;
-    
+
 }
-.navBar{
+
+.navBar {
     position: fixed;
-    top:0;
+    top: 0;
     height: 80px;
     background-color: transparent;
     display: flex;
     width: 100vw;
     align-items: center;
 }
-.menu{
+
+.menu {
     display: flex;
     align-items: center;
     margin-left: 80px;
     cursor: pointer;
 }
-.LoginMenu{
+
+.LoginMenu {
     position: absolute;
     right: 0px;
     width: 200px;
@@ -34,28 +38,32 @@
     align-items: center;
     justify-content: center;
 }
-.Login{
+
+.Login {
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
-.Assign{
+
+.Assign {
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
-.Logo{
+
+.Logo {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 10%;
 }
-.side{
+
+.side {
     position: fixed;
     height: 100vh;
     width: 150px;
@@ -68,7 +76,8 @@
     transition: 0.5s;
     z-index: 10000;
 }
-.hamberger{
+
+.hamberger {
     position: relative;
     display: none;
     align-items: center;
@@ -77,13 +86,15 @@
 }
 
 @media screen and (max-width:852px) {
-    .hamberger{
+    .hamberger {
         display: flex;
     }
-    .navMenu{
+
+    .navMenu {
         display: none;
     }
-    .Logo{
+
+    .Logo {
         display: none;
     }
 }
