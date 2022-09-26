@@ -13,12 +13,9 @@
 		<%- include("Head.ejs") %>
 	</head>
 	<body>
-        <%- include("navBar.ejs") %>
+		<%- include("navBar.ejs") %>
 
-
-    <div class="MainBody" style="height:1000px">
-
-    </div>
+		<div class="MainBody" style="height: 1000px"></div>
 		<div class="gallery">
 			<span style="--i: 1">
 				<img src="/static/img/main/icon_1r_192.png" alt="" />
@@ -44,9 +41,7 @@
 			<span style="--i: 8">
 				<img src="/static/img/main/무 (7).png" alt="" />
 			</span>
-
-		  </div>
-		  <%- include("AddItem.ejs") %>
-    </body>
-
+		</div>
+		<% if(is_login) { %> <%- include("AddItem.ejs") %>
+	</body>
 </html>
