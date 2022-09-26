@@ -22,8 +22,12 @@
 		<div class="menu">더미데이터</div>
 	</div>
 	<div class="LoginMenu">
+		<% if(is_login) { %>
+		<div>logout</div>
+		<% } else { %>
 		<div class="Login" onclick="Login()">Login</div>
 		<div class="Assign" onclick="Assign()">Assign</div>
+		<% } %>
 	</div>
 </div>
 
