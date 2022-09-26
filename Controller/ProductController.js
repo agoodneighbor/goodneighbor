@@ -9,12 +9,22 @@ exports.product = (req, res) => {
 	res.send("haha");
 };
 
-
-exports.ProductAdd=(req,res)=>{
-	console.log(req.files);
-	console.log(JSON.parse(req.body["userdata"]))
-
-}
+exports.ProductAdd = (req, res) => {
+	console.log(JSON.parse(req.body.userdata)["name"], 1111);
+	const data = {
+		member_id: Number(req.session.user),
+		product_name: JSON.parse(req.body.userdata)["name"],
+		product_content: JSON.parse(req.body.userdata)["detail"],
+		product_price: Number(JSON.parse(req.body.userdata)["price"]),
+		product_category: JSON.parse(req.body.userdata)["category"],
+		product_img_src: req.files[0]["path"],
+		product_user_id: "delete soon",
+	};
+	Product.create(data).then((result) => {
+		console.log(result);
+		res.send(result);
+	});
+};
 
 // exports.wishlist = (req, res) => {
 // 	console.log(1);

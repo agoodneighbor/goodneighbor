@@ -1,9 +1,16 @@
 "use strict";
 
+const { request } = require("express");
 const { Member, Address } = require("../Model");
 
 exports.member = (req, res) => {
-	res.render("index");
+	let is_login = false;
+
+	if (req.session.user !== undefined) {
+		is_login = true;
+	}
+	console.log(is_login);
+	res.render("index", { is_login: is_login });
 };
 
 exports.asign = async (req, res) => {
@@ -42,15 +49,23 @@ exports.login = async (req, res) => {
 	let isOkay = false;
 
 	await Member.findAll({
-		attributes: ["user_id", "user_pw"],
+		attributes: ["user_id", "user_pw", "member_id"],
 	}).then((result) => {
+		let currnet_member_id = undefined;
+
 		for (let i = 0; i < result.length; i++) {
 			if (
 				result[i].dataValues["user_id"] === req.body.id &&
 				result[i].dataValues["user_pw"] === req.body.pw
 			) {
 				isOkay = true;
+				currnet_member_id = result[i].dataValues["member_id"];
 			}
+		}
+		if (isOkay) {
+			req.session.user = currnet_member_id;
+
+			console.log(req.session.user);
 		}
 	});
 	res.send(isOkay);

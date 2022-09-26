@@ -5,7 +5,8 @@
 		"username": "user",
 		"password": "sqlQlqjs!1",
 		"dialect": "mysql",
-		"port": "3306"
+		"port": "3306",
+		"dateString": "date"
 	},
 	"product": {
 		"host": "",
