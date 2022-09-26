@@ -25,17 +25,9 @@ router.post("/api/assign", memberController.asign);
 router.post("/api/login", memberController.login);
 
 router.post("/api/additem", upload, productController.ProductAdd);
-router.get("/product", (req, res) => {
-	let is_login = false;
+router.get("/product", productController.products);
 
-	if (req.session.user !== undefined) {
-		is_login = true;
-	}
-	console.log(is_login);
-	res.render("Product", { is_login: is_login });
-});
-// router.post("/api/additem", upload ,productController.ProductAdd);
-// router.get("/api/product", productController.product)
+router.get("/test", productController.serchProduct);
 
 // #1, 라우트 추가
 // router.post("/api/upload", productController.product);

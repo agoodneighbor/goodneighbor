@@ -6,7 +6,7 @@ const { Product, WishList, OrderList } = require("../Model");
 exports.product = (req, res) => {
 	// Product.findAll()
 	console.log(1);
-	res.render('Product');
+	res.render("Product");
 };
 
 exports.ProductAdd = (req, res) => {
@@ -29,13 +29,11 @@ exports.ProductAdd = (req, res) => {
 exports.serchProduct = async (req, res) => {
 	let isOkay = true;
 
-	await Product.findAll({
-		attributes: ["user_id"],
-	}).then((result) => {
-		for (let i = 0; i < result.length; i++) {
-			if (result[i].dataValues["user_id"] === req.body.id) {
-				isOkay = false;
-			}
+	await Product.findAll().then((result) => {
+		let dataValues = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+			console.log(dataValues);
 		}
 	});
 
@@ -56,4 +54,30 @@ exports.serchProduct = async (req, res) => {
 	// 	});
 	// }
 	res.send(isOkay);
+};
+
+exports.products = async (req, res) => {
+	let is_login = false;
+
+	if (req.session.user !== undefined) {
+		is_login = true;
+	}
+	await Product.findAll().then((result) => {
+		let dataValues = [];
+		let datetime_arr = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+
+			datetime_arr.push(
+				String(i.dataValues["product_time"]).split(" ")[1] +
+					String(i.dataValues["product_time"]).split(" ")[2]
+			);
+		}
+		res.render("Product", {
+			is_login: is_login,
+			dataValues: dataValues,
+			category: "감자",
+			datetime_arr: datetime_arr,
+		});
+	});
 };
