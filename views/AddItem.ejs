@@ -18,7 +18,7 @@
               </svg>
           </div>
           <div class="UploadLogo">
-              <Strong>업로드</Strong>
+              <Strong>Upload</Strong>
           </div>
           <div class="UploadPage">
               <div class="imgUpload">
@@ -39,18 +39,22 @@
                   </div>
               </div>
               <div class="categoryOption">
-                  옵션
+                <select name="category">
+                  <option type="category" value="카테고리">카테고리</option>
+                  <option type="category" value="야채">야채</option>
+                  <option type="category" value="과일">과일</option>
+                </select>
+              </div>    
+              <div class="itemName">
+                <input type="text" placeholder="상품명을 입력해주세요" name="name">
               </div>
               <div class="price">
-                  옵션
-              </div>
-              <div class="itemName">
-                  옵션
+                <input type="text" placeholder="가격을 입력해주세요" name="price">
               </div>
               <div class="itemDetail">
-                  옵션
+                <input type="text" placeholder="상품설명을 입력해주세요" name="detail">
               </div>
-              <div>
+              <div class="addbtn">
                   <button onclick="submitItems()" class="custom-btn btn-3"><span>상품추가</span></button>
               </div>
           </div>

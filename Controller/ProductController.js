@@ -6,7 +6,7 @@ const { Product, WishList, OrderList } = require("../Model");
 exports.product = (req, res) => {
 	// Product.findAll()
 	console.log(1);
-	res.send("haha");
+	res.render('Product');
 };
 
 exports.ProductAdd = (req, res) => {
