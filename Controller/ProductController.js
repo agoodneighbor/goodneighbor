@@ -81,3 +81,14 @@ exports.products = async (req, res) => {
 		});
 	});
 };
+
+exports.showDetail=async(req,res)=>{
+	let product_id=req.body.product_id;
+	await Product.findAll({
+		where: { title: Number(product_id) }
+	}).then((result) => {
+		console.log(result);
+		res.render("DetailPage",{product:result.dataValues})
+	});
+
+}
