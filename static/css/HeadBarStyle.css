@@ -1,3 +1,7 @@
+:root {
+    --navbarMenuFont: 15px;
+}
+
 .mainBar {
     height: 400px;
     width: 100%;
@@ -9,8 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70%;
-
+    /* width: 60%; */
 }
 
 .navBar {
@@ -26,8 +29,13 @@
 .menu {
     display: flex;
     align-items: center;
-    margin-left: 80px;
+    /* margin-left: 400px; */
     cursor: pointer;
+    font-size: var(--navbarMenuFont);
+}
+
+.menu.icon {
+    margin-left: 5px;
 }
 
 .LoginMenu {
@@ -45,14 +53,16 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    font-size: var(--navbarMenuFont);
 }
 
 .Assign {
-    width: 50%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    font-size: var(--navbarMenuFont);
 }
 
 .Logo {
@@ -60,8 +70,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
+    /* width: 20%; */
+    margin-left: 45px;
+    margin-right: 54px;
 }
+
+i.fa-solid.fa-people-roof {
+    font-size: 23px;
+}
+
+.Logo-title {
+    margin-left: 5px;
+    margin-right: 70px;
+    font-size: 25px;
+}
+
+
+i.fa-solid.fa-magnifying-glass {}
 
 .side {
     position: fixed;
@@ -88,6 +113,7 @@
 @media screen and (max-width:852px) {
     .hamberger {
         display: flex;
+        margin-left: 20px;
     }
 
     .navMenu {
