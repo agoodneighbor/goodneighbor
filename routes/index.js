@@ -1,17 +1,32 @@
 const express = require("express");
+const multer = require("multer");
+const path=require("path")
 const router = express.Router();
-
-
-const controller = require("../Controller/mainController");
-router.get("/", controller.main);
-router.get("/upload",controller.upload);
-router.get("/product",controller.product)
+const upload =multer({
+    storage:multer.diskStorage({
+        destination(req,file,done){
+            done(null,"static/uploads")
+        },
+        filename(req,file,done){
+            const ext =path.extname(file.originalname);
+            done(null,path.basename(file.originalname,ext +ext))
+        }
+    }),
+    limits:{fileSize:5*1024*1024}
+}).array("uploadfile");
 
 const memberController = require("../Controller/MemberController");
+const productController = require("../Controller/ProductController");
 
 router.get("/", memberController.member);
 router.post("/api/assign", memberController.asign);
-// router.post("/api/loadadress", controller.roadaddress);
+router.post("/api/login", memberController.login);
+router.post("/api/additem", upload ,productController.ProductAdd);
+
+// #1, 라우트 추가
+// router.post("/api/upload", productController.product);
+// router.post("/api/mywishlist", productController.wishlist);
+// router.post("/api/myorderlist", productController.orderlist);
 
 
 module.exports = router;

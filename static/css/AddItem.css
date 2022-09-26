@@ -16,7 +16,6 @@
 }
 
 .AddItemsModal {
-    text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
@@ -27,6 +26,7 @@
 }
 
 .ItemUploadPage {
+    position: relative;
     visibility: visible;
     border-radius: 10px;
     background-color: white;
@@ -50,149 +50,103 @@
     }
 }
 
-.upload__container {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 80%;
-}
-
-.upload__container .wrapper {
-    position: relative;
-    height: 200px;
+.UploadLogo {
     width: 100%;
-    background-color: #fff;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+
 }
 
-.wrapper .upload__img {
-    position: absolute;
-    /* height: 100%;
-    width: 100%; */
+.UploadPage {
+    overflow-y: scroll;
+    width: 100%;
+    height: 500px;
+}
+
+.imgUpload {
+    width: 100%;
+    height: 80px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 3px;
 }
 
-.wrapper .upload__img img {
+.imgDiv {
     height: 100%;
-    width: 100%;
-    object-fit: cover;
+    width: 80%;
+    display: flex;
+    padding: 10px;
+    padding-left: 0px;
+    align-items: center;
+    border: 1px solid black;
+
 }
 
-.wrapper .upload__icon {
-    font-size: 20px;
-    color: black;
-    text-align: center;
-}
-
-.wrapper .upload__text {
-    font-size: 20px;
-    font-weight: 400;
-    color: black;
-}
-
-.wrapper .file__name {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    color: #fff;
-    padding: 8px 0;
-    font-size: 20px;
-    background: black;
-}
-
-.upload__container #custom-btn {
-    margin-bottom: 20px;
-    width: 100%;
-    height: 10%;
+.CameraImg {
+    height: 100%;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    color: black;
-    background-color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-}
-
-.upload__form>p>select {
-    display: flex;
-    text-align: left;
-    margin-left: 50px;
-}
-
-.upload__list {
-    margin: 5px;
+    border: 1px solid black;
 
 }
 
-.input:focus {
-    outline: none;
-}
-
-input.upload__title {
-    width: 80%;
-    height: 50px;
-    border: none;
-    overflow: visible;
-    background-color: #f2f2f2;
-}
-
-input.upload__price {
-    width: 80%;
-    height: 50px;
-    border: none;
-    overflow: visible;
-    background-color: #f2f2f2;
-}
-
-.upload__content {
-    width: 80%;
-    height: 50px;
-    border: none;
-    overflow: visible;
-    background-color: #f2f2f2;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-a:hover {
-    background: transparent;
-    /* box-shadow: none; */
-}
-
-
-.close-btn {
+.filebox label {
     display: inline-block;
-    margin-right: -90%;
-    margin-top: 5px;
+    padding: .5em .75em;
+    color: #999;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #fdfdfd;
     cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
 }
 
-.sellbtn {
-    width: 80%;
-    height: 40px;
-    color: #fff;
-    border-radius: 5px;
-    padding: 10px 25px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
-        7px 7px 20px 0px rgba(0, 0, 0, .1),
-        4px 4px 5px 0px rgba(0, 0, 0, .1);
-    outline: none;
-    background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
+.filebox input[type="file"] {
+    /* 파일 필드 숨기기 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.ThumnailImg {
+    border: 1px solid black;
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.categoryOption {
+    width: 100%;
+    height: 80px;
+}
+
+.price {
+    width: 100%;
+    height: 80px;
+}
+
+.itemName {
+    width: 100%;
+    height: 80px;
+}
+
+.itemDetail {
+    width: 100%;
+    height: 80px;
 }
