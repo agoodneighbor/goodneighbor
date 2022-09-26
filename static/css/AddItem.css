@@ -79,7 +79,7 @@
     padding: 10px;
     padding-left: 0px;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid grey;
 
 }
 
@@ -89,7 +89,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    border: 1px solid grey;
 
 }
 
@@ -105,6 +105,10 @@
     border: 1px solid #ebebeb;
     border-bottom-color: #e2e2e2;
     border-radius: .25em;
+}
+
+svg.bi.bi-camera {
+    color: black;
 }
 
 .filebox input[type="file"] {
@@ -132,21 +136,39 @@ img {
 }
 
 .categoryOption {
-    width: 100%;
-    height: 80px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 10%;
 }
 
 .price {
-    width: 100%;
+    text-align: center;
     height: 80px;
 }
 
 .itemName {
-    width: 100%;
+    text-align: center;
     height: 80px;
 }
 
 .itemDetail {
-    width: 100%;
+    text-align: center;
     height: 80px;
+}
+
+input {
+    width: 80%;
+    height: 50px;
+    border: none;
+    overflow: visible;
+    background-color: #f2f2f2;
+}
+
+.addbtn {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

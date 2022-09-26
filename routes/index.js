@@ -22,6 +22,7 @@ router.get("/", memberController.member);
 router.post("/api/assign", memberController.asign);
 router.post("/api/login", memberController.login);
 router.post("/api/additem", upload ,productController.ProductAdd);
+router.get("/api/product", productController.product)
 
 // #1, 라우트 추가
 // router.post("/api/upload", productController.product);
