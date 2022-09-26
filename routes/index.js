@@ -23,6 +23,7 @@ const { Product } = require("../Model");
 router.get("/", memberController.member);
 router.post("/api/assign", memberController.asign);
 router.post("/api/login", memberController.login);
+
 router.post("/api/additem", upload, productController.ProductAdd);
 router.get("/product", (req, res) => {
 	let is_login = false;
@@ -33,6 +34,8 @@ router.get("/product", (req, res) => {
 	console.log(is_login);
 	res.render("Product", { is_login: is_login });
 });
+// router.post("/api/additem", upload ,productController.ProductAdd);
+// router.get("/api/product", productController.product)
 
 // #1, 라우트 추가
 // router.post("/api/upload", productController.product);
