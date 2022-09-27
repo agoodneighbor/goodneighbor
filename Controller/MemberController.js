@@ -80,3 +80,22 @@ exports.login = async (req, res) => {
 //     })
 //     //delete from visitor where id = req.body.id
 // }
+
+
+//회원정보 수정
+
+exports.accessProfile=async(req,res)=>{
+	let member_id=Number(req.session.user);
+
+	await Member.findOne({
+		where:{member_id:member_id}
+	}).then((result)=>{
+		res.send(result[0].dataValues);
+	})
+
+}
+
+exports.FixedProfile=async(req,res)=>{
+	let member_id=Number(req.session.user);
+
+}

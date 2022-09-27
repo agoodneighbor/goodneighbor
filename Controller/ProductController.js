@@ -1,6 +1,6 @@
 "use strict";
 
-const { Product, WishList, OrderList } = require("../Model");
+const { Member,Address,Product, WishList, OrderList } = require("../Model");
 // const {  } = require("../Model");
 
 exports.product = (req, res) => {
@@ -80,6 +80,7 @@ exports.products = async (req, res) => {
 			datetime_arr: datetime_arr,
 		});
 	});
+	
 };
 
 exports.showDetail=async(req,res)=>{
@@ -92,3 +93,36 @@ exports.showDetail=async(req,res)=>{
 	});
 
 }
+
+//찜 페이지 조회
+
+exports.Jimm =async (req,res)=>{
+	let member_id=Number(req.session.user);
+	await WishList.findAll({
+		where:{member_id:member_id}
+	}).then((result)=>{
+		let dataValues = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+			console.log(dataValues);
+		}
+		res.render("WishList",{data:dataValues})
+	})
+}
+
+//내상품 페이지 조회
+
+exports.jimm=async(req,res)=>{
+	let member_id=Number(req.session.user);
+	await Product.findAll({
+		where:{member_id:member_id}
+	}).then((result)=>{
+		let dataValues = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+			console.log(dataValues);
+		}
+		res.render("MyList",{data:dataValues})
+	})
+}
+
