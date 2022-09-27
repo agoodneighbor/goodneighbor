@@ -89,6 +89,7 @@ h1 {
 	background-color: whitesmoke;
 	height: 215px;
 	box-shadow: 1px 1px 0px 1;
+	cursor: pointer;
 }
 
 .product-item-window img {
