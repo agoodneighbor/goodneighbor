@@ -13,6 +13,16 @@ exports.member = (req, res) => {
 	res.render("index", { is_login: is_login });
 };
 
+exports.Profile=(req,res)=>{
+	let is_login = false;
+
+	if (req.session.user !== undefined) {
+		is_login = true;
+	}
+	res.render("Profile",{is_login:is_login})
+}
+
+
 exports.asign = async (req, res) => {
 	let isOkay = true;
 

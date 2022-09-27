@@ -1,0 +1,100 @@
+.profile-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+
+}
+
+.show-profile{
+    width: 70%;
+    position: relative;
+    top: 100px;
+    box-shadow: 0px 0px 5px gray;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.profile-img{ 
+    background-color:antiquewhite;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-info{
+    width: 100%;
+    background-color:aqua;
+    display: flex;
+}
+@media screen and (max-width:900px) {
+    .profile-img{
+        width: 100%; 
+        background-color:antiquewhite;
+    }
+    .profile-info{
+        width: 100%;
+        background-color:aqua
+    }
+    .show-profile{
+        display: block;
+    
+    }
+}
+input {
+    width: 80%;
+    height: 50px;
+    border: none;
+    overflow: visible;
+    background-color: #f2f2f2;
+}
+.filebox input[type="file"] {
+    /* 파일 필드 숨기기 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+input:focus{
+    outline: none;
+}
+.inputList{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+    padding-top: 20px;
+}
+.ButtonList{
+    width:40% ;
+}
+.btnDiv{
+    height: 25%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    
+}
+
+.btnDiv:hover{
+    background-color: #f2f2f2;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.ClickPage{
+    
+}
