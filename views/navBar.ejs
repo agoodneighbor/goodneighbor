@@ -184,13 +184,17 @@
         user["name"] = $("#name").val();
         let isokayId = true;
         let isokayPw = true;
-        // if(!isId(user["id"])){
-        //     isokayId=false;
-        // }
-        // if(!isPassword(user["password"])){
-        //     isokayPw=false;
-        // }
-        if (isokayId && isokayPw) {
+        let isOkatname=true;
+        if(isOkatname===""){
+            isOkatname=false;
+        }
+        if(!isId(user["id"])){
+             isokayId=false;
+         }
+         if(!isPassword(user["password"])){
+             isokayPw=false;
+         }
+        if (isokayId && isokayPw && isOkatname) {
             axios({
                 url: "/api/assign",
                 method: "post",
@@ -212,7 +216,8 @@
                 });
         } else {
             alert(`아이디 형식 : ${isokayId}
-            비밀번호 형식 : ${isokayPw}`);
+            비밀번호 형식 : ${isokayPw}
+            1자 이상이어야됨`);
         }
     };
     const Log_in_to = () => {
