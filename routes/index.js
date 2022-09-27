@@ -23,6 +23,7 @@ const { Product } = require("../Model");
 router.get("/", memberController.member);
 router.post("/api/assign", memberController.asign);
 router.post("/api/login", memberController.login);
+router.post("/api/logout",memberController.Logout)
 
 router.post("/api/additem", upload, productController.ProductAdd);
 router.get("/product", productController.products);
