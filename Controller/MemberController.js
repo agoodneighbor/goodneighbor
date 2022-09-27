@@ -80,3 +80,37 @@ exports.login = async (req, res) => {
 //     })
 //     //delete from visitor where id = req.body.id
 // }
+
+//로그아웃
+
+exports.Logout=async(req,res)=>{
+	if (req.session.user) { //세션정보가 존재하는 경우
+		await req.session.destroy(function (err) {
+			if (err)
+				console.log(err)
+			else {
+			  res.send(true);
+			}
+		})
+	}
+}
+
+
+
+//회원정보 수정
+
+exports.accessProfile=async(req,res)=>{
+	let member_id=Number(req.session.user);
+
+	await Member.findOne({
+		where:{member_id:member_id}
+	}).then((result)=>{
+		res.send(result[0].dataValues);
+	})
+
+}
+
+exports.FixedProfile=async(req,res)=>{
+	let member_id=Number(req.session.user);
+
+}
