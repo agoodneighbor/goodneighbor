@@ -29,6 +29,8 @@ router.get("/product", productController.products);
 
 router.get("/test", productController.serchProduct);
 
+router.get("/detailProduct", productController.detail);
+
 // #1, 라우트 추가
 // router.post("/api/upload", productController.product);
 // router.post("/api/mywishlist", productController.wishlist);

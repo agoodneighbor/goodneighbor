@@ -81,3 +81,7 @@ exports.products = async (req, res) => {
 		});
 	});
 };
+
+exports.detail = (req, res) => {
+	res.render("detailPage");
+};
