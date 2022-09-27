@@ -6,7 +6,7 @@ const { Product, WishList, OrderList } = require("../Model");
 exports.product = (req, res) => {
 	// Product.findAll()
 	console.log(1);
-	res.render('Product');
+	res.render("Product");
 };
 
 exports.ProductAdd = (req, res) => {
@@ -26,12 +26,69 @@ exports.ProductAdd = (req, res) => {
 	});
 };
 
-// exports.wishlist = (req, res) => {
-// 	console.log(1);
-// 	res.send("wish_list here");
-// };
+exports.serchProduct = async (req, res) => {
+	let isOkay = true;
 
-// exports.orderlist = (req, res) => {
-// 	console.log(1);
-// 	res.send("order_list here");
-// };
+	await Product.findAll().then((result) => {
+		let dataValues = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+			console.log(dataValues);
+		}
+	});
+
+	// if (isOkay) {
+	// 	const data = {
+	// 		user_id: req.body.id,
+	// 		user_pw: req.body.password,
+	// 		user_name: req.body.name,
+	// 	};
+	// 	const address = {
+	// 		city: req.body["시"],
+	// 		dong: req.body["구"],
+	// 		remaining_address: req.body["동"],
+	// 	};
+	// 	await Address.create(address).then((result) => {
+	// 		data["address_id"] = result.dataValues["address_id"];
+	// 		Member.create(data).then((result) => {});
+	// 	});
+	// }
+	res.send(isOkay);
+};
+
+exports.products = async (req, res) => {
+	let is_login = false;
+
+	if (req.session.user !== undefined) {
+		is_login = true;
+	}
+	await Product.findAll().then((result) => {
+		let dataValues = [];
+		let datetime_arr = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+
+			datetime_arr.push(
+				String(i.dataValues["product_time"]).split(" ")[1] +
+					String(i.dataValues["product_time"]).split(" ")[2]
+			);
+		}
+		res.render("Product", {
+			is_login: is_login,
+			dataValues: dataValues,
+			category: "감자",
+			datetime_arr: datetime_arr,
+		});
+	});
+};
+
+exports.showDetail=async(req,res)=>{
+	let product_id=req.body.product_id;
+	await Product.findAll({
+		where: { title: Number(product_id) }
+	}).then((result) => {
+		console.log(result);
+		res.render("DetailPage",{product:result.dataValues})
+	});
+
+}

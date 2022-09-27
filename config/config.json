@@ -1,12 +1,11 @@
 {
 	"development": {
-		"host": "localhost",
+		"host": "192.168.0.21",
 		"database": "good_neighbors",
 		"username": "user",
 		"password": "sqlQlqjs!1",
 		"dialect": "mysql",
-		"port": "3306",
-		"dateString": "date"
+		"port": "3306"
 	},
 	"product": {
 		"host": "",
