@@ -2,6 +2,7 @@
 
 const { Model } = require("sequelize");
 const { Product, WishList, OrderList, Member, Address } = require("../Model");
+
 // const {  } = require("../Model");
 
 exports.product = (req, res) => {
@@ -124,5 +125,37 @@ exports.showDetail = async (req, res) => {
 	}).then((result) => {
 		console.log(result[0].dataValues, 11);
 		res.render("detailPage", { product_detail_info: result[0].dataValues });
+	});
+};
+
+//찜 페이지 조회
+
+exports.Jimm = async (req, res) => {
+	let member_id = Number(req.session.user);
+	await WishList.findAll({
+		where: { member_id: member_id },
+	}).then((result) => {
+		let dataValues = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+			console.log(dataValues);
+		}
+		res.render("WishList", { data: dataValues });
+	});
+};
+
+//내상품 페이지 조회
+
+exports.jimm = async (req, res) => {
+	let member_id = Number(req.session.user);
+	await Product.findAll({
+		where: { member_id: member_id },
+	}).then((result) => {
+		let dataValues = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+			console.log(dataValues);
+		}
+		res.render("MyList", { data: dataValues });
 	});
 };
