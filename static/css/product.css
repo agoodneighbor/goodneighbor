@@ -1,7 +1,6 @@
 @font-face {
 	font-family: "GangwonEdu_OTFBoldA";
-	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
-		format("woff");
+	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -19,7 +18,7 @@
 
 .carousel {
 	margin-top: 100px;
-	/* width: 80%; */
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -35,7 +34,7 @@ h1 {
 	font-size: 80px;
 }
 
-.carousel-item > img {
+.carousel-item>img {
 	height: 400px;
 }
 
@@ -67,7 +66,7 @@ h1 {
 	margin-right: 90px;
 }
 
-.sidelogo > div {
+.sidelogo>div {
 	display: inline-block;
 }
 
@@ -83,18 +82,17 @@ h1 {
 }
 
 .product-item-window {
-	border-radius: 4px;
-
-	margin: 1rem 0 2rem 1rem;
-	padding: 1rem;
-	border: 1px solid gray;
+	border-radius: 10px;
+	margin: 1rem 0 3rem 1rem;
+	padding: 0.8rem;
+	border: none;
+	background-color: whitesmoke;
+	height: 215px;
+	box-shadow: 1px 1px 0px 1;
 }
 
 .product-item-window img {
-	border-radius: 4px;
-	height: 90%;
-	border: 1px solid black;
-	padding: 12px;
+	border-radius: 5px;
 }
 
 .product-price-wrapper {
@@ -102,8 +100,12 @@ h1 {
 	justify-content: space-between;
 }
 
-.product-id{
+.product-id {
 	width: 0;
 	height: 0;
 	visibility: hidden;
+}
+
+.product-info-wrapper {
+	padding: 5px;
 }

@@ -21,7 +21,7 @@ const productController = require("../Controller/ProductController");
 const { Product } = require("../Model");
 
 router.get("/", memberController.member);
-router.post("/api/assign", memberController.asign);
+router.post("/api/assign", memberController.assign);
 router.post("/api/login", memberController.login);
 
 router.post("/api/additem", upload, productController.ProductAdd);

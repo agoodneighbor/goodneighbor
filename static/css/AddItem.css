@@ -153,7 +153,8 @@ img {
 
 .itemDetail {
     text-align: center;
-    height: 80px;
+    height: 100px;
+    word-break: break-all;
 }
 
 input {
