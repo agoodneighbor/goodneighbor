@@ -1,6 +1,7 @@
 "use strict";
 
-const { Product, WishList, OrderList } = require("../Model");
+const { Model } = require("sequelize");
+const { Product, WishList, OrderList, Member, Address } = require("../Model");
 // const {  } = require("../Model");
 
 exports.product = (req, res) => {
@@ -58,11 +59,41 @@ exports.serchProduct = async (req, res) => {
 
 exports.products = async (req, res) => {
 	let is_login = false;
+	let serchCategory = {};
+	let myPoint = undefined;
 
 	if (req.session.user !== undefined) {
 		is_login = true;
+		let include = [{ model: Address, attributes: ["city", "dong"] }];
+
+		await Member.findOne({
+			include: include,
+		}).then((result) => {
+			myPoint = result.address.dataValues;
+			serchCategory = result.address.dataValues;
+			console.log(myPoint);
+		});
+		// attributes: { exclude: ["companyId"] }
 	}
-	await Product.findAll().then((result) => {
+
+	// serchCategory = { city: "대구시", dong: "수성구" };
+	await Product.findAll({
+		include: [
+			{
+				model: Member,
+				required: true,
+				include: [
+					{
+						model: Address,
+						where: serchCategory,
+						required: true,
+					},
+				],
+				// where: { product_id: Number(product_id) },
+			},
+		],
+	}).then((result) => {
+		console.log(result);
 		let dataValues = [];
 		let datetime_arr = [];
 		for (let i of result) {
@@ -82,16 +113,16 @@ exports.products = async (req, res) => {
 	});
 };
 
-exports.detail = (req, res) => {
-	res.render("detailProductPage");
-};
+// exports.detail = (req, res) => {
+// 	res.render("detailProductPage");
+// };
 
 exports.showDetail = async (req, res) => {
-	let product_id = req.body.product_id;
+	let product_id = req.params.id;
 	await Product.findAll({
-		where: { title: Number(product_id) },
+		where: { product_id: Number(product_id) },
 	}).then((result) => {
-		console.log(result);
-		res.render("detailPage", { product: result.dataValues });
+		console.log(result[0].dataValues, 11);
+		res.render("detailPage", { product_detail_info: result[0].dataValues });
 	});
 };

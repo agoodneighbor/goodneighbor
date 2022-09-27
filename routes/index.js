@@ -28,8 +28,7 @@ router.post("/api/additem", upload, productController.ProductAdd);
 router.get("/product", productController.products);
 
 router.get("/test", productController.serchProduct);
-router.post("/api/detail", productController.showDetail);
-
+router.get("/api/detail/:id", productController.showDetail);
 // router.get("/detailProduct", productController.detail);
 
 // #1, 라우트 추가
