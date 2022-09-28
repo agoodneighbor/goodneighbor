@@ -146,7 +146,7 @@ exports.Jimm = async (req, res) => {
 
 //내상품 페이지 조회
 
-exports.jimm = async (req, res) => {
+exports.Myproduct = async (req, res) => {
 	let member_id = Number(req.session.user);
 	await Product.findAll({
 		where: { member_id: member_id },
@@ -159,3 +159,5 @@ exports.jimm = async (req, res) => {
 		res.render("MyList", { data: dataValues });
 	});
 };
+
+

@@ -30,6 +30,10 @@ router.get("/product", productController.products);
 
 router.get("/test", productController.serchProduct);
 router.get("/api/detail/:id", productController.showDetail);
+router.get("/profile",memberController.accessProfile)
+router.post("/api/Jimm",productController.Jimm);
+router.post("/api/myproduct",productController.Myproduct)
+router.post("/api/fix",memberController.FixedProfile)
 // router.get("/detailProduct", productController.detail);
 
 // #1, 라우트 추가
