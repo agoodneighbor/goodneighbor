@@ -14,7 +14,7 @@
 		<div class="Logo-title">이웃사촌</div>
 	</div>	
 	<div class="navMenu">
-		<input class="menu find">
+		<input type="text" class="menu find">
 		<div class="menu icon"><i class="fa-solid fa-magnifying-glass"onclick="findProduct();"></i></div>
         <div class="menu go"><a href="#">구경하러가자</a></div>
     </div>
@@ -22,8 +22,8 @@
         <% if(is_login) { %>
             <div onclick="LogOut()">logout</div>
             <% } else { %>
-                <div class="Login" onclick="Login()">Login</div>
-                <div class="Assign" onclick="Assign()">Assign</div>
+                <div class="Login" onclick="Login()">로그인</div>
+                <div class="Assign" onclick="Assign()">동네위치</div>
                 <% } %>
     </div>
 </div>

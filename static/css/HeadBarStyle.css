@@ -39,6 +39,10 @@
     width: 215px;
 }
 
+.menu.find:focus {
+    outline: 1px solid #1cc778;
+}
+
 .menu.icon {
     font-size: 22px;
     margin-left: 5px;
@@ -96,9 +100,6 @@ i.fa-solid.fa-people-roof {
     margin-right: 70px;
     font-size: 25px;
 }
-
-
-i.fa-solid.fa-magnifying-glass {}
 
 .side {
     position: fixed;

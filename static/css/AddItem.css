@@ -153,8 +153,13 @@ img {
     cursor: pointer;
     display: inline-block;
     background-color: #1cc778;
+    color: white;
     padding: 0 68px;
     letter-spacing: 5px;
+}
+
+.price>div:hover {
+    color: black;
 }
 
 
