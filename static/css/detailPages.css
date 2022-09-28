@@ -84,4 +84,12 @@
 
 .product-info-window {
 	height: 440px;
+	border: 1px solid salmon;
+	padding: 20px 0;
+
+	display: flex;
+	gap: 20px;
+}
+.product-img {
+	width: 440px;
 }

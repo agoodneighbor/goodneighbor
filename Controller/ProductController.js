@@ -101,8 +101,9 @@ exports.products = async (req, res) => {
 			dataValues.push(i.dataValues);
 
 			datetime_arr.push(
-				String(i.dataValues["product_time"]).split(" ")[1] +
+				`${String(i.dataValues["product_time"]).split(" ")[1]} ${
 					String(i.dataValues["product_time"]).split(" ")[2]
+				}`
 			);
 		}
 		res.render("Product", {
