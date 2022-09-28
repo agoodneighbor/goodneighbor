@@ -21,14 +21,14 @@ const productController = require("../Controller/ProductController");
 const { Product } = require("../Model");
 
 router.get("/", memberController.member);
-router.post("/api/assign", memberController.assign);
+router.post("/api/assign", memberController.asign);
 router.post("/api/login", memberController.login);
 router.post("/api/logout",memberController.Logout)
 
 router.post("/api/additem", upload, productController.ProductAdd);
 router.get("/product", productController.products);
 
-router.get("/test", productController.serchProduct);
+//router.get("/test", productController.serchProduct);
 router.get("/api/detail/:id", productController.showDetail);
 // router.get("/detailProduct", productController.detail);
 
