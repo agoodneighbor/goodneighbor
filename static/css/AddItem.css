@@ -66,7 +66,9 @@
 }
 
 .imgUpload {
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
     height: 80px;
     display: flex;
     padding: 3px;
@@ -74,23 +76,24 @@
 
 .imgDiv {
     height: 100%;
-    width: 80%;
+    width: 85%;
+    margin-left: 33px;
     display: flex;
-    padding: 10px;
-    padding-left: 0px;
-    align-items: center;
-    border: 1px solid grey;
+    background-color: whitesmoke;
 
 }
 
 .CameraImg {
     height: 100%;
-    width: 20%;
+    width: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid grey;
+}
 
+.filebox {
+    background-color: whitesmoke;
+    margin-left: 30px;
 }
 
 .filebox label {
@@ -100,11 +103,11 @@
     font-size: inherit;
     line-height: normal;
     vertical-align: middle;
-    background-color: #fdfdfd;
     cursor: pointer;
     border: 1px solid #ebebeb;
     border-bottom-color: #e2e2e2;
     border-radius: .25em;
+
 }
 
 svg.bi.bi-camera {
@@ -137,14 +140,23 @@ img {
 
 .categoryOption {
     height: 50px;
-    margin-top: 30px;
+    margin-top: 25px;
     margin-left: 10%;
 }
 
 .price {
     text-align: center;
-    height: 80px;
+    margin-bottom: 20px;
 }
+
+.price>div {
+    cursor: pointer;
+    display: inline-block;
+    background-color: #1cc778;
+    padding: 0 68px;
+    letter-spacing: 5px;
+}
+
 
 .itemName {
     text-align: center;
@@ -154,7 +166,15 @@ img {
 .itemDetail {
     text-align: center;
     height: 100px;
-    word-break: break-all;
+}
+
+textarea#ItemDetail {
+    width: 80%;
+    height: 100%;
+    background-color: whitesmoke;
+    border: none;
+    font-size: initial;
+    /* 글씨패딩? */
 }
 
 input {
@@ -167,7 +187,7 @@ input {
 
 .addbtn {
     width: 100%;
-    height: 10%;
+    height: 18%;
     display: flex;
     align-items: center;
     justify-content: center;
