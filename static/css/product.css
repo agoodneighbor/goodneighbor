@@ -107,6 +107,11 @@ h1 {
 	height: 300px;
 	width: 230px;
 	cursor: pointer;
+	border-radius: 4px;
+
+	margin: 1rem 0 2rem 1rem;
+	padding: 1rem;
+	border: 1px solid gray;
 }
 
 a.product-item-window {
@@ -133,7 +138,7 @@ a.product-item-window {
 	justify-content: space-between;
 }
 
-.product-id {
+.product-id{
 	width: 0;
 	height: 0;
 	visibility: hidden;
