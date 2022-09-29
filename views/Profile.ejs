@@ -82,16 +82,20 @@
                         
                         let str=String(new Date(i.product_time)).split(" ");
                         let arr=["교환","나눔"]
-                        $("#ProductRow").append(`<div class="col-md-6 col-xl-4 col-sm-12">
-                                <div class="product-frame border bg-light">
+                        $("#ProductRow").append(`<div class="col-xl-3 col-md-4 col-sm-6">
+                                <div class="product-item ">
                                     <div class="MyPimg">
                                         <img src="${i.product_img_src}" alt="">    
                                     </div>
-                                    <div class="Product_info">
-                                         <div>${i.product_name}</div>
-                                         <div>${arr[i.product_price]}</div>
-                                         <div>${new Date(i.product_time).getDay()+"월" +" "+str[2]+"일"}</div>
+                                    <div class="product-info-wrapper">
+                                        <div class="product-name">${i.product_name}</div>
+                                        <div class="product-price-wrapper">
+                                        <div class="product-price">${arr[i.product_price]}</div>
+                                        <div class="product-upload-time">${new Date(i.product_time).getDay()+"월" +" "+str[2]+"일"}</div>
                                     </div>
+                                </div>
+
+                             
                                 </div>
                                </div>`)
                     }
