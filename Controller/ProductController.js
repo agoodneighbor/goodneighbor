@@ -15,13 +15,18 @@ exports.product = (req, res) => {
 
 exports.ProductAdd = (req, res) => {
 	console.log(JSON.parse(req.body.userdata)["name"], 1111);
+	let imgScr="";
+	for( let i of req.files){
+		imgScr+="imgParseStandard"+i["path"];
+	}
+	console.log(imgScr)
 	const data = {
 		member_id: Number(req.session.user),
 		product_name: JSON.parse(req.body.userdata)["name"],
 		product_content: JSON.parse(req.body.userdata)["detail"],
 		product_price: Number(JSON.parse(req.body.userdata)["price"]),
 		product_category: JSON.parse(req.body.userdata)["category"],
-		product_img_src: req.files[0]["path"],
+		product_img_src: imgScr,
 		product_user_id: "delete soon",
 	};
 	Product.create(data).then((result) => {
@@ -133,10 +138,11 @@ exports.showDetail = async (req, res) => {
 		}],
 		where: { product_id: Number(product_id) }
 	}).then((result) => {
-		//console.log('result', result);
+		console.log("img",result[0].product_img_src.split("imgParseStandard"))
+		console.log('result', result);
 		//console.log('result', result);
 		//console.log(result[0].dataValues.wish_lists.length, 11);
-		res.render("detailPage", { product_detail_info: result[0].dataValues ,Like:result[0].dataValues.wish_lists.length});
+		res.render("detailPage", { product_detail_info: result[0].dataValues ,Like:result[0].dataValues.wish_lists.length,product_img_src:result[0].product_img_src.split("imgParseStandard")});
 	});
 };
 
