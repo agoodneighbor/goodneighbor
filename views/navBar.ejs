@@ -20,7 +20,8 @@
     </div>
     <div class="LoginMenu">
         <% if(is_login) { %>
-            <div onclick="LogOut()">logout</div>
+            <div class="Login" onclick="LogOut()">logout</div>
+            <div class="Assign"><a href="/profile">내정보</a></div>
             <% } else { %>
                 <div class="Login" onclick="Login()">Login</div>
                 <div class="Assign" onclick="Assign()">Assign</div>
