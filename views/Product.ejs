@@ -105,7 +105,7 @@
 			<% for (let i=0; i < dataValues.length; i++){ %>
 			<a
 				class="product-item-window"
-				href="/api/detail/<%= dataValues[i]['product_id'] %>"
+				href="/detail/<%= dataValues[i]['product_id'] %>"
 			>
 				<img src="/<%= dataValues[i]['product_img_src'] %>" alt="" />
 				<input
@@ -125,7 +125,7 @@
 			</a>
 			<% } %>
 		</section>
-
+      </div>
 		<script>
 			const goDetail = (obj) => {
 				axios({

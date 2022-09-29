@@ -29,7 +29,7 @@ router.get("/product", productController.products);
 
 router.get("/product/:search", productController.products);
 //router.get("/test", productController.serchProduct);
-router.get("/api/detail/:id", productController.showDetail);
+router.get("/detail/:id", productController.showDetail);
 router.get("/profile",memberController.accessProfile);
 router.get("/jimm",productController.Jimm);
 router.get("/myproduct",productController.Myproduct);

@@ -11,12 +11,13 @@
     </div> -->
 
     <div class="Logo"><i class="fa-solid fa-people-roof"></i>
-		<div class="Logo-title">이웃사촌</div>
-	</div>	
-	<div class="navMenu">
-		<input type="text" class="menu find">
-		<div class="menu icon"><i class="fa-solid fa-magnifying-glass"onclick="findProduct();"></i></div>
-        <div class="menu go"><a href="#">구경하러가자</a></div>
+        <div class="Logo-title">이웃사촌</div>
+    </div>
+    <div class="navMenu">
+        <input id="menu-find" class="menu find">
+        <div class="menu icon"><i class="fa-solid fa-magnifying-glass" onclick="findProduct();"></i></div>
+        <div class="menu go"><a href="/product">구경하러가자</a></div>
+
     </div>
     <div class="LoginMenu">
         <% if(is_login) { %>
@@ -173,7 +174,7 @@
         }
     };
     function isId(asValue) {
-        var regExp = /^[a-z]+[a-z0-9]{5,19}$/g;
+        var regExp = /^[a-z0-9_-]{4,20}$/;
 
         return regExp.test(asValue);
     }
@@ -189,16 +190,16 @@
         user["name"] = $("#name").val();
         let isokayId = true;
         let isokayPw = true;
-        let isOkatname=true;
-        if(isOkatname===""){
-            isOkatname=false;
+        let isOkatname = true;
+        if (isOkatname === "") {
+            isOkatname = false;
         }
-        if(!isId(user["id"])){
-             isokayId=false;
-         }
-         if(!isPassword(user["password"])){
-             isokayPw=false;
-         }
+        if (!isId(user["id"])) {
+            isokayId = false;
+        }
+        if (!isPassword(user["password"])) {
+            isokayPw = false;
+        }
         if (isokayId && isokayPw && isOkatname) {
             axios({
                 url: "/api/assign",
@@ -272,4 +273,15 @@
             console.log(error);
         });
     }
+    $("#Login_Pw").on("keyup", function (key) { 
+        if (key.keyCode == 13) { 
+            Log_in_to(); 
+        } 
+    });
+    $("#menu-find").on("keyup",(key)=>{
+        console.log(key);
+        if (key.keyCode == 13) { 
+            location.href=`/product/${key.target.value}`
+        } 
+    })
 </script>
