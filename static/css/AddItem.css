@@ -139,9 +139,11 @@ img {
 }
 
 .categoryOption {
-    height: 50px;
-    margin-top: 25px;
-    margin-left: 10%;
+    height: 32px;
+    width: 8rem;
+    margin-top: 15px;
+    margin-bottom: 22px;
+    margin-left: 8%;
 }
 
 .price {
@@ -153,8 +155,13 @@ img {
     cursor: pointer;
     display: inline-block;
     background-color: #1cc778;
+    color: white;
     padding: 0 68px;
     letter-spacing: 5px;
+}
+
+.price>div:hover {
+    color: black;
 }
 
 
@@ -174,7 +181,7 @@ textarea#ItemDetail {
     background-color: whitesmoke;
     border: none;
     font-size: initial;
-    /* 글씨패딩? */
+
 }
 
 input {

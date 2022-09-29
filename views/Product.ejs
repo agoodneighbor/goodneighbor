@@ -100,8 +100,7 @@
 		</div>
 		<div class="product-title">상품목록</div>
 
-   
-      <div class="product-li">
+  <div class="container">
 		<section class="product-item">
 			<% for (let i=0; i < dataValues.length; i++){ %>
 			<a
@@ -126,10 +125,7 @@
 			</a>
 			<% } %>
 		</section>
-
-
       </div>
-     
 		<script>
 			const goDetail = (obj) => {
 				axios({

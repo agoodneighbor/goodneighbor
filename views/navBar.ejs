@@ -17,14 +17,15 @@
         <input id="menu-find" class="menu find">
         <div class="menu icon"><i class="fa-solid fa-magnifying-glass" onclick="findProduct();"></i></div>
         <div class="menu go"><a href="/product">구경하러가자</a></div>
+
     </div>
     <div class="LoginMenu">
         <% if(is_login) { %>
             <div class="Login" onclick="LogOut()">logout</div>
             <div class="Assign"><a href="/profile">내정보</a></div>
             <% } else { %>
-                <div class="Login" onclick="Login()">Login</div>
-                <div class="Assign" onclick="Assign()">Assign</div>
+                <div class="Login" onclick="Login()">로그인</div>
+                <div class="Assign" onclick="Assign()">동네위치</div>
                 <% } %>
     </div>
 </div>

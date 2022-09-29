@@ -79,6 +79,10 @@
     flex-direction: column;
 }
 
+.custom-btn:hover {
+    color: black;
+}
+
 .goToAssign {
     height: 10%;
     display: flex;
