@@ -173,7 +173,7 @@
         }
     };
     function isId(asValue) {
-        var regExp = /^[a-z]+[a-z0-9]{5,19}$/g;
+        var regExp = /^[a-z0-9_-]{4,20}$/;
 
         return regExp.test(asValue);
     }
@@ -272,7 +272,7 @@
             console.log(error);
         });
     }
-    $("#Log").on("keyup", function (key) { 
+    $("#Login_Pw").on("keyup", function (key) { 
         if (key.keyCode == 13) { 
             Log_in_to(); 
         } 
