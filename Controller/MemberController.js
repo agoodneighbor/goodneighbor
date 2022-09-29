@@ -113,12 +113,13 @@ exports.accessProfile=async(req,res)=>{
 	await Member.findOne({
 		where:{member_id:member_id}
 	}).then((result)=>{
-		res.render("Profile",{is_login:is_login,user:result[0].dataValues});
+		console.log(result);
+		res.render("Profile",{is_login:is_login,user:result.dataValues});
 	})
 
 }
 
 exports.FixedProfile=async(req,res)=>{
 	let member_id=Number(req.session.user);
-	
+
 }

@@ -2,7 +2,9 @@
 
 const { Model } = require("sequelize");
 const { Product, WishList, OrderList, Member, Address } = require("../Model");
-
+const sequelize = require("sequelize");
+const { raw } = require("express");
+const Op = sequelize.Op;
 // const {  } = require("../Model");
 
 exports.product = (req, res) => {
@@ -62,7 +64,10 @@ exports.products = async (req, res) => {
 	let is_login = false;
 	let serchCategory = {};
 	let myPoint = undefined;
-
+	let searchtag="";
+	if(req.params.search!=undefined){
+		searchtag=req.params.search
+	}
 	if (req.session.user !== undefined) {
 		is_login = true;
 		let include = [{ model: Address, attributes: ["city", "dong"] }];
@@ -93,6 +98,7 @@ exports.products = async (req, res) => {
 				// where: { product_id: Number(product_id) },
 			},
 		],
+		where : {product_name:{[Op.like]:"%" + searchtag + "%"}}
 	}).then((result) => {
 		console.log(result);
 		let dataValues = [];
@@ -121,12 +127,35 @@ exports.products = async (req, res) => {
 exports.showDetail = async (req, res) => {
 	let product_id = req.params.id;
 	await Product.findAll({
-		where: { product_id: Number(product_id) },
+		//raw:true,
+		include:[{
+			model:WishList
+		}],
+		where: { product_id: Number(product_id) }
 	}).then((result) => {
-		console.log(result[0].dataValues, 11);
-		res.render("detailPage", { product_detail_info: result[0].dataValues });
+		//console.log('result', result);
+		//console.log('result', result);
+		//console.log(result[0].dataValues.wish_lists.length, 11);
+		res.render("detailPage", { product_detail_info: result[0].dataValues ,Like:result[0].dataValues.wish_lists.length});
 	});
 };
+
+//찜하기
+exports.DoJimm = async (req, res) => {
+	let member_id = Number(req.session.user);
+	await WishList.create({
+		product_id:Number(req.body.product_id),
+		member_id:Number(req.session.user)
+	}).then((result) => {
+		let dataValues = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+			console.log(dataValues);
+		}
+		res.send(true);
+	});
+};
+
 
 //찜 페이지 조회
 
@@ -140,7 +169,7 @@ exports.Jimm = async (req, res) => {
 			dataValues.push(i.dataValues);
 			console.log(dataValues);
 		}
-		res.render("WishList", { data: dataValues });
+		res.send(dataValues);
 	});
 };
 
@@ -156,7 +185,7 @@ exports.Myproduct = async (req, res) => {
 			dataValues.push(i.dataValues);
 			console.log(dataValues);
 		}
-		res.render("MyList", { data: dataValues });
+		res.send(dataValues);
 	});
 };
 
