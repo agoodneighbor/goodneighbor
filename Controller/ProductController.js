@@ -1,7 +1,14 @@
 "use strict";
 
 const { Model } = require("sequelize");
-const { Product, WishList, OrderList, Member, Address } = require("../Model");
+const {
+	Product,
+	WishList,
+	OrderList,
+	Member,
+	Address,
+	sequelize,
+} = require("../Model");
 
 // const {  } = require("../Model");
 
@@ -69,55 +76,51 @@ exports.products = async (req, res) => {
 
 		await Member.findOne({
 			include: include,
-		}).then((result) => {
-			myPoint = result.address.dataValues;
-			serchCategory = result.address.dataValues;
-			console.log(myPoint);
 		});
-		// attributes: { exclude: ["companyId"] }
+		myPoint = result.address.dataValues;
+		serchCategory = result.address.dataValues;
+		console.log(myPoint);
 	}
-
-	// serchCategory = { city: "대구시", dong: "수성구" };
-	await Product.findAll({
-		include: [
-			{
-				model: Member,
-				required: true,
-				include: [
-					{
-						model: Address,
-						where: serchCategory,
-						required: true,
-					},
-				],
-				// where: { product_id: Number(product_id) },
-			},
-		],
-	}).then((result) => {
-		console.log(result);
-		let dataValues = [];
-		let datetime_arr = [];
-		for (let i of result) {
-			dataValues.push(i.dataValues);
-
-			datetime_arr.push(
-				`${String(i.dataValues["product_time"]).split(" ")[1]} ${
-					String(i.dataValues["product_time"]).split(" ")[2]
-				}`
-			);
-		}
-		res.render("Product", {
-			is_login: is_login,
-			dataValues: dataValues,
-			category: "감자",
-			datetime_arr: datetime_arr,
-		});
-	});
+	// attributes: { exclude: ["companyId"] }
 };
 
-// exports.detail = (req, res) => {
-// 	res.render("detailProductPage");
-// };
+serchCategory = { city: "대구시", dong: "수성구" };
+await Product.findAll({
+	// raw: true,
+	include: [
+		{
+			model: Member,
+			required: true,
+			include: [
+				{
+					model: Address,
+					where: serchCategory,
+					required: true,
+				},
+			],
+			// where: { product_id: Number(product_id) },
+		},
+	],
+}).then((result) => {
+	console.log(result);
+	let dataValues = [];
+	let datetime_arr = [];
+	for (let i of result) {
+		dataValues.push(i);
+
+		datetime_arr.push(
+			`${String(i["product_time"]).split(" ")[1]} ${
+				String(i["product_time"]).split(" ")[2]
+			}`
+		);
+	}
+	res.render("Product", {
+		is_login: is_login,
+		dataValues: dataValues,
+		category: "감자",
+		datetime_arr: datetime_arr,
+	});
+});
 
 exports.showDetail = async (req, res) => {
 	let product_id = req.params.id;

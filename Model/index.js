@@ -17,8 +17,6 @@ db.Product = require("./Product/Product")(sequelize, Sequelize);
 db.OrderList = require("./Product/OrderList")(sequelize, Sequelize);
 db.WishList = require("./Product/WishList")(sequelize, Sequelize);
 
-db.ImgUrl = require("./ImgUrl")(sequelize, Sequelize);
-
 // #1-1, 주소테이블에 회원 가입 foreign key 연결
 db.Address.hasOne(db.Member, {
 	foreignKey: "address_id",
@@ -102,6 +100,8 @@ db.WishList.belongsTo(db.Product, {
 	sourceKey: "product_id",
 	onUpdate: "cascade",
 });
+
+// db.ImgUrl = require("./ImgUrl")(sequelize, Sequelize);
 
 // // #5-1, product_id에 이미지 URL 테이블 FK 연결
 // db.Product.hasMany(db.ImgUrl, {
