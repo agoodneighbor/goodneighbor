@@ -11,12 +11,12 @@
     </div> -->
 
     <div class="Logo"><i class="fa-solid fa-people-roof"></i>
-		<div class="Logo-title">이웃사촌</div>
-	</div>	
-	<div class="navMenu">
-		<input class="menu find">
-		<div class="menu icon"><i class="fa-solid fa-magnifying-glass"onclick="findProduct();"></i></div>
-        <div class="menu go"><a href="#">구경하러가자</a></div>
+        <div class="Logo-title">이웃사촌</div>
+    </div>
+    <div class="navMenu">
+        <input id="menu-find" class="menu find">
+        <div class="menu icon"><i class="fa-solid fa-magnifying-glass" onclick="findProduct();"></i></div>
+        <div class="menu go"><a href="/product">구경하러가자</a></div>
     </div>
     <div class="LoginMenu">
         <% if(is_login) { %>
@@ -189,16 +189,16 @@
         user["name"] = $("#name").val();
         let isokayId = true;
         let isokayPw = true;
-        let isOkatname=true;
-        if(isOkatname===""){
-            isOkatname=false;
+        let isOkatname = true;
+        if (isOkatname === "") {
+            isOkatname = false;
         }
-        if(!isId(user["id"])){
-             isokayId=false;
-         }
-         if(!isPassword(user["password"])){
-             isokayPw=false;
-         }
+        if (!isId(user["id"])) {
+            isokayId = false;
+        }
+        if (!isPassword(user["password"])) {
+            isokayPw = false;
+        }
         if (isokayId && isokayPw && isOkatname) {
             axios({
                 url: "/api/assign",
@@ -272,4 +272,15 @@
             console.log(error);
         });
     }
+    $("#Log").on("keyup", function (key) { 
+        if (key.keyCode == 13) { 
+            Log_in_to(); 
+        } 
+    });
+    $("#menu-find").on("keyup",(key)=>{
+        console.log(key);
+        if (key.keyCode == 13) { 
+            location.href=`/product/${key.target.value}`
+        } 
+    })
 </script>
