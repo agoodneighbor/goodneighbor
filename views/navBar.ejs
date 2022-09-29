@@ -14,7 +14,6 @@
 			/>
 		</svg>
 	</div>
-
 	<div class="Logo"><i class="fa-solid fa-people-roof"></i> 이웃사촌</div>
 	<div class="navMenu">
 		<div class="menu"><input type="text" /></div>
@@ -22,10 +21,11 @@
 	</div>
 	<div class="LoginMenu">
 		<% if(is_login) { %>
-		<div onclick="LogOut()">logout</div>
+		<div class="Login" onclick="LogOut()">logout</div>
+		<div class="Assign"><a href="/profile">내정보</a></div>
 		<% } else { %>
-		<div class="Login" onclick="Login()">로그인</div>
-		<div class="Assign" onclick="Assign()">이웃 등록 하기</div>
+		<div class="Login" onclick="Login()">Login</div>
+		<div class="Assign" onclick="Assign()">Assign</div>
 		<% } %>
 	</div>
 </div>

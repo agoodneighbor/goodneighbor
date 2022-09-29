@@ -13,6 +13,9 @@ exports.member = (req, res) => {
 	res.render("index", { is_login: is_login });
 };
 
+
+
+
 exports.asign = async (req, res) => {
 	let isOkay = true;
 
@@ -100,12 +103,18 @@ exports.Logout=async(req,res)=>{
 //회원정보 수정
 
 exports.accessProfile=async(req,res)=>{
+	let is_login = false;
+
+	if (req.session.user !== undefined) {
+		is_login = true;
+	}
 	let member_id=Number(req.session.user);
 
 	await Member.findOne({
 		where:{member_id:member_id}
 	}).then((result)=>{
-		res.send(result[0].dataValues);
+		console.log(result);
+		res.render("Profile",{is_login:is_login,user:result.dataValues});
 	})
 
 }

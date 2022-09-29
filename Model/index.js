@@ -83,7 +83,7 @@ db.Member.hasMany(db.WishList, {
 // #4-2, 찜 목록에 회원 가입 foreign key 연결
 db.WishList.belongsTo(db.Member, {
 	foreignKey: "member_id",
-	sourceKey: "member_id",
+	targetKey: "member_id",
 	onUpdate: "cascade",
 });
 
@@ -97,7 +97,7 @@ db.Product.hasMany(db.WishList, {
 // #4-4, 찜 목록에 상품 foreign key 연결
 db.WishList.belongsTo(db.Product, {
 	foreignKey: "product_id",
-	sourceKey: "product_id",
+	targetKey: "product_id",
 	onUpdate: "cascade",
 });
 

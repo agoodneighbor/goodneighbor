@@ -1,6 +1,7 @@
 "use strict";
 
 const { Model } = require("sequelize");
+<<<<<<< HEAD
 const {
 	Product,
 	WishList,
@@ -10,6 +11,12 @@ const {
 	sequelize,
 } = require("../Model");
 
+=======
+const { Product, WishList, OrderList, Member, Address } = require("../Model");
+const sequelize = require("sequelize");
+const { raw } = require("express");
+const Op = sequelize.Op;
+>>>>>>> upstream/header
 // const {  } = require("../Model");
 
 exports.product = (req, res) => {
@@ -69,7 +76,10 @@ exports.products = async (req, res) => {
 	let is_login = false;
 	let serchCategory = {};
 	let myPoint = undefined;
-
+	let searchtag="";
+	if(req.params.search!=undefined){
+		searchtag=req.params.search
+	}
 	if (req.session.user !== undefined) {
 		is_login = true;
 		let include = [{ model: Address, attributes: ["city", "dong"] }];
@@ -81,7 +91,43 @@ exports.products = async (req, res) => {
 		serchCategory = result.address.dataValues;
 		console.log(myPoint);
 	}
-	// attributes: { exclude: ["companyId"] }
+
+	// serchCategory = { city: "대구시", dong: "수성구" };
+	await Product.findAll({
+		include: [
+			{
+				model: Member,
+				required: true,
+				include: [
+					{
+						model: Address,
+						where: serchCategory,
+						required: true,
+					},
+				],
+				// where: { product_id: Number(product_id) },
+			},
+		],
+		where : {product_name:{[Op.like]:"%" + searchtag + "%"}}
+	}).then((result) => {
+		console.log(result);
+		let dataValues = [];
+		let datetime_arr = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+
+			datetime_arr.push(
+				String(i.dataValues["product_time"]).split(" ")[1] +
+					String(i.dataValues["product_time"]).split(" ")[2]
+			);
+		}
+		res.render("Product", {
+			is_login: is_login,
+			dataValues: dataValues,
+			category: "감자",
+			datetime_arr: datetime_arr,
+		});
+	});
 };
 
 serchCategory = { city: "대구시", dong: "수성구" };
@@ -125,12 +171,35 @@ await Product.findAll({
 exports.showDetail = async (req, res) => {
 	let product_id = req.params.id;
 	await Product.findAll({
-		where: { product_id: Number(product_id) },
+		//raw:true,
+		include:[{
+			model:WishList
+		}],
+		where: { product_id: Number(product_id) }
 	}).then((result) => {
-		console.log(result[0].dataValues, 11);
-		res.render("detailPage", { product_detail_info: result[0].dataValues });
+		//console.log('result', result);
+		//console.log('result', result);
+		//console.log(result[0].dataValues.wish_lists.length, 11);
+		res.render("detailPage", { product_detail_info: result[0].dataValues ,Like:result[0].dataValues.wish_lists.length});
 	});
 };
+
+//찜하기
+exports.DoJimm = async (req, res) => {
+	let member_id = Number(req.session.user);
+	await WishList.create({
+		product_id:Number(req.body.product_id),
+		member_id:Number(req.session.user)
+	}).then((result) => {
+		let dataValues = [];
+		for (let i of result) {
+			dataValues.push(i.dataValues);
+			console.log(dataValues);
+		}
+		res.send(true);
+	});
+};
+
 
 //찜 페이지 조회
 
@@ -144,13 +213,13 @@ exports.Jimm = async (req, res) => {
 			dataValues.push(i.dataValues);
 			console.log(dataValues);
 		}
-		res.render("WishList", { data: dataValues });
+		res.send(dataValues);
 	});
 };
 
 //내상품 페이지 조회
 
-exports.jimm = async (req, res) => {
+exports.Myproduct = async (req, res) => {
 	let member_id = Number(req.session.user);
 	await Product.findAll({
 		where: { member_id: member_id },
@@ -160,6 +229,8 @@ exports.jimm = async (req, res) => {
 			dataValues.push(i.dataValues);
 			console.log(dataValues);
 		}
-		res.render("MyList", { data: dataValues });
+		res.send(dataValues);
 	});
 };
+
+
