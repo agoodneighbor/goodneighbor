@@ -24,16 +24,15 @@ router.get("/", memberController.member);
 router.post("/api/assign", memberController.asign);
 router.post("/api/login", memberController.login);
 router.post("/api/logout",memberController.Logout)
-
 router.post("/api/additem", upload, productController.ProductAdd);
 router.get("/product", productController.products);
-
-router.get("/test", productController.serchProduct);
+router.get("/product/:search", productController.products);
+//router.get("/test", productController.serchProduct);
 router.get("/api/detail/:id", productController.showDetail);
-router.get("/profile",memberController.accessProfile)
-router.post("/api/Jimm",productController.Jimm);
-router.post("/api/myproduct",productController.Myproduct)
-router.post("/api/fix",memberController.FixedProfile)
+router.get("/profile",memberController.accessProfile);
+router.get("/jimm",productController.Jimm);
+router.get("/myproduct",productController.Myproduct);
+//router.post("/api/fix",memberController.FixedProfile)
 // router.get("/detailProduct", productController.detail);
 
 // #1, 라우트 추가
