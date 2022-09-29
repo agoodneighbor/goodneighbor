@@ -120,9 +120,9 @@ input:focus{
 
 }
 .MyPimg{
-    width: 95%;
+    /* width: 95%; */
     height: 250px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .product-frame {
