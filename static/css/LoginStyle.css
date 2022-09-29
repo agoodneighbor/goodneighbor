@@ -17,9 +17,12 @@
     overflow-y: scroll;
     z-index: 100;
 }
+
 .modal-cont::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+    display: none;
+    /* Chrome, Safari, Opera*/
 }
+
 .modalPage {
     background-color: transparent;
     display: flex;
@@ -44,7 +47,8 @@
 .close_btn {
     position: absolute;
     right: 0;
-    margin-right: 10px;
+    margin-right: 15px;
+    margin-top: 10px;
 }
 
 .Login_Logo {
@@ -74,7 +78,8 @@
     justify-content: center;
     flex-direction: column;
 }
-.goToAssign{
+
+.goToAssign {
     height: 10%;
     display: flex;
     align-items: center;
@@ -82,28 +87,30 @@
     flex-direction: column;
     cursor: pointer;
 }
+
 .custom-btn {
     width: 80%;
     height: 40px;
     color: #fff;
-    border-radius: 5px;
+    background-color: #1cc778;
     padding: 10px 25px;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
-    background: transparent;
+    border: 0;
+    /* background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-    display: inline-block;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    display: inline-block; */
+    /* box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
         7px 7px 20px 0px rgba(0, 0, 0, .1),
-        4px 4px 5px 0px rgba(0, 0, 0, .1);
+        4px 4px 5px 0px rgba(0, 0, 0, .1); */
     outline: none;
 }
 
+/* 
 .btn-3 {
-    background: rgb(0, 172, 238);
-    background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
+    background: linear-gradient(0deg, #1cc778 0%, #067d45 100%);
     width: 80%;
     height: 40px;
     line-height: 42px;
@@ -111,7 +118,6 @@
     border: none;
 
 }
-
 .btn-3 span {
     position: relative;
     display: block;
@@ -125,7 +131,7 @@
     content: "";
     right: 0;
     top: 0;
-    background: rgba(2, 126, 251, 1);
+    background: #12ad65;
     transition: all 0.3s ease;
 }
 
@@ -153,7 +159,7 @@
 }
 
 .btn-3 span:hover {
-    color: rgba(2, 126, 251, 1);
+    color: #12ad65;
 }
 
 .btn-3 span:before,
@@ -162,7 +168,7 @@
     content: "";
     left: 0;
     bottom: 0;
-    background: rgba(2, 126, 251, 1);
+    background: #12ad65;
     transition: all 0.3s ease;
 }
 
@@ -182,4 +188,4 @@
 
 .btn-3 span:hover:after {
     width: 100%;
-}
+} */

@@ -1,3 +1,7 @@
+:root {
+    --navbarMenuFont: 15px;
+}
+
 .mainBar {
     height: 400px;
     width: 100%;
@@ -9,8 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70%;
-
+    margin-left: 30px;
 }
 
 .navBar {
@@ -27,8 +30,25 @@
 .menu {
     display: flex;
     align-items: center;
-    margin-left: 80px;
+    /* margin-left: 400px; */
     cursor: pointer;
+    font-size: var(--navbarMenuFont);
+}
+
+.menu.find {
+    height: 40px;
+    width: 215px;
+}
+
+.menu.icon {
+    font-size: 22px;
+    margin-left: 5px;
+    margin-right: 62px;
+}
+
+.menu.go>a {
+    text-decoration: none;
+    color: initial;
 }
 
 .LoginMenu {
@@ -46,14 +66,16 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    font-size: var(--navbarMenuFont);
 }
 
 .Assign {
-    width: 50%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    font-size: var(--navbarMenuFont);
 }
 
 .Logo {
@@ -61,8 +83,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
+    /* width: 20%; */
+    margin-left: 45px;
+    margin-right: 54px;
 }
+
+i.fa-solid.fa-people-roof {
+    font-size: 23px;
+}
+
+.Logo-title {
+    margin-left: 5px;
+    margin-right: 70px;
+    font-size: 25px;
+}
+
+
+i.fa-solid.fa-magnifying-glass {}
 
 .side {
     position: fixed;
@@ -78,24 +115,43 @@
     z-index: 10000;
 }
 
-.hamberger {
+/* .hamberger {
     position: relative;
     display: none;
     align-items: center;
     justify-content: center;
     width: 10%;
-}
+} */
 
-@media screen and (max-width:852px) {
-    .hamberger {
-        display: flex;
+@media screen and (max-width:950px) {
+    .menu.go {
+        display: none;
     }
 
-    .navMenu {
+    .menu.find {
+        height: 40px;
+        width: 215px;
+    }
+
+    .LoginMenu {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width:740px) {
+
+    .menu.go {
         display: none;
     }
 
     .Logo {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width:660px) {
+    .Logo {
         display: none;
     }
+
 }

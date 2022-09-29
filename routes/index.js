@@ -26,6 +26,7 @@ router.post("/api/login", memberController.login);
 router.post("/api/logout",memberController.Logout)
 router.post("/api/additem", upload, productController.ProductAdd);
 router.get("/product", productController.products);
+
 router.get("/product/:search", productController.products);
 //router.get("/test", productController.serchProduct);
 router.get("/api/detail/:id", productController.showDetail);

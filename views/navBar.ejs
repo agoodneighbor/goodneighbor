@@ -1,17 +1,22 @@
 <div class="navBar">
-    <div id="menu" class="hamberger">
+
+    <!-- <div id="menu" class="hamberger">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list"
             viewBox="0 0 16 16">
             <path fill-rule="evenodd"
                 d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
         </svg>
-    </div>
 
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div> -->
 
-    <div class="Logo"><i class="fa-solid fa-people-roof"></i> 이웃사촌</div>
-    <div class="navMenu">
-        <div class="menu"><input type="text"></div>
-        <div class="menu"><i class="fa-solid fa-magnifying-glass"></i></div>
+    <div class="Logo"><i class="fa-solid fa-people-roof"></i>
+		<div class="Logo-title">이웃사촌</div>
+	</div>	
+	<div class="navMenu">
+		<input class="menu find">
+		<div class="menu icon"><i class="fa-solid fa-magnifying-glass"onclick="findProduct();"></i></div>
+        <div class="menu go"><a href="#">구경하러가자</a></div>
     </div>
     <div class="LoginMenu">
         <% if(is_login) { %>
@@ -26,7 +31,6 @@
 
 <div id="side_menu" class="side">
     <div class="menu" style="margin-left: 0; margin-top: 30px">
-        <div><input type="text"></div>
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>
 </div>
