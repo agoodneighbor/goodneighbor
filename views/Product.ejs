@@ -100,8 +100,7 @@
 		</div>
 		<div class="product-title">상품목록</div>
 
-   
-  <div class="product-li">
+  <div class="container">
 		<section class="product-item">
 			<% for (let i=0; i < dataValues.length; i++){ %>
 			<a
@@ -127,30 +126,6 @@
 			<% } %>
 		</section>
 
-
-        <section class="product-item">
-          <% for (let i=0; i < dataValues.length; i++){ %>
-            <div class="product-item-window" onclick="goDetail(this)">
-              <img src="<%= dataValues[i]['product_img_src'] %>" alt="" />
-              <input id="product_id" class="product-id" value="<%= dataValues[i]['product_id'] %>">
-            <div class="product-info-wrapper">
-              <div class="product-name">
-                <%= dataValues[i]['product_name'] %>
-              </div>
-              <div class="product-price-wrapper">
-                <div class="product-price">
-                  <%= dataValues[i]['product_price'] %>
-                </div>
-                <div class="product-upload-time">
-                  <%= datetime_arr[i]%>
-                </div>
-              </div>
-            </div>
-            </div>
-            <% } %>
-        </section>
-      </div>
-     
 		<script>
 			const goDetail = (obj) => {
 				axios({
