@@ -67,6 +67,7 @@ exports.ProductAdd = (req, res) => {
 	console.log(JSON.parse(req.body.userdata)["name"], 1111);
 	let imgScr = "";
 	for (let i of req.files) {
+		console.log(i);
 		imgScr += "imgParseStandard" + i["path"];
 	}
 	console.log("imgScr", imgScr);
@@ -158,6 +159,7 @@ exports.Myproduct = async (req, res) => {
 	await Product.findAll({
 		where: { member_id: member_id },
 	}).then((result) => {
+		console.log(result);
 		let dataValues = [];
 		for (let i of result) {
 			dataValues.push(i.dataValues);

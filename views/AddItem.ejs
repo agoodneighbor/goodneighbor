@@ -71,19 +71,27 @@
 					</div>
 					<div class="imgDiv"></div>
 				</div>
-                <!-- <div class="categoryOption">
-                    <select name="category" class="categoryOption form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>카테고리</option>
-                        <option type="category" value="야채">야채</option>
-                        <option type="category" value="과일">과일</option>
-                    </select>
-                </div>    -->
+
+<!--                 
                 <select class="categoryOption" name="category" >
                     <option selected>카테고리<i class="fa-solid fa-arrow-down"></i></option>
                     <option type="category" value="야채">야채</option>
                     <option type="category" value="과일">과일</option>
                 </select>
-                
+                 -->
+
+				<div class="categoryOption">
+					<select
+						name="category"
+						class="categoryOption form-select form-select-sm"
+						aria-label=".form-select-sm example"
+					>
+						<option selected>카테고리</option>
+						<option id="vagi" type="category" value="야채">야채</option>
+						<option id="fruit" type="category" value="과일">과일</option>
+					</select>
+				</div>
+
 				<div class="itemName">
 					<input
 						id="ItemName"
@@ -117,6 +125,26 @@
 		price: "",
 		category: "",
 	};
+	$("#share").click((obj)=>{
+		form_data.price=0;
+		//console.log()
+		$("#share").css({
+			"background-color":"#155100"
+		})
+		$("#exchange").css({
+			"background-color":"#1DC778"
+		})
+	})
+	$("#exchange").click((obj)=>{
+		form_data.price=1;
+		//console.log()
+		$("#exchange").css({
+			"background-color":"#155100"
+		})
+		$("#share").css({
+			"background-color":"#1DC778"
+		})
+	})
 	$("select[name=category]").change(function () {
 		// console.log($(this).val());
 		form_data.category = $(this).val();
