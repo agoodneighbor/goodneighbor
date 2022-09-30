@@ -67,6 +67,7 @@ exports.ProductAdd = (req, res) => {
 	console.log(JSON.parse(req.body.userdata)["name"], 1111);
 	let imgScr = "";
 	for (let i of req.files) {
+		console.log(i);
 		imgScr += "imgParseStandard" + i["path"];
 	}
 	console.log("imgScr", imgScr);
