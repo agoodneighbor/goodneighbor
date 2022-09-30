@@ -29,6 +29,8 @@ const upload = multer({
 					break;
 			}
 			const ext = path.extname(file.originalname);
+			console.log(file.originalname);
+			console.log(path.basename(file.originalname, ext) + "." + mimeType);
 			done(null, path.basename(file.originalname, ext) + "." + mimeType);
 		},
 		// fileFilter: fileFilter,

@@ -121,7 +121,7 @@
 		$(".detail_user").animate({ scrollTop: 40 }, 1000);
 	});
 	var check = undefined;
-	console.log(sessionStorage.key.length);
+	// console.log(sessionStorage.key.length);
 	var string = undefined;
 	const CheckPoint = (obj) => {
 		string = $("#checkpoint").val().split("/");
@@ -129,7 +129,7 @@
 		for (let i = 0; i < string.length; i++) {
 			add_string += string[i] + " ";
 		}
-		console.log(add_string);
+		// console.log(add_string);
 		var geocoder = new kakao.maps.services.Geocoder();
 		// 주소로 좌표를 검색합니다
 		geocoder.addressSearch(add_string, function (result, status) {
@@ -164,7 +164,7 @@
 			user["시"] = string[0];
 			user["구"] = string[1];
 			user["동"] = string[2];
-			console.log(user);
+			// console.log(user);
 			$("#OkButton").click(function () {
 				$(".detail_user").animate({ scrollTop: 470 }, 1000);
 			});
@@ -278,7 +278,7 @@
 		}
 	});
 	$("#menu-find").on("keyup", (key) => {
-		console.log(key);
+		// console.log(key);
 		if (key.keyCode == 13) {
 			location.href = `/product/${key.target.value}`;
 		}

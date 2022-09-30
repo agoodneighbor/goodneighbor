@@ -23,15 +23,12 @@ exports.products = async (req, res) => {
 		is_login = true;
 		let include = [{ model: Address, attributes: ["city", "dong"] }];
 
-		await Member.findOne({
-			include: include,
-		}).then((result) => {
-			myPoint = result.address.dataValues;
-			serchCategory = result.address.dataValues;
-		});
+		const result = await Member.findOne({ include: include });
+		myPoint = result.address.dataValues;
+		serchCategory = result.address.dataValues;
 	}
 
-	await Product.findAll({
+	const result = await Product.findAll({
 		include: [
 			{
 				model: Member,
@@ -46,23 +43,23 @@ exports.products = async (req, res) => {
 			},
 		],
 		where: { product_name: { [Op.like]: "%" + searchtag + "%" } },
-	}).then((result) => {
-		let dataValues = [];
-		let datetime_arr = [];
-		for (let i of result) {
-			dataValues.push(i.dataValues);
-			datetime_arr.push(
-				`${String(i.dataValues["product_time"]).split(" ")[1]} ${
-					String(i.dataValues["product_time"]).split(" ")[2]
-				}`
-			);
-		}
-		res.render("Product", {
-			is_login: is_login,
-			dataValues: dataValues,
-			category: "감자",
-			datetime_arr: datetime_arr,
-		});
+	});
+
+	let dataValues = [];
+	let datetime_arr = [];
+	for (let i of result) {
+		dataValues.push(i.dataValues);
+		datetime_arr.push(
+			`${String(i.dataValues["product_time"]).split(" ")[1]} ${
+				String(i.dataValues["product_time"]).split(" ")[2]
+			}`
+		);
+	}
+	res.render("Product", {
+		is_login: is_login,
+		dataValues: dataValues,
+		category: "감자",
+		datetime_arr: datetime_arr,
 	});
 };
 
