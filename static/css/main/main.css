@@ -91,14 +91,27 @@ body{
   position: relative;
 
 }
-
+.header-text {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  font-size: 3rem;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  .header-text {
+    font-size: 1rem;
+left: 5%;
+    top: 40%;
+  }
+}
 .path {
   fill: none;
   stroke: white;
-  stroke-width: 2px;
+  stroke-width: 1.5px;
 }
 
-.path1 , .cont1-text{
+.path1 , .header-text{
   stroke:white;
   stroke-dasharray: 7000;
   animation: drawPath1 6s linear, floating 6.2s linear infinite;
@@ -109,44 +122,204 @@ body{
   position: relative;
   /* background-color:white; */
 }
-
-.cont1-text {
+.con1-text {
   position: absolute;
   top: 50%;
-  left: 10%;
+  left: 30%;
   font-size: 3rem;
   color: white;
 }
 @media screen and (max-width: 768px) {
-  .cont1-text {
-    font-size: 1.5rem;
-    right: 5%;
+  .con1-text {
+    font-size: 2rem;
+left: 20%;
+    top: 50%;
   }
-}
-
-.content2 {
-  /* background-color: white; */
-}
-
-.path2 {
-  stroke: white;
 }
 
 
 .content3 {
-  /* background-color:white; */
+position: relative;
 }
+.con3-text{
+  position: absolute;
+  top: 7%;
+  left: 45%;
+  font-size: 3rem;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  .con3-text {
+    font-size: 1rem;
+left: 45%;
+    top: 7%;
+  }
+}
+
+.con3-text2 {
+  position: absolute;
+  top: 70%;
+  right: 15%;
+  font-size: 5rem;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  .con3-text2 {
+    font-size: 1.5rem;
+
+  }
+}
+
+.content4 {
+  position: relative;
+  }
+  .con4-text{
+    position: absolute;
+    top: 7%;
+    left: 60%;
+    font-size: 3rem;
+    color: white;
+  }
+  @media screen and (max-width: 768px) {
+    .con4-text {
+      font-size: 1.5rem;
+    }
+  }
+
+  .con4-text2{
+    position: absolute;
+    top: 70%;
+    left: 47%;
+    font-size: 2rem;
+    color: white;
+  }
+  @media screen and (max-width: 768px) {
+    .con4-text2 {
+      font-size: 1rem;
+
+
+    }
+  }
+
+  .content5 {
+    position: relative;
+    margin-top: 10%;
+    }
+    .con5-text{
+      position: absolute;
+      top: 14%;
+      left: 60%;
+      font-size: 3rem;
+      color: white;
+    }
+    @media screen and (max-width: 768px) {
+      .con5-text {
+        font-size: 2rem;
+      }
+    }
+    
+    .con5-text2 {
+      position: absolute;
+      top: 70%;
+      right: 15%;
+      font-size: 3rem;
+      color: white;
+    }
+    @media screen and (max-width: 768px) {
+      .con5-text2 {
+        font-size: 2rem;
+    
+      }
+    }
+
+.onlyText{
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+
+}
+@media screen and (max-width: 768px) {
+  .onlyText {
+    font-size: 2rem;
+
+  }
+}
+.onlyText2{
+  text-align: center;
+  color: white;
+  font-size: 5rem;
+
+}
+@media screen and (max-width: 768px) {
+  .onlyText2 {
+    font-size: 2rem;
+
+  }
+}
+.onlyText2 div{
+  margin-top: 800px;
+}
+@media screen and (max-width: 768px) {
+  .onlyText2 div {
+    margin-top: 600px;
+
+  }
+}
+.onlyText div{
+  margin-top: 1000px;
+}
+
+.content7 {
+  position: relative;
+  
+  top: 300px;
+
+}
+
+.path8{
+  position: absolute;
+}
+
+.content8 {
+  position: relative;
+  
+  top: 100px;
+
+}
+@media screen and (max-width: 768px) {
+  .content8 {
+    top: -200px;
+
+  }
+}
+.path9 , .onlyText2{
+  stroke-width: 3px;
+  stroke:white;
+
+  animation: floating 6.2s linear infinite;
+}
+
+/* .path2 {
+  stroke: white;
+}
+
+
+
 .path3 {
   stroke: white;
 }
 .path4{
   stroke: white;
 }
-
-.footer {
-  height: 30vh;
-  background-color: #000;
+.path5{
+  stroke: white;
 }
+.path6{
+  stroke: white;
+}
+.path7{
+  stroke: white;
+} */
 
 @keyframes drawPath1 {
   0% {
@@ -244,7 +417,7 @@ a:active {
   height: calc(100% - 2px);
   background: white;
   border-radius: 100%;
-  filter: drop-shadow(15vmin 15vmin 22vmin #1CC778);
+  filter: drop-shadow(15vmin 15vmin 22vmin yellow);
   transform-box: fill-box;
   -webkit-transform-box: fill-box;
   transform-origin: center;
