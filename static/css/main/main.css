@@ -95,7 +95,7 @@ body{
 .path {
   fill: none;
   stroke: white;
-  stroke-width: 1px;
+  stroke-width: 2px;
 }
 
 .path1 , .cont1-text{
