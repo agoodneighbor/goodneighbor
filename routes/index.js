@@ -1,17 +1,37 @@
 const express = require("express");
-const multer = require("multer");
 const path = require("path");
 const router = express.Router();
 
+const multer = require("multer");
 const upload = multer({
 	storage: multer.diskStorage({
 		destination(req, file, done) {
 			done(null, "static/uploads");
 		},
 		filename(req, file, done) {
+			var mimeType;
+
+			switch (file.mimetype) {
+				case "image/jpeg":
+					mimeType = "jpg";
+					break;
+				case "image/png":
+					mimeType = "png";
+					break;
+				case "image/gif":
+					mimeType = "gif";
+					break;
+				case "image/bmp":
+					mimeType = "bmp";
+					break;
+				default:
+					mimeType = "jpg";
+					break;
+			}
 			const ext = path.extname(file.originalname);
-			done(null, path.basename(file.originalname, ext + ext));
+			done(null, path.basename(file.originalname, ext) + "." + mimeType);
 		},
+		// fileFilter: fileFilter,
 	}),
 	limits: { fileSize: 5 * 1024 * 1024 },
 }).array("uploadfile");

@@ -37,14 +37,10 @@
 				<Strong>Upload</Strong>
 			</div>
 			<div class="UploadPage">
-<<<<<<< HEAD
-=======
-
-                <div class="price">
-                    <div type="button" value="나눔">나눔</div>
-                    <div type="button" value="과일">교환</div>
-                </div>
->>>>>>> upstream/header
+				<div class="price">
+					<div type="button" value="나눔">나눔</div>
+					<div type="button" value="과일">교환</div>
+				</div>
 				<div class="imgUpload">
 					<div class="CameraImg">
 						<div class="filebox">
@@ -62,14 +58,9 @@
 									/>
 									<path
 										d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"
-<<<<<<< HEAD
 									/>
 								</svg>
 							</label>
-=======
-									/></svg>
-                                </label>
->>>>>>> upstream/header
 							<input
 								type="file"
 								id="ex_file"
@@ -80,17 +71,23 @@
 					</div>
 					<div class="imgDiv"></div>
 				</div>
-<<<<<<< HEAD
-				<div class="categoryOption">
-=======
 				<!-- <div class="categoryOption">
->>>>>>> upstream/header
 					<select name="category">
 						<option type="category" value="카테고리">카테고리</option>
 						<option type="category" value="야채">야채</option>
 						<option type="category" value="과일">과일</option>
 					</select>
-<<<<<<< HEAD
+				</div> -->
+				<div class="categoryOption">
+					<select
+						name="category"
+						class="categoryOption form-select form-select-sm"
+						aria-label=".form-select-sm example"
+					>
+						<option selected>카테고리</option>
+						<option type="category" value="야채">야채</option>
+						<option type="category" value="과일">과일</option>
+					</select>
 				</div>
 				<div class="itemName">
 					<input
@@ -100,41 +97,13 @@
 						name="name"
 					/>
 				</div>
-				<div class="price">
-					<input
-						id="Price"
-						type="text"
-						placeholder="가격을 입력해주세요"
-						name="price"
-					/>
-				</div>
-				<div class="itemDetail">
-					<input
-						id="ItemDetail"
-						type="text"
-						placeholder="상품설명을 입력해주세요"
-						name="detail"
-					/>
-=======
-				</div> -->
-                <div class="categoryOption">
-                    <select name="category" class="categoryOption form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>카테고리</option>
-                        <option type="category" value="야채">야채</option>
-                        <option type="category" value="과일">과일</option>
-                    </select>
-                </div>
-				<div class="itemName">
-					<input id="ItemName" type="text" placeholder="상품명을 입력해주세요" name="name" />
-				</div>
 				<div class="itemDetail">
 					<textarea
-                        id="ItemDetail"
+						id="ItemDetail"
 						type="textarea"
 						placeholder="상품설명을 입력해주세요"
 						name="detail"
 					></textarea>
->>>>>>> upstream/header
 				</div>
 				<div class="addbtn">
 					<button onclick="submitItems()" class="custom-btn btn-3">
@@ -144,8 +113,6 @@
 			</div>
 		</div>
 	</div>
-
-
 </div>
 
 <script>
