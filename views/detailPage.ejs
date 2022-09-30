@@ -14,7 +14,6 @@
 		</script>
 	</head>
 	<body>
-		<header></header>
 		<main class="main-wrapper">
 			<section class="section-line"></section>
 			<section class="product-info-window">
@@ -43,7 +42,9 @@
 					<div class="product-title">
 						<div class="product-info-wrapper">
 							<div class="product-name">
-								<h2><%=product_detail_info["product_name"]%></h2>
+								<h2 class="product-name-title">
+									<%=product_detail_info["product_name"]%>
+								</h2>
 								<div class="product-price">
 									<div class="howToDeal">교 환</div>
 									<div class="howToDeal">나 눔</div>
@@ -127,10 +128,8 @@
 
 			const now = () => {
 				const currentday = new Date().getDate();
-				let today = "";
 				if (currentday > uploadDate) {
-					today = `${currentday - uploadDate}`;
-					return `${today}일전`;
+					return `${currentday - uploadDate} 일전`;
 				} else {
 					`${uploadYear}년 ${currentMonth(
 						uploadMonth
@@ -204,8 +203,7 @@
 			const rightBtn = document.querySelector(".arrow.right");
 			const TRANSFORM_CLASS = "transform";
 
-			// 왼쪽 화살표
-			leftBtn.addEventListener("click", () => {
+			function leftArrow() {
 				if (dots[0].classList.contains(FILL_BLACK_CLASS)) {
 					move1();
 				} else if (dots[2].classList.contains(FILL_BLACK_CLASS)) {
@@ -213,9 +211,9 @@
 				} else if (dots[1].classList.contains(FILL_BLACK_CLASS)) {
 					move3();
 				}
-			});
-			// 오른쪽 화살표
-			rightBtn.addEventListener("click", () => {
+			}
+
+			function rightArrow() {
 				if (dots[0].classList.contains(FILL_BLACK_CLASS)) {
 					move2();
 				} else if (dots[1].classList.contains(FILL_BLACK_CLASS)) {
@@ -223,7 +221,10 @@
 				} else if (dots[2].classList.contains(FILL_BLACK_CLASS)) {
 					move3();
 				}
-			});
+			}
+			// 화살표 click 이벤트
+			leftBtn.addEventListener("click", leftArrow);
+			rightBtn.addEventListener("click", rightArrow);
 		</script>
 	</body>
 </html>

@@ -106,6 +106,9 @@
 	display: flex;
 	justify-content: space-around;
 }
+.product-name-title {
+	height: 120px;
+}
 .img-wrapper {
 	border: 1px solid black;
 }
