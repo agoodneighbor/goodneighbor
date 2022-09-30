@@ -138,20 +138,36 @@ img {
     height: 100%;
 }
 
-.categoryOption {
+/* .categoryOption {
     height: 32px;
     width: 8rem;
     margin-top: 15px;
     margin-bottom: 22px;
     margin-left: 8%;
+} */
+.categoryOption {
+    margin-left: 10%;
+    margin-bottom: 10px;
+    width: 80px;
+    margin-top: 18px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    appearance: none;
+    outline: none;
+    font-size: 17px;
 }
+
+.categoryOption:hover {
+    border: 3px solid green;
+}
+
 
 .price {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.price>div {
+.givebtn {
     cursor: pointer;
     display: inline-block;
     background-color: #1cc778;
@@ -160,10 +176,13 @@ img {
     letter-spacing: 5px;
 }
 
-.price>div:hover {
+.givebtn:hover {
     color: black;
 }
 
+.clicked {
+    background-color: yellowgreen;
+}
 
 .itemName {
     text-align: center;
