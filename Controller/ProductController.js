@@ -20,12 +20,21 @@ exports.product = (req, res) => {
 };
 
 exports.ProductAdd = (req, res) => {
+<<<<<<< HEAD
 	// console.log(JSON.parse(req.body.userdata)["name"], 1111);
 	let imgScr = "";
 	for (let i of req.files) {
 		imgScr += "imgParseStandard" + i["path"];
 	}
 	// console.log(imgScr);
+=======
+	console.log(JSON.parse(req.body.userdata)["name"], 1111);
+	let imgScr="";
+	for( let i of req.files){
+		imgScr+="imgParseStandard"+i["path"];
+	}
+	console.log(imgScr)
+>>>>>>> upstream/header
 	const data = {
 		member_id: Number(req.session.user),
 		product_name: JSON.parse(req.body.userdata)["name"],
@@ -173,11 +182,19 @@ exports.showDetail = async (req, res) => {
 		// include: [{ model: ImgUrl }],
 		where: { product_id: Number(product_id) },
 	}).then((result) => {
+<<<<<<< HEAD
 		res.render("detailPage", {
 			product_detail_info: result[0].dataValues,
 			Like: result[0].dataValues.wish_lists.length,
 			product_img_src: result[0].product_img_src.split("imgParseStandard"),
 		});
+=======
+		console.log("img",result[0].product_img_src.split("imgParseStandard"))
+		console.log('result', result);
+		//console.log('result', result);
+		//console.log(result[0].dataValues.wish_lists.length, 11);
+		res.render("detailPage", { product_detail_info: result[0].dataValues ,Like:result[0].dataValues.wish_lists.length,product_img_src:result[0].product_img_src.split("imgParseStandard")});
+>>>>>>> upstream/header
 	});
 };
 
