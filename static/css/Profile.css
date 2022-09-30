@@ -213,9 +213,13 @@ input:focus {
     }
 }
 
-.MyPimg img {
-    width: 100%;
+/* .MyPimg img {
     height: 70%;
+    width: 100%;
+}  */
+.mypimg {
+    width: 100%;
+    height: 200px;
 }
 
 .product-info-wrapper {
