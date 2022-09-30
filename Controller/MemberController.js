@@ -9,12 +9,9 @@ exports.member = (req, res) => {
 	if (req.session.user !== undefined) {
 		is_login = true;
 	}
-	console.log(is_login);
+	// console.log(is_login);
 	res.render("index", { is_login: is_login });
 };
-
-
-
 
 exports.asign = async (req, res) => {
 	let isOkay = true;
@@ -68,7 +65,7 @@ exports.login = async (req, res) => {
 		if (isOkay) {
 			req.session.user = currnet_member_id;
 
-			console.log(req.session.user);
+			// console.log(req.session.user);
 		}
 	});
 	res.send(isOkay);
@@ -86,40 +83,40 @@ exports.login = async (req, res) => {
 
 //로그아웃
 
-exports.Logout=async(req,res)=>{
-	if (req.session.user) { //세션정보가 존재하는 경우
-		await req.session.destroy(function (err) {
-			if (err)
-				console.log(err)
-			else {
-			  res.send(true);
+exports.Logout = async (req, res) => {
+	if (req.session.user) {
+		//세션정보가 존재하는 경우
+		await req.session.destroy(
+			// err ? console.log(err) : res.send(true)
+			function (err) {
+				if (err) {
+					console.log(err);
+				} else {
+					res.send(true);
+				}
 			}
-		})
+		);
 	}
-}
-
-
+};
 
 //회원정보 수정
 
-exports.accessProfile=async(req,res)=>{
+exports.accessProfile = async (req, res) => {
 	let is_login = false;
 
 	if (req.session.user !== undefined) {
 		is_login = true;
 	}
-	let member_id=Number(req.session.user);
+	let member_id = Number(req.session.user);
 
 	await Member.findOne({
-		where:{member_id:member_id}
-	}).then((result)=>{
-		console.log(result);
-		res.render("Profile",{is_login:is_login,user:result.dataValues});
-	})
+		where: { member_id: member_id },
+	}).then((result) => {
+		// console.log(result);
+		res.render("Profile", { is_login: is_login, user: result.dataValues });
+	});
+};
 
-}
-
-exports.FixedProfile=async(req,res)=>{
-	let member_id=Number(req.session.user);
-
-}
+exports.FixedProfile = async (req, res) => {
+	let member_id = Number(req.session.user);
+};

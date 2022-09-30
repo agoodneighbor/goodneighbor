@@ -2,8 +2,8 @@ const { Member } = require("../model/Member");
 
 exports.get_visitors = (req, res) => {
 	Visitor.findAll().then((result) => {
-		console.log("result : ", result);
-		console.log("index");
+		// console.log("result : ", result);
+		// console.log("index");
 		res.render("index", { data: result });
 	});
 	// select name, comment from visitor where id= ???

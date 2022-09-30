@@ -103,7 +103,7 @@ db.WishList.belongsTo(db.Product, {
 
 // db.ImgUrl = require("./ImgUrl")(sequelize, Sequelize);
 
-// // #5-1, product_id에 이미지 URL 테이블 FK 연결
+// // // #5-1, product_id에 이미지 URL 테이블 FK 연결
 // db.Product.hasMany(db.ImgUrl, {
 // 	foreignKey: "product_id",
 // 	sourceKey: "product_id",
