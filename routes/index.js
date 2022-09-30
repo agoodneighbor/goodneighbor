@@ -18,28 +18,20 @@ const upload = multer({
 
 const memberController = require("../Controller/MemberController");
 const productController = require("../Controller/ProductController");
-const { Product } = require("../Model");
 
-router.get("/", memberController.member);
+router.get("/", memberController.member); // 멤버 콘트롤러.멤버
+router.get("/profile", memberController.accessProfile); // 프로필 접근 성공 여부 확인
+
 router.post("/api/assign", memberController.asign);
 router.post("/api/login", memberController.login);
 router.post("/api/logout", memberController.Logout);
-
 router.post("/api/additem", upload, productController.ProductAdd);
-router.get("/product", productController.products);
 
+router.get("/product", productController.products); // 로그인 하지 않은 프로턱트 페이지 렌더
 router.get("/product/:search", productController.products);
-//router.get("/test", productController.serchProduct);
 router.get("/detail/:id", productController.showDetail);
-router.get("/profile", memberController.accessProfile);
+
 router.get("/jimm", productController.Jimm);
 router.get("/myproduct", productController.Myproduct);
-//router.post("/api/fix",memberController.FixedProfile)
-// router.get("/detailProduct", productController.detail);
-
-// #1, 라우트 추가
-// router.post("/api/upload", productController.product);
-// router.post("/api/mywishlist", productController.wishlist);
-// router.post("/api/myorderlist", productController.orderlist);
 
 module.exports = router;

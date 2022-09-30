@@ -100,53 +100,20 @@
 			const stringExam = "<%=product_detail_info['product_time']%>";
 			const currentMonth = (month) => {
 				let currentmonth = "";
-				// 	const months = [
-				// 	"Jan",
-				// 	"Fab",
-				// 	"Mar",
-				// 	"Apr",
-				// 	"May",
-				// 	"Jun",
-				// 	"Jul",
-				// 	"Aug",
-				// 	"Sep",
-				// 	"Oct",
-				// 	"Nov",
-				// ];
-				// months.forEach((el, index) => {
-				// 	console.log(el);
-				// 	if (month === el) {
-				// 		currentmonth = index + 1;
-				// 		console.log(currentmonth);
-				// 		return currentmonth + 1;
-				// 	}
-				// });
-				if (month === "Jan") {
-					currentmonth = "1";
-				} else if (month === "Fab") {
-					currentmonth = "2";
-				} else if (month === "Mar") {
-					currentmonth = "3";
-				} else if (month === "Apr") {
-					currentmonth = "4";
-				} else if (month === "May") {
-					currentmonth = "5";
-				} else if (month === "Jun") {
-					currentmonth = "6";
-				} else if (month === "Jul") {
-					currentmonth = "7";
-				} else if (month === "Aug") {
-					currentmonth = "8";
-				} else if (month === "Sep") {
-					currentmonth = "9";
-				} else if (month === "Oct") {
-					currentmonth = "10";
-				} else if (month === "Nov") {
-					currentmonth = "11";
-				} else {
-					currentmonth = "12";
-				}
-				return currentmonth;
+				const months = {
+					Jan: 1,
+					Fab: 2,
+					Mar: 3,
+					Apr: 4,
+					May: 5,
+					Jun: 6,
+					Jul: 7,
+					Aug: 8,
+					Sep: 9,
+					Oct: 10,
+					Nov: 11,
+				};
+				return (currentmonth = months[month]);
 			};
 
 			const uploadYear = stringExam.split(" ")["3"];
@@ -157,7 +124,7 @@
 			}분`;
 
 			const productImgArr = "<%=product_detail_info['product_img_src']%>";
-			// console.log(today - uploadDate, uploadDate);
+
 			const now = () => {
 				const currentday = new Date().getDate();
 				let today = "";
@@ -187,6 +154,7 @@
 			const productImg = document.querySelector(".product-img");
 			const dots = document.querySelectorAll(".indicator-dot");
 			const FILL_BLACK_CLASS = "fill-black";
+			console.log(dots);
 			dots[0].classList.add(FILL_BLACK_CLASS);
 
 			const clickDot = () => {
