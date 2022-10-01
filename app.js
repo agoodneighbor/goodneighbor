@@ -9,6 +9,7 @@ const session = require("express-session");
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 const router = require("./routes");
+const apiRouter= require("./routes/api")
 
 // { path: '/', httpOnly: true, secure: false, maxAge: null }
 const sessionObj = {
@@ -29,6 +30,7 @@ app.use("/static", express.static("static"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use("/api", apiRouter);
 app.use("/", router);
 app.set("view engine", "ejs");
 

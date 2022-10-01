@@ -116,8 +116,10 @@
 				data:{product_id:product_id}
 			}).then((result) => {
 				console.log(result.data);
-				if (Number(result.data)) jjimBtn.classList.add(CLICKED_CLASS);
-				else jjimBtn.classList.remove(CLICKED_CLASS);
+				if (Number(result.data)) {
+					jjimBtn.classList.add(CLICKED_CLASS)
+				}
+				else {jjimBtn.classList.remove(CLICKED_CLASS);}
 			});
 
 			const currentMonth = (month) => {
@@ -245,6 +247,10 @@
 			// 화살표 click 이벤트
 			leftBtn.addEventListener("click", leftArrow);
 			rightBtn.addEventListener("click", rightArrow);
+
+			$(".dialog-status").click((key)=>{
+
+			})
 		</script>
 	</body>
 </html>
