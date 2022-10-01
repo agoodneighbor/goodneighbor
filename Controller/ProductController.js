@@ -10,6 +10,7 @@ const {
 	ImgUrl,
 } = require("../Model");
 const sequelize = require("sequelize");
+const session = require("express-session");
 const Op = sequelize.Op;
 
 exports.products = async (req, res) => {
@@ -64,13 +65,13 @@ exports.products = async (req, res) => {
 };
 
 exports.ProductAdd = (req, res) => {
-	console.log(JSON.parse(req.body.userdata)["name"], 1111);
+	// console.log(JSON.parse(req.body.userdata)["name"], 1111);
 	let imgScr = "";
 	for (let i of req.files) {
-		console.log(i);
+		// console.log(i);
 		imgScr += "imgParseStandard" + i["path"];
 	}
-	console.log("imgScr", imgScr);
+	// console.log("imgScr", imgScr);
 
 	const data = {
 		member_id: Number(req.session.user),
@@ -113,16 +114,6 @@ exports.showDetail = async (req, res) => {
 		Like: result[0].dataValues.wish_lists.length,
 		product_img_src: result[0].product_img_src.split("imgParseStandard"),
 	});
-	// .then((result) => {
-	// 	console.log("img", result[0].product_img_src.split("imgParseStandard"));
-	// 	console.log("result", result);
-
-	// 	res.render("detailPage", {
-	// 		product_detail_info: result[0].dataValues,
-	// 		Like: result[0].dataValues.wish_lists.length,
-	// 		product_img_src: result[0].product_img_src.split("imgParseStandard"),
-	// 	});
-	// });
 };
 
 //찜하기
@@ -159,11 +150,34 @@ exports.Myproduct = async (req, res) => {
 	await Product.findAll({
 		where: { member_id: member_id },
 	}).then((result) => {
-		console.log(result);
+		// console.log(result);
 		let dataValues = [];
 		for (let i of result) {
 			dataValues.push(i.dataValues);
 		}
 		res.send(dataValues);
 	});
+};
+exports.jjimlike = async (req, res) => {
+	if (req.body.jjimBool) {
+		const data = {
+			user_id: req.session.user,
+			product_id: req.params.product_id,
+		};
+		WishList.create({ data }).then((result) => {
+			res.send(true);
+		});
+	}
+	// 삭제
+};
+exports.jjimchecked = async (req, res) => {
+	console.log("a");
+	// const result = await WishList.findOne({
+	// 	where: {
+	// 		user_id: req.session.user,
+	// 		product_id: req.params.product_id,
+	// 	},
+	// });
+	// if (result) res.send(true);
+	// else res.send(false);
 };
