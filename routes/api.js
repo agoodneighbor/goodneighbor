@@ -40,6 +40,9 @@ const upload = multer({
 
 const memberController = require("../Controller/MemberController");
 const productController = require("../Controller/ProductController");
+const chatController=require("../Controller/ChatController");
+
+router.get("/takeroom",chatController.takeChat);
 
 router.post("/assign", memberController.asign);
 router.post("/login", memberController.login);

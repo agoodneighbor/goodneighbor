@@ -36,7 +36,9 @@ app.set("view engine", "ejs");
 
 // let maxAge = 60 * 1000;
 
-io.on("connection", (socket) => {});
+io.on("connection", (socket) => {
+	console.log(socket.id);
+});
 
 http.listen(port, () => {
 	console.log("Server port : ", port);
