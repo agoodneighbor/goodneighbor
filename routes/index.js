@@ -49,6 +49,9 @@ router.post("/api/login", memberController.login);
 router.post("/api/logout", memberController.Logout);
 router.post("/api/additem", upload, productController.ProductAdd);
 
+router.post("/api/like", productController.jjimlike);
+router.get("/api/like/check", productController.DoJimm);
+
 router.get("/product", productController.products); // 로그인 하지 않은 프로턱트 페이지 렌더
 router.get("/product/:search", productController.products);
 router.get("/detail/:id", productController.showDetail);

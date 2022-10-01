@@ -20,22 +20,33 @@
 }
 
 .product-info-window {
+	min-width: 960px;
+
 	height: 440px;
 	border-bottom: 1px solid var(--line-break);
 	padding: 20px 0;
 
 	display: grid;
-	grid-template-columns: minmax(442px, 1fr) 1fr;
+	grid-template-columns: 442px 1fr;
+	gap: 1rem;
 }
+
+.product-info-wrapper {
+	padding-top: 2rem;
+	width: 648px;
+}
+
 .product-pic {
 	width: 440px;
 	height: 402px;
 	display: flex;
 	position: relative;
-	overflow-x: hidden;
+	overflow-y: hidden;
 }
+
 .product-img {
 	min-width: 100%;
+	height: 96%;
 	display: block;
 }
 .indicator {
@@ -47,7 +58,9 @@
 	left: 50%;
 	transform: translateX(-50%);
 }
-
+.hidden {
+	display: none;
+}
 .indicator-arrow {
 	position: absolute;
 	height: 100%;
@@ -79,15 +92,15 @@
 }
 /* 캐러셀 화살표 이동 */
 /* press dot to move */
-.fill-black {
-	background-color: #000;
+.fill-color {
+	background-color: lightgray;
 }
 .transform {
 	transform: transition;
 	transition: 1s;
 }
 .indicator-dot {
-	border: 1px solid black;
+	border: 1px solid gray;
 	border-radius: 50%;
 	padding: 4px;
 }
@@ -99,9 +112,7 @@
 	width: 100%;
 	position: relative;
 }
-.product-info-wrapper {
-	padding-top: 2rem;
-}
+
 .product-name {
 	display: flex;
 	justify-content: space-around;
@@ -128,6 +139,7 @@
 	border: 1px solid var(--line-color);
 	padding: 0.5rem;
 	color: var(--line-break);
+	min-width: 100px;
 }
 
 .product-content {

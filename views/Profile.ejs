@@ -80,12 +80,11 @@
 						for (let i of response.data) {
 							let str = String(new Date(i.product_time)).split(" ");
 							let arr = ["교환", "나눔"];
-							$("#ProductRow").append(`<div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="product-item ">
-                                    <div class="MyPimg">
-                                        <img src="${
-																					i.product_img_src
-																				}" alt="img">
+							$("#ProductRow").append(
+								`<div class="col-xl-3 col-md-4 col-sm-6">
+									<div class="product-item ">
+											<div class="MyPimg">
+												<img src="${i.product_img_src}" alt="img">
                                     </div>
                                     <div class="product-info-wrapper">
                                         <div class="product-name">${
@@ -107,7 +106,8 @@
 
 
                                 </div>
-                               </div>`);
+                               </div>`
+							);
 						}
 						console.log("i.product_img_src", typeof i.product_img_src);
 					})

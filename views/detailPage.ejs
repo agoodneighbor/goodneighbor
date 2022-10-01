@@ -7,7 +7,6 @@
 		<link rel="stylesheet" href="/static/css/detailPages.css" />
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<link rel="icon" type="image/x-icon" href="/static/img/favneighbor.png" />
-
 		<title><%=product_detail_info["product_name"]%></title>
 		<script>
 			const menu = ["yachae", "fruits"];
@@ -18,26 +17,24 @@
 			<section class="section-line"></section>
 			<section class="product-info-window">
 				<div class="product-pic">
-					<% for (let i = 1; i < product_img_src.length; i++) { %>
 					<img
 						class="product-img"
-						src="/<%=product_img_src[i]%>"
+						src="/<%=product_img_src[1]%>"
 						alt="product-img"
 					/>
-					<% } %>
 					<div class="indicator-arrow">
 						<div class="arrow-wrapper">
 							<img class="arrow left" src="/static/img/left-arrow.png" />
 							<img class="arrow right" src="/static/img/right-arrow.png" />
 						</div>
 					</div>
-
 					<div class="indicator">
 						<% for (let i = 1; i < product_img_src.length; i++) { %>
 						<span class="indicator-dot"></span>
 						<% } %>
 					</div>
 				</div>
+
 				<div class="product-status">
 					<div class="product-title">
 						<div class="product-info-wrapper">
@@ -88,6 +85,15 @@
 					</div>
 				</div>
 			</section>
+			<section class="product-recommend-wrapper">
+				<div class="product-recommand">
+					<div class="recommands">1</div>
+					<div class="recommands">2</div>
+					<div class="recommands">3</div>
+					<div class="recommands">4</div>
+					<div class="recommands">5</div>
+				</div>
+			</section>
 			<section class="product-detail-info-wrapper">
 				<div class="product-detail-info">상품정보</div>
 				<div class="proruct-content">
@@ -99,6 +105,17 @@
 		<script>
 			const ex = "<%=product_img_src%>";
 			const stringExam = "<%=product_detail_info['product_time']%>";
+			const jjimBtn = document.querySelector(".big-jjim-status");
+			const CLICKED_CLASS = "clicked";
+
+			axios({
+				url: "/api/like/check",
+				method: "get",
+			}).then((result) => {
+				if (result) jjimBtn.classList.add(CLICKED_CLASS);
+				else jjimBtn.classList.remove(CLICKED_CLASS);
+			});
+
 			const currentMonth = (month) => {
 				let currentmonth = "";
 				const months = {
@@ -131,7 +148,7 @@
 				if (currentday > uploadDate) {
 					return `${currentday - uploadDate} 일전`;
 				} else {
-					`${uploadYear}년 ${currentMonth(
+					return `${uploadYear}년 ${currentMonth(
 						uploadMonth
 					)}월 ${uploadDate}일 ${uploadTime}`;
 				}
@@ -140,63 +157,64 @@
 			const uploadDateTime = document.querySelector(".upload-time");
 			uploadDateTime.textContent = now();
 
-			const jjimBtn = document.querySelector(".big-jjim-status");
 			const heartIcon = document.querySelector(".heart-big");
-			const CLICKED_CLASS = "clicked";
 
 			jjimBtn.addEventListener("click", () => {
-				heartIcon.src = "/static/img/heart.gif";
-				jjimBtn.classList.add(CLICKED_CLASS);
-			});
+				const jjimBool = Boolean(jjimBtn.classList.contains(CLICKED_CLASS));
 
+				if (jjimBool) {
+					console.log("ㅁ");
+				} else {
+					heartIcon.src = "/static/img/heart.gif";
+					jjimBtn.classList.add(CLICKED_CLASS);
+				}
+				axios({
+					url: "/api/like",
+					method: "post",
+					// post방식 일때는 params가 data로 변경
+					data: {
+						jjimBool: jjimBool,
+					},
+				})
+					.then((response) => {
+						// console.log(response.data);
+					})
+					.catch((error) => {
+						// console.log(error);
+					});
+			});
 			// click dot to move imgs
 			const productImg = document.querySelector(".product-img");
 			const dots = document.querySelectorAll(".indicator-dot");
-			const FILL_BLACK_CLASS = "fill-black";
-			dots[0].classList.add(FILL_BLACK_CLASS);
+			const arrowWrapper = document.querySelector(".arrow-wrapper");
+			const FILL_COLOR_CLASS = "fill-color";
+			const HIDDEN_CLASS = "hidden";
 
 			const clickDot = () => {
-				dots.forEach((el) => {
-					el.addEventListener("click", () => {
-						if (el === dots[0]) {
-							productImg.src = "/<%=product_img_src[1]%>";
-							dots[0].classList.add(FILL_BLACK_CLASS);
-							dots[1].classList.remove(FILL_BLACK_CLASS);
-							dots[2].classList.remove(FILL_BLACK_CLASS);
-						} else if (el === dots[1]) {
-							productImg.src = "/<%=product_img_src[2]%>";
-							dots[1].classList.add(FILL_BLACK_CLASS);
-							dots[2].classList.remove(FILL_BLACK_CLASS);
-							dots[0].classList.remove(FILL_BLACK_CLASS);
-						} else {
-							productImg.src = "/<%=product_img_src[3]%>";
-							dots[2].classList.add(FILL_BLACK_CLASS);
-							dots[0].classList.remove(FILL_BLACK_CLASS);
-							dots[1].classList.remove(FILL_BLACK_CLASS);
-						}
+				if (dots.length === 1) {
+					dots[0].classList.add(FILL_COLOR_CLASS);
+					arrowWrapper.classList.add(HIDDEN_CLASS);
+				} else {
+					dots[0].classList.add(FILL_COLOR_CLASS);
+
+					dots.forEach((el, index) => {
+						el.addEventListener("click", () => {
+							move1(index);
+						});
 					});
-				});
-				return clickDot;
+					return clickDot;
+				}
 			};
 			clickDot();
 
-			function move1() {
-				productImg.src = "/<%=product_img_src[3]%>";
-				dots[2].classList.add(FILL_BLACK_CLASS);
-				dots[0].classList.remove(FILL_BLACK_CLASS);
-				dots[1].classList.remove(FILL_BLACK_CLASS);
-			}
-			function move2() {
-				productImg.src = "/<%=product_img_src[2]%>";
-				dots[1].classList.add(FILL_BLACK_CLASS);
-				dots[0].classList.remove(FILL_BLACK_CLASS);
-				dots[2].classList.remove(FILL_BLACK_CLASS);
-			}
-			function move3() {
-				productImg.src = "/<%=product_img_src[1]%>";
-				dots[0].classList.add(FILL_BLACK_CLASS);
-				dots[1].classList.remove(FILL_BLACK_CLASS);
-				dots[2].classList.remove(FILL_BLACK_CLASS);
+			function move1(index) {
+				if (index === 1) productImg.src = `/<%=product_img_src[2]%>`;
+				else if (index === 0) productImg.src = `/<%=product_img_src[1]%>`;
+				else if (index === 2) productImg.src = `/<%=product_img_src[3]%>`;
+				for (let i = 0; i < dots.length; i++) {
+					dots[i].classList.remove(FILL_COLOR_CLASS);
+				}
+				dots[index].classList.add(FILL_COLOR_CLASS);
 			}
 
 			const leftBtn = document.querySelector(".arrow.left");
@@ -204,23 +222,15 @@
 			const TRANSFORM_CLASS = "transform";
 
 			function leftArrow() {
-				if (dots[0].classList.contains(FILL_BLACK_CLASS)) {
-					move1();
-				} else if (dots[2].classList.contains(FILL_BLACK_CLASS)) {
-					move2();
-				} else if (dots[1].classList.contains(FILL_BLACK_CLASS)) {
-					move3();
-				}
+				if (dots[0].classList.contains(FILL_COLOR_CLASS)) move1(2);
+				else if (dots[1].classList.contains(FILL_COLOR_CLASS)) move1(0);
+				else if (dots[2].classList.contains(FILL_COLOR_CLASS)) move1(1);
 			}
 
 			function rightArrow() {
-				if (dots[0].classList.contains(FILL_BLACK_CLASS)) {
-					move2();
-				} else if (dots[1].classList.contains(FILL_BLACK_CLASS)) {
-					move1();
-				} else if (dots[2].classList.contains(FILL_BLACK_CLASS)) {
-					move3();
-				}
+				if (dots[0].classList.contains(FILL_COLOR_CLASS)) move1(1);
+				else if (dots[1].classList.contains(FILL_COLOR_CLASS)) move1(2);
+				else if (dots[2].classList.contains(FILL_COLOR_CLASS)) move1(0);
 			}
 			// 화살표 click 이벤트
 			leftBtn.addEventListener("click", leftArrow);
