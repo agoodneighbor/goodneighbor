@@ -105,14 +105,18 @@
 		<script>
 			const ex = "<%=product_img_src%>";
 			const stringExam = "<%=product_detail_info['product_time']%>";
+			const product_id = "<%=product_detail_info['product_id']%>";
+			console.log(product_id)
 			const jjimBtn = document.querySelector(".big-jjim-status");
 			const CLICKED_CLASS = "clicked";
-
+			// product아이디를 백으로 넘겨줌
 			axios({
-				url: "/api/like/check",
-				method: "get",
+				url: "/api/checkJimm",
+				method: "post",
+				data:{product_id:product_id}
 			}).then((result) => {
-				if (result) jjimBtn.classList.add(CLICKED_CLASS);
+				console.log(result.data);
+				if (Number(result.data)) jjimBtn.classList.add(CLICKED_CLASS);
 				else jjimBtn.classList.remove(CLICKED_CLASS);
 			});
 
@@ -158,30 +162,36 @@
 			uploadDateTime.textContent = now();
 
 			const heartIcon = document.querySelector(".heart-big");
-
+			//false일때만 axios가 실행되도록 함 이런건 프론트딴에서 해결해야 백엔드에 과부하가 안가요! 사실 저희 프로젝트는 작아서 상관없지만서도
 			jjimBtn.addEventListener("click", () => {
 				const jjimBool = Boolean(jjimBtn.classList.contains(CLICKED_CLASS));
-
+				console.log(jjimBool);
 				if (jjimBool) {
 					console.log("ㅁ");
 				} else {
 					heartIcon.src = "/static/img/heart.gif";
-					jjimBtn.classList.add(CLICKED_CLASS);
-				}
-				axios({
-					url: "/api/like",
-					method: "post",
-					// post방식 일때는 params가 data로 변경
-					data: {
-						jjimBool: jjimBool,
-					},
-				})
-					.then((response) => {
-						// console.log(response.data);
+					axios({
+						url: "/api/like",
+						method: "post",
+						// post방식 일때는 params가 data로 변경
+						data: {
+							product_id:product_id
+						},
 					})
-					.catch((error) => {
-						// console.log(error);
-					});
+						.then((response) => {
+							console.log(response.data);
+							if (response.data){
+								jjimBtn.classList.add(CLICKED_CLASS);
+							}
+							else{
+								alert("로그인 해주세요")
+							}
+						})
+						.catch((error) => {
+							// console.log(error);
+						});
+				}
+				
 			});
 			// click dot to move imgs
 			const productImg = document.querySelector(".product-img");

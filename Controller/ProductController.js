@@ -119,16 +119,32 @@ exports.showDetail = async (req, res) => {
 //찜하기
 exports.DoJimm = async (req, res) => {
 	let member_id = Number(req.session.user);
-	const result = await WishList.create({
-		product_id: Number(req.body.product_id),
-		member_id: Number(req.session.user),
-	});
-	let dataValues = [];
-	for (let i of result) {
-		dataValues.push(i.dataValues);
+	console.log(member_id);
+	let isittrue=false;
+	if(req.session.user== undefined){
+		isittrue=false;
+	}else{
+		const result = await WishList.create({
+			product_id: Number(req.body.product_id),
+			member_id: Number(req.session.user),
+		});
+		isittrue=true;
 	}
-	res.send(true);
+	
+	res.send(isittrue);
 };
+//새로 만들어진 함수 일단 주의!! (res send로는 숫자를 보낼수 없습니다!! 알아두셔야되요!! 꼭!!) 문자열로 바꾼후 넘기셔야됩니다 그래서 안된거에요
+exports.checkJimm =async (req,res)=>{
+	console.log("checkJim,")
+	let product_id=Number(req.body.product_id);
+	//console.log(req)
+	const result =await WishList.findAll({
+		where:{product_id:product_id},
+	});
+	//console.log(result);
+	res.send(String(result.length))
+}	
+
 
 //찜 페이지 조회
 exports.Jimm = async (req, res) => {
@@ -158,7 +174,11 @@ exports.Myproduct = async (req, res) => {
 		res.send(dataValues);
 	});
 };
+
+
+//요 찝라이크의 문제점1 params로 넘겨준 데이터가 없어용! 2. 데이터 생성할때 우리는 제품아이디랑 유저아이디가 인트인데 여기서는 문자열 (일수도)있어요
 exports.jjimlike = async (req, res) => {
+	console.log(req.body.jjimBool);
 	if (req.body.jjimBool) {
 		const data = {
 			user_id: req.session.user,
