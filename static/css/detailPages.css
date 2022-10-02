@@ -1,229 +1,87 @@
-:root {
-	--line-color: gray;
-	--line-break: #000;
-}
 * {
 	box-sizing: border-box;
 	margin: 0;
 }
 .main-wrapper {
-	width: 100%;
-	min-width: 920px;
-	padding: 0 4rem;
+	width: 1024px;
 	margin: auto;
 	z-index: 0;
 }
+.breadcrumb {
+	display: flex;
+	gap: 4px;
+	padding: 12px;
+}
+.div-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+.home-icon {
+	width: 16px;
+	height: 16px;
+}
+.home-text {
+	margin: 4px 4px 0 4px;
+	color: rgb(90, 90, 90);
+}
+
+.categoty-text {
+	margin: 0px 4px;
+	border: 1px solid rgb(200, 200, 200);
+	padding: 4px 8px;
+	width: 200px;
+	/* border-radius: 4px; */
+	color: rgb(90, 90, 90);
+
+	display: flex;
+	justify-content: space-between;
+
+	position: relative;
+}
+.choose-category {
+	height: 16px;
+	padding: 1px 0 2px 2px;
+}
+.down-arrow {
+	transform: rotate(90deg);
+}
+
+.hidden-wrapper {
+	position: absolute;
+	top: 27px;
+	left: -1px;
+
+	width: 200px;
+
+	border: 1px solid rgb(200, 200, 200);
+	list-style: none;
+	padding: 8px;
+
+	background-color: #fff;
+	transform: transtion;
+	/* transition: 0.2s;
+				opacity: 1; */
+
+	/* z-index: 1; */
+}
+
+.hidden {
+	visibility: hidden;
+	opacity: 0;
+	/* transform: transtion;
+				transition: 0.2s; */
+}
+
+.hidden-wrapper:hover {
+	cursor: pointer;
+}
 
 .section-line {
-	border-bottom: 1px solid var(--line-break);
-	padding: 2em 0;
+	border-bottom: 1px solid black;
+	padding: 4px 0 8px 0;
 }
 
 .product-info-window {
-	min-width: 960px;
-
 	height: 440px;
-	border-bottom: 1px solid var(--line-break);
-	padding: 20px 0;
-
-	display: grid;
-	grid-template-columns: 442px 1fr;
-	gap: 1rem;
-}
-
-.product-info-wrapper {
-	padding-top: 2rem;
-	width: 648px;
-}
-
-.product-pic {
-	width: 440px;
-	height: 402px;
-	display: flex;
-	position: relative;
-	overflow-y: hidden;
-}
-
-.product-img {
-	min-width: 100%;
-	height: 96%;
-	display: block;
-}
-.indicator {
-	display: flex;
-	justify-content: center;
-	gap: 12px;
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translateX(-50%);
-}
-.hidden {
-	display: none;
-}
-.indicator-arrow {
-	position: absolute;
-	height: 100%;
-	top: 0;
-	left: 0;
-}
-.arrow-wrapper {
-	position: relative;
-	height: 100%;
-}
-.arrow {
-	position: absolute;
-	top: 50%;
-	width: 2rem;
-	transform: translateY(-50%);
-}
-
-.arrow.left:hover,
-.arrow.right:hover {
-	cursor: pointer;
-	filter: invert(35%) sepia(88%) saturate(643%) hue-rotate(77deg)
-		brightness(97%) contrast(87%);
-	border: 2px solid forestgreen;
-	border-radius: 50%;
-	padding: 4px;
-}
-.arrow.right {
-	left: 400px;
-}
-/* 캐러셀 화살표 이동 */
-/* press dot to move */
-.fill-color {
-	background-color: lightgray;
-}
-.transform {
-	transform: transition;
-	transition: 1s;
-}
-.indicator-dot {
-	border: 1px solid gray;
-	border-radius: 50%;
-	padding: 4px;
-}
-.indicator-dot:hover {
-	cursor: pointer;
-}
-
-.product-status {
-	width: 100%;
-	position: relative;
-}
-
-.product-name {
-	display: flex;
-	justify-content: space-around;
-}
-.product-name-title {
-	height: 120px;
-}
-.img-wrapper {
-	border: 1px solid black;
-}
-.product-name > h2 {
-	font-size: 3rem;
-	font-weight: 600;
-}
-.product-price {
-	font-size: 2rem;
-	display: flex;
-	gap: 16px;
-	justify-content: center;
-	align-items: center;
-}
-
-.howToDeal {
-	border: 1px solid var(--line-color);
-	padding: 0.5rem;
-	color: var(--line-break);
-	min-width: 100px;
-}
-
-.product-content {
-	border-top: 1px solid var(--line-color);
-	margin-top: 2rem;
-	padding-top: 2rem;
-	line-height: 1.6;
-}
-
-.jjim-list {
-	font-size: 1.4rem;
-}
-
-.jjim-list li {
-	display: flex;
-	align-items: center;
-	list-style: none;
-	gap: 0.25rem;
-	color: var(--line-color);
-}
-.big-jjim-status,
-.dialog-status {
-	padding: 1rem;
-	border: 1px solid var(--line-color);
-	border-radius: 4px;
-
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	color: var(--line-color);
-	justify-content: center;
-}
-
-.big-jjim-status:hover,
-.howToDeal:hover,
-.dialog-status:hover,
-.heart-big:hover {
-	cursor: pointer;
-	border-color: forestgreen;
-	color: forestgreen;
-}
-
-.heart {
-	width: 1.2rem;
-	filter: invert(52%) sepia(88%) saturate(951%) hue-rotate(297deg)
-		brightness(104%) contrast(101%);
-}
-.heart-big {
-	width: 1.5rem;
-}
-
-.clicked {
-	border: 2px solid forestgreen;
-	filter: none;
-}
-.view-count {
-	width: 1.2rem;
-}
-.upload-times {
-	width: 1.6rem;
-	margin-left: -5px;
-}
-
-.product-deal {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	padding: 1rem 1rem 2px 1rem;
-	gap: 1rem;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-}
-
-.product-detail-info-wrapper {
-	padding-top: 2rem;
-}
-
-.product-detail-info {
-	font-size: 1.1rem;
-	font-weight: 400;
-	border-bottom: 1px solid var(--line-color);
-	padding-bottom: 1rem;
-}
-
-.proruct-content {
-	padding: 1rem 0;
 }

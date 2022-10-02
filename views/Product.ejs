@@ -45,11 +45,7 @@
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img
-						src=".././static/img/main/green2.jpg"
-						class="d-block w-100"
-						alt="..."
-					/>
+					<img src=".././static/img/main/green2.jpg" class="d-block w-100" alt="..." />
 
 					<div class="carousel-caption d-md-block">
 						<h1>이웃사촌</h1>
@@ -57,11 +53,7 @@
 					</div>
 				</div>
 				<div class="carousel-item" data-bs-interval="2000">
-					<img
-						src=".././static/img/main/vege7.jpg"
-						class="d-block w-100"
-						alt="..."
-					/>
+					<img src=".././static/img/main/vege7.jpg" class="d-block w-100" alt="..." />
 
 					<div class="carousel-caption d-md-block">
 						<h1>이웃사촌</h1>
@@ -69,11 +61,7 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img
-						src=".././static/img/main/vege4.jpg"
-						class="d-block w-100"
-						alt="..."
-					/>
+					<img src=".././static/img/main/vege4.jpg" class="d-block w-100" alt="..." />
 
 					<div class="carousel-caption d-md-block">
 						<h1>이웃사촌</h1>
@@ -112,35 +100,32 @@
 		</div>
 		<div class="product-title">상품목록</div>
 
-		<div class="container">
-			<section class="product-item">
-				<% for (let i=0; i < dataValues.length; i++){ %>
-				<a
-					class="product-item-window"
-					href="/detail/<%= dataValues[i]['product_id'] %>"
-				>
-					<% var pro =
-					dataValues[i]['product_img_src'].split("imgParseStandard"); %>
-
-					<img src="/<%= pro[1] %>" alt="" />
-					<input
-						id="product_id"
-						class="product-id"
-						value="<%= dataValues[i]['product_id'] %>"
-					/>
-					<div class="product-info-wrapper">
-						<div class="product-name"><%= dataValues[i]['product_name'] %></div>
-						<div class="product-price-wrapper">
-							<div class="product-price">
-								<%= dataValues[i]['product_price'] %>
-							</div>
-							<div class="product-upload-time"><%= datetime_arr[i]%></div>
+  <div class="container">
+		<section class="product-item">
+			<% for (let i=0; i < dataValues.length; i++){ %>
+			<a
+				class="product-item-window"
+				href="/detail/<%= dataValues[i]['product_id'] %>"
+			>
+				<img src="/<%= dataValues[i]['product_img_src'] %>" alt="" />
+				<input
+					id="product_id"
+					class="product-id"
+					value="<%= dataValues[i]['product_id'] %>"
+				/>
+				<div class="product-info-wrapper">
+					<div class="product-name"><%= dataValues[i]['product_name'] %></div>
+					<div class="product-price-wrapper">
+						<div class="product-price">
+							<%= dataValues[i]['product_price'] %>
 						</div>
+						<div class="product-upload-time"><%= datetime_arr[i]%></div>
 					</div>
-				</a>
-				<% } %>
-			</section>
-		</div>
+				</div>
+			</a>
+			<% } %>
+		</section>
+      </div>
 		<script>
 			const goDetail = (obj) => {
 				axios({
