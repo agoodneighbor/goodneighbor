@@ -37,10 +37,10 @@
 				<Strong>Upload</Strong>
 			</div>
 			<div class="UploadPage">
-				<div class="price">
-					<div id="share" type="button" value="나눔">나눔</div>
-					<div id="exchange" type="button" value="과일">교환</div>
-				</div>
+                <div class="price">
+                    <div id="share" class="givebtn"type="button" value="나눔">나눔</div>
+                    <div id="exchange" class="givebtn"type="button" value="교환">교환</div>
+                </div>
 				<div class="imgUpload">
 					<div class="CameraImg">
 						<div class="filebox">
@@ -71,13 +71,15 @@
 					</div>
 					<div class="imgDiv"></div>
 				</div>
-				<!-- <div class="categoryOption">
-					<select name="category">
-						<option type="category" value="카테고리">카테고리</option>
-						<option type="category" value="야채">야채</option>
-						<option type="category" value="과일">과일</option>
-					</select>
-				</div> -->
+
+<!--                 
+                <select class="categoryOption" name="category" >
+                    <option selected>카테고리<i class="fa-solid fa-arrow-down"></i></option>
+                    <option type="category" value="야채">야채</option>
+                    <option type="category" value="과일">과일</option>
+                </select>
+                 -->
+
 				<div class="categoryOption">
 					<select
 						name="category"
@@ -89,6 +91,7 @@
 						<option id="fruit" type="category" value="과일">과일</option>
 					</select>
 				</div>
+
 				<div class="itemName">
 					<input
 						id="ItemName"
@@ -167,53 +170,77 @@
 				$(".imgDiv").append(`<div class="ThumnailImg">
                     <img src="${event.target.result}" alt="">
                 </div>`);
-			};
-			// console.log(image);
-			formData.append("uploadfile", image);
-			img_data.push(img_data);
-			reader.readAsDataURL(image);
-		}
-	};
-	//formData.append("userdata", JSON.stringify(form_data));
-	const submitItems = () => {
-		let notempty = true;
-		for (let key of formData.values()) {
-			// console.log(key);
-		}
-		form_data.name = $("#ItemName").val();
-		form_data.detail = $("#ItemDetail").val();
-		//form_data.price = $("#Price").val();
-		if (
-			form_data.name === "" ||
-			form_data.detail === "" ||
-			form_data.price === ""
-		) {
-			notempty = false;
-			alert("빈칸이 있으면 안되요 ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ");
-		} else {
-			notempty = true;
-			formData.append("userdata", JSON.stringify(form_data));
-			axios({
-				headers: {
-					"Content-Type": "multipart/form-data",
-				},
-				url: "/api/additem",
-				method: "post",
-				// post방식 일때는 params가 data로 변경
-				data: formData,
-			})
-				.then((response) => {
-					// console.log(response);
-					if (response.data) {
-						alert("상품업로드 성공");
-						$("#AddItemModal").hide();
-					} else {
-						alert("예기치못한 오류가 ㄷ ㄷ ㄷ ㄷ ㄷ ㄷ 이이이잉 다시해줘잉");
-					}
-				})
-				.catch((error) => {
-					console.log(error);
-				});
-		}
-	};
+            };
+            console.log(image);
+            formData.append("uploadfile", image);
+            img_data.push(img_data);
+            reader.readAsDataURL(image);
+        }
+    };
+    //formData.append("userdata", JSON.stringify(form_data));
+    const submitItems = () => {
+        let notempty=true;
+        for (let key of formData.values()) {
+            console.log(key);
+        }
+        form_data.name = $("#ItemName").val();
+        form_data.detail = $("#ItemDetail").val();
+        form_data.price = $("#Price").val();
+        if(form_data.name===""||form_data.detail===""||form_data.price===""){
+            notempty=false
+            alert("빈칸이 있으면 안되요 ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ")
+        }else{
+            notempty=true;
+            formData.append("userdata", JSON.stringify(form_data));
+            axios({
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+                url: "/api/additem",
+                method: "post",
+                // post방식 일때는 params가 data로 변경
+                data: formData,
+            }).then((response) => {
+                console.log(response);
+                if (response.data) {
+                    alert("상품업로드 성공");
+                    $("#AddItemModal").hide();
+                } else {
+                    alert("예기치못한 오류가 ㄷ ㄷ ㄷ ㄷ ㄷ ㄷ 이이이잉 다시해줘잉");
+                }
+    
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
+        
+    };
+    var kindBtn = document.getElementsByClassName("givebtn");
+
+function handleClick(event) {
+  console.log(event.target);
+  // console.log(this);
+  // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+  console.log(event.target.classList);
+
+  if (event.target.classList[1] === "clicked") {
+    event.target.classList.remove("clicked");
+  } else {
+    for (var i = 0; i < kindBtn.length; i++) {
+      kindBtn[i].classList.remove("clicked");
+    }
+
+    event.target.classList.add("clicked");
+  }
+}
+
+function init() {
+  for (var i = 0; i <kindBtn.length; i++) {
+    kindBtn[i].addEventListener("click", handleClick);
+  }
+}
+
+init();
+
 </script>

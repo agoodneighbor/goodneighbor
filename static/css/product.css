@@ -1,14 +1,3 @@
-@font-face {
-	font-family: "GangwonEdu_OTFBoldA";
-	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
-
-* {
-	font-family: "GangwonEdu_OTFBoldA";
-}
-
 .product-title {
 	text-align: left;
 	font-size: 30px;
@@ -124,7 +113,8 @@ a.product-item-window {
 }
 
 .product-info-wrapper {
-	padding-left: 10px;
+	margin-left: 20px;
+	margin-right: 10px;
 }
 
 .product-name {
@@ -135,6 +125,10 @@ a.product-item-window {
 .product-price-wrapper {
 	display: flex;
 	justify-content: space-between;
+}
+
+.product-upload-time {
+	margin-right: 20px;
 }
 
 .product-id {
