@@ -81,7 +81,6 @@
                         let str=String(new Date(i.product_time)).split(" ");
                         let arr=["교환","나눔"]
                         html += `
-
                                 <div class="product-item-window">
                                     <img class="mypimg" src="${i.product_img_src}" alt="">    
                                     
@@ -97,9 +96,7 @@
                                 </div>
                             `;
                     }
-
                     html += `</div>`;
-
                     $("#ProductRow").html(html);
                 })
                     .catch((error) => {
