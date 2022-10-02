@@ -9,27 +9,63 @@
 	width: 70%;
 	position: relative;
 	top: 100px;
-	box-shadow: 0px 0px 5px gray;
+	/* box-shadow: 0px 0px 5px gray; */
 	display: flex;
-	margin-bottom: 30px;
+	margin: 25px 0 25px 0;
 }
 
 .profile-img {
 	background-color: antiquewhite;
 	padding-top: 20px;
-	padding-bottom: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	/* display: flex; */
+	/* padding-bottom: 20px; */
+	/* align-items: center; */
+	/* justify-content: center; */
+}
+
+.profile-myimg {
+	width: 300px;
+	height: 150px;
+	background-color: black;
+	border-radius: 40%;
+	/* text-align: center; */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.profile-my {
+	padding: 10px;
+	text-align: center;
+	font-size: var(--textFont1);
 }
 
 .profile-info {
 	width: 100%;
+	padding: 20px;
 	background-color: aqua;
-	display: flex;
 }
+
+.profile-info>div {
+	padding: 10px;
+	font-size: var(--textFont1);
+}
+
+.profile-upload {
+	border: 0;
+	width: 50px;
+	/* margin-left: 93%; */
+	text-align: center;
+	letter-spacing: 3px;
+}
+
+#IAM {
+	width: 100%;
+	height: 100px;
+	font-size: var(--textFont2);
+}
+
 
 @media screen and (max-width: 900px) {
 	.profile-img {
@@ -83,8 +119,7 @@ input:focus {
 
 .ButtonList {
 	position: relative;
-	top: 100px;
-
+	top: 115px;
 	width: 70%;
 	height: 100px;
 	display: flex;
@@ -98,6 +133,7 @@ input:focus {
 	justify-content: center;
 	flex-direction: column;
 	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+	font-size: var(--textFont2);
 }
 
 .btnDiv:hover {
@@ -110,7 +146,7 @@ input:focus {
 	/* width: 70%; */
 	position: relative;
 	top: 100px;
-	padding-top: 20px;
+	padding-top: 50px;
 	margin-bottom: 20px;
 }
 
@@ -118,67 +154,6 @@ input:focus {
 	width: 100%;
 }
 
-.babo {
-	width: 200px;
-	height: 200px;
-}
-
-/*
-.MyProduct {
-    width: 95%;
-    height: 150px;
-    border: 1px solid black;
-    display: grid;
-    gap: 15px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-
-}
-
-.MyPimg {
-    width: 95%;
-     height: 250px;
-     border: 1px solid black;
-    width: 100%;
-    height: 70%;
-}
-
-.product-frame {
-     background-color: gray;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 1rem;
-    background-color: whitesmoke;
-    height: 300px;
-    width: 230px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin: 1rem 0 2rem 1rem;
-    padding: 1rem;
-    border: 1px solid gray;
-}
-
-.Product_info {
-    width: 95%;
-    height: 100px;
-    border: 1px solid black;
-    padding-left: 10px;
-}
-*/
-
-/* .product-item {
-    margin-bottom: 1rem;
-    background-color: whitesmoke;
-    height: 300px;
-    width: 230px;
-    cursor: pointer;
-
-    padding: 0;
-    margin-right: 12px;
-} */
 .product-item {
 	display: grid;
 	gap: 15px;
@@ -213,40 +188,21 @@ input:focus {
 	}
 }
 
-/* .MyPimg img {
-    height: 70%;
-    width: 100%;
-}  */
 .mypimg {
 	width: 100%;
 	height: 200px;
 }
 
 .product-info-wrapper {
-	margin-left: 20px;
-	margin-top: 10px;
+	margin: 20px 20px 0 20px;
+}
 
-	/* a.product-item-window {
-	text-decoration: none;
-	color: initial;
-} */
+.product-name {
+	margin-bottom: 10px;
+	font-size: var(--textFont2);
+}
 
-	.MyPimg {
-		width: 100%;
-		height: 70%;
-	}
-
-	.product-info-wrapper {
-		padding-left: 10px;
-
-	}
-
-	.product-name {
-		font-size: 18px;
-		margin-bottom: 7px;
-	}
-
-	.product-price-wrapper {
-		display: flex;
-		justify-content: space-between;
-	}
+.product-price-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
