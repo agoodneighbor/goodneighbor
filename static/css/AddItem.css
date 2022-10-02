@@ -1,0 +1,202 @@
+.Circle {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.AddItemsModal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 100;
+}
+
+.ItemUploadPage {
+    position: relative;
+    visibility: visible;
+    border-radius: 10px;
+    background-color: white;
+    width: 500px;
+    height: 600px;
+    animation-name: fadeout;
+    animation-duration: 1s;
+    animation-duration: leaner;
+}
+
+
+@keyframes fadeout {
+    0% {
+        visibility: hidden;
+        width: 0px;
+    }
+
+    100% {
+        visibility: visible;
+        width: 500px;
+    }
+}
+
+.UploadLogo {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.UploadPage {
+    overflow-y: scroll;
+    width: 100%;
+    height: 500px;
+}
+
+.imgUpload {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 80px;
+    display: flex;
+    padding: 3px;
+}
+
+.imgDiv {
+    height: 100%;
+    width: 85%;
+    margin-left: 33px;
+    display: flex;
+    background-color: whitesmoke;
+
+}
+
+.CameraImg {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filebox {
+    background-color: whitesmoke;
+    margin-left: 30px;
+}
+
+.filebox label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: #999;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
+
+}
+
+svg.bi.bi-camera {
+    color: black;
+}
+
+.filebox input[type="file"] {
+    /* 파일 필드 숨기기 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.ThumnailImg {
+    border: 1px solid black;
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.categoryOption {
+    height: 32px;
+    width: 8rem;
+    margin-top: 15px;
+    margin-bottom: 22px;
+    margin-left: 8%;
+}
+
+.price {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.price>div {
+    cursor: pointer;
+    display: inline-block;
+    background-color: #1cc778;
+    color: white;
+    padding: 0 68px;
+    letter-spacing: 5px;
+}
+
+.price>div:hover {
+    color: black;
+}
+
+
+.itemName {
+    text-align: center;
+    height: 80px;
+}
+
+.itemDetail {
+    text-align: center;
+    height: 100px;
+}
+
+textarea#ItemDetail {
+    width: 80%;
+    height: 100%;
+    background-color: whitesmoke;
+    border: none;
+    font-size: initial;
+
+}
+
+input {
+    width: 80%;
+    height: 50px;
+    border: none;
+    overflow: visible;
+    background-color: #f2f2f2;
+}
+
+.addbtn {
+    width: 100%;
+    height: 18%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -1,0 +1,367 @@
+.bodyyy{
+  background: linear-gradient(252deg, #1cc778, #36b8f5, #98e6c2, #88e3b9);
+  background-size: 800% 800%;
+  -webkit-animation: AnimationName 17s ease infinite;
+  -moz-animation: AnimationName 17s ease infinite;
+  -o-animation: AnimationName 17s ease infinite;
+  animation: AnimationName 17s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 53%}
+  50%{background-position:100% 48%}
+  100%{background-position:0% 53%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 53%}
+  50%{background-position:100% 48%}
+  100%{background-position:0% 53%}
+}
+@-o-keyframes AnimationName {
+  0%{background-position:0% 53%}
+  50%{background-position:100% 48%}
+  100%{background-position:0% 53%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 53%}
+  50%{background-position:100% 48%}
+  100%{background-position:0% 53%}
+}
+
+
+
+/* 
+body{
+  margin:0;
+  height:100vh;
+  display:grid;
+  place-items:center;
+  background-color:black;
+  
+}
+
+.gallery{
+ 
+  position:relative;
+  width:300px;
+  height:400px;
+  transform-style:preserve-3d;
+  animation:rotate 35s linear infinite;
+  z-index: 2;
+}
+
+@keyframes rotate{
+  from{
+    transform:perspective(1200px) rotateY(0deg);
+  }
+  
+  to{
+    transform:perspective(1200px) rotateY(360deg);
+  }
+}
+
+.gallery span{
+  position:absolute;
+  width:100%;
+  height:100%;
+  transform-origin:center;
+  transform-style:preserve-3d;
+  transform:rotateY(calc(var(--i) * 45deg)) translateZ(380px);
+}
+
+.gallery span img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+} */
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500&family=Pacifico&display=swap"); */
+
+@font-face {
+  font-family: 'BinggraeSamanco';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/BinggraeSamanco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header {
+  
+  /* background-color:white; */
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.path {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.path1 , .cont1-text{
+  stroke:white;
+  stroke-dasharray: 7000;
+  animation: drawPath1 6s linear, floating 6.2s linear infinite;
+
+}
+
+.content1 {
+  position: relative;
+  /* background-color:white; */
+}
+
+.cont1-text {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  font-size: 3rem;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  .cont1-text {
+    font-size: 1.5rem;
+    right: 5%;
+  }
+}
+
+.content2 {
+  /* background-color: white; */
+}
+
+.path2 {
+  stroke: white;
+}
+
+
+.content3 {
+  /* background-color:white; */
+}
+.path3 {
+  stroke: white;
+}
+.path4{
+  stroke: white;
+}
+
+.footer {
+  height: 30vh;
+  background-color: #000;
+}
+
+@keyframes drawPath1 {
+  0% {
+    stroke-dashoffset: 6884;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes floating {
+  50% {
+    transform: translate3d(0, 40px, 0);
+  }
+}
+
+
+/* 카드이미지 */
+/* *:not(head, script, svg, svg *),
+*:not(head, script, svg, svg *)::before,
+*:not(head, script, svg, svg *)::after {
+  all: unset;
+  box-sizing: border-box;
+  font-family: sans-serif;
+} */
+
+.cardBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+
+  backface-visibility: hidden; /* Force GPU Usage */
+}
+
+.carddd {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50vmin;
+  height: 50vmin;
+  background: white;
+  padding: 5vmin;
+  border-radius: 2vmin;
+  
+}
+
+.carddd h2 {
+  font-size: 6vmin;
+  line-height: 110%;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+
+.carddd p {
+  font-size: 4vmin;
+  line-height: 150%;
+  font-weight: 400;
+  color: black;
+  padding-left: 8vmin;
+  border-left: 2px solid#1CC778;
+  margin: 6vmin 0;
+}
+
+.carddd a {
+  font-size: 3vmin;
+  background-color: #1CC778;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 2vmin 4vmin;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+a:focus {
+  outline: 1px dotted gray;
+}
+
+a:active {
+  transform: scale(0.98);
+}
+
+.carddd::before {
+  position: absolute;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  background: white;
+  border-radius: 100%;
+  filter: drop-shadow(15vmin 15vmin 22vmin #1CC778);
+  transform-box: fill-box;
+  -webkit-transform-box: fill-box;
+  transform-origin: center;
+  -webkit-transform-origin: center;
+  content: "";
+  z-index: -10;
+  animation: shadowRotate 5s linear infinite;
+}
+
+@keyframes shadowRotate {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+
+/* 백그라운드 그라 */
+
+
+
+
+/* css for my tutorial channel link */
+/* #tube {position: fixed; bottom: 1vw; right: 1vw; opacity: 0.4;}
+#tube:hover { opacity: 1; } #tube >img { height: 3rem; } */
+
+
+
+
+
+/* slide */
+
+/* :root {
+  --count: 6;
+  --slide-count: 4;
+  --slide-duration: 0s;
+  --slide-step: (var(--slide-duration) / var(--count));
+  --distance: calc(50vw + 100%);
+  --color: hsl(0 0% 10%);
+  --bg: hsl(0 0% 98%);
+}
+
+@media(prefers-reduced-motion: no-preference) {
+  :root {
+    --slide-duration: 0.65s;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg);
+}
+
+h1 {
+  font-size: clamp(6rem, 16vmin, 16rem);
+  font-style: italic;
+
+  position: relative;
+  margin: 0;
+  color: var(--color);
+}
+
+h1 span {
+  line-height: 0.85;
+}
+
+h1 span:not([aria-hidden]) {
+  color: transparent;
+  animation: fill 0s calc(calc(var(--count) * var(--slide-step)) + (var(--slide-duration) * var(--slide-count))) both;
+}
+
+@keyframes fill {
+  to {
+    color: var(--color);
+  }
+}
+
+h1 span[aria-hidden] {
+  --delay: calc(var(--index) * var(--slide-step));
+  position: absolute;
+  display: inline-block;
+  animation:
+    slide var(--slide-duration) var(--delay) var(--slide-count) backwards ease-in,
+    slide-to calc(var(--slide-duration) * 0.5) calc(var(--delay) + (var(--slide-duration) * var(--slide-count))) forwards cubic-bezier(.87,1.4,.87,1.4);
+  top: 50%;
+ 
+  transform: translate(0, -50%);
+
+  --block: calc(100% / var(--count));
+  clip-path: inset(
+    calc(var(--index) * (var(--block)))
+    -50%
+    calc(100% - ((var(--index) * var(--block)) + var(--block)))
+    -50%);
+}
+
+h1 span:nth-of-type(even) {
+  --distance: calc(-50vw - 100%);
+}
+
+@keyframes slide {
+  0% {
+    transform: translate(-50%, -50%) translateX(calc(var(--distance) * -1));
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(var(--distance));
+  }
+}
+
+@keyframes slide-to {
+  0% {
+    transform: translate(-50%, -50%) translateX(calc(var(--distance) * -1));
+  }
+} */
