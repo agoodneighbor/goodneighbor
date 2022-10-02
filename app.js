@@ -38,6 +38,12 @@ app.set("view engine", "ejs");
 
 io.on("connection", (socket) => {
 	console.log(socket.id);
+
+	socket.on("roomentry", (msg) => {
+        console.log(msg)
+		socket.join(msg);
+    })
+
 });
 
 http.listen(port, () => {

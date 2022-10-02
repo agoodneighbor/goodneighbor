@@ -104,17 +104,17 @@ db.WishList.belongsTo(db.Product, {
 });
 
 //# 5-1 체팅룸과 컨텐츠 포린키 연결
-db.ChatRoom.hasMany(db.Product, {
+db.ChatRoom.hasMany(db.ChatContent, {
 	foreignKey: "room_id",
 	sourceKey: "room_id",
-	onUpdate: "room_id",
+	onUpdate: "cascade",
 });
 
 //# 5-1 체팅룸과 컨텐츠 포린키 연결
-db.ChatContent.belongsTo(db.Member, {
+db.ChatContent.belongsTo(db.ChatRoom, {
 	foreignKey: "room_id",
 	sourceKey: "room_id",
-	onUpdate: "room_id",
+	onUpdate: "cascade",
 });
 
 // db.ImgUrl = require("./ImgUrl")(sequelize, Sequelize);

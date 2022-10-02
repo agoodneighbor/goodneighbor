@@ -31,13 +31,15 @@
 	$(".dialog-status").click((key) => {
 		$("#modal_window_chat").show();
 		socket=io.connect()
-		const pid=Number("<%=product_detail_info['product_id']%>");
+		const pid=Number("<%=product_detail_info['member_id']%>");
+		console.log(pid);
 		axios({
 			url: "/api/takeroom",
 			method: "get",
-			params: { product_id: pid }
+			params: { member_id: pid }
 		}).then((result) => {
-			
+			console.log(result.data);
+            socket.emit("roomentry", result.data);
 		});
 	})
 	

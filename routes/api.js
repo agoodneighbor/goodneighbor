@@ -43,6 +43,7 @@ const productController = require("../Controller/ProductController");
 const chatController=require("../Controller/ChatController");
 
 router.get("/takeroom",chatController.takeChat);
+router.get("/takechatlist",chatController.takeRoomList);
 
 router.post("/assign", memberController.asign);
 router.post("/login", memberController.login);

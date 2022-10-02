@@ -23,7 +23,7 @@
 			<div class="profile-info"></div>
 		</div>
 		<div class="ButtonList">
-			<div class="btnDiv" onclick="change()">회원정보 수정</div>
+			<div class="btnDiv" onclick="change()">체팅방</div>
 			<div class="btnDiv" onclick="fire()">회원탈퇴</div>
 			<div class="btnDiv" onclick="Jimm()">찜 리스트 보기</div>
 			<div class="btnDiv" onclick="Myproduct()">내상품 보기</div>
@@ -35,7 +35,17 @@
 				while (cell.hasChildNodes()) {
 					cell.removeChild(cell.firstChild);
 				}
-				$(".ClickPage").append(`<%- include("Myinfo.ejs") %>`);
+				axios({
+					url: "/api/takechatlist",
+					method: "get",
+					// post방식 일때는 params가 data로 변경
+				})
+					.then((response) => {
+						console.log(response.data);
+					})
+					.catch((error) => {
+						// console.log(error);
+					});
 			};
 			const Jimm = () => {
 				var cell = document.getElementById("ClickPage");
