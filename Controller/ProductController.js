@@ -1,6 +1,6 @@
 "use strict";
 
-const { Model } = require("sequelize");
+const { Model, where } = require("sequelize");
 const {
 	Product,
 	WishList,
@@ -24,10 +24,14 @@ exports.products = async (req, res) => {
 		is_login = true;
 		let include = [{ model: Address, attributes: ["city", "dong"] }];
 
-		const result = await Member.findOne({ include: include });
-		myPoint = result.address.dataValues;
+		const result = await Member.findOne({ include: include ,
+				where:{member_id:Number(req.session.user)}
+		});
+		//myPoint = result.address.dataValues;
 		serchCategory = result.address.dataValues;
 	}
+	console.log("serchcate",serchCategory);
+	console.log("mypoint",myPoint);
 
 	const result = await Product.findAll({
 		include: [
@@ -45,7 +49,7 @@ exports.products = async (req, res) => {
 		],
 		where: { product_name: { [Op.like]: "%" + searchtag + "%" } },
 	});
-
+	//console.log(result)
 	let dataValues = [];
 	let datetime_arr = [];
 	for (let i of result) {

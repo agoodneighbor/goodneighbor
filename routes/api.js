@@ -44,6 +44,9 @@ const chatController=require("../Controller/ChatController");
 
 router.get("/takeroom",chatController.takeChat);
 router.get("/takechatlist",chatController.takeRoomList);
+router.get("/takecontent",chatController.takeChatContant);
+router.post("/storechat",chatController.storeChat);
+
 
 router.post("/assign", memberController.asign);
 router.post("/login", memberController.login);
