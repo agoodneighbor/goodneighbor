@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<%- include("Head.ejs") %>
+
+<head>
+	<%- include("Head.ejs") %>
 		<link rel="stylesheet" href="../static/css/Profile.css" />
 		<link rel="stylesheet" href="../static/css/chat.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
 			integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-	</head>
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-	<body class="profile-body">
-		<%- include("navBar.ejs") %>
+<body class="profile-body">
+	<%- include("navBar.ejs") %>
 		<div class="show-profile">
 			<div class="profile-img">
 				<div class="profile-inner-img">
@@ -63,32 +60,25 @@
 			<div class="modalPage">
 				<div class="chat_box">
 					<div id="close_chat" class="c_b">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="16"
-							height="16"
-							fill="currentColor"
-							class="bi bi-x-lg"
-							viewBox="0 0 16 16"
-						>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+							class="bi bi-x-lg" viewBox="0 0 16 16">
 							<path
-								d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
-							/>
+								d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
 						</svg>
 					</div>
-		
+
 					<div class="messages">
-								
-									<div class="update">abc 입장햇어</div>
+
+						<div class="update">abc 입장햇어</div>
 					</div>
-								<div class="textbox">
-									<input type="text" id="chat-cont" >
-									<button id="send-message" onclick="MsgSend()">Send</button>
-								</div>
-		
+					<div class="textbox">
+						<input type="text" id="chat-cont">
+						<button id="send-message">Send</button>
+					</div>
+
 				</div>
 			</div>
-		
+
 		</div>
 		<script>
 			const change = () => {
@@ -103,7 +93,7 @@
 				})
 					.then((response) => {
 						console.log(response.data);
-						for (let i=0;i<response.data.takeroom.length;i++) {
+						for (let i = 0; i < response.data.takeroom.length; i++) {
 							$("#ClickPage").append(`<div class="chat-name-div" data-value="${response.data.takeroom[i]}" onclick="goRoom(this)">${response.data.ananta[i]}<div class="chat-name">${response.data.takeroom[i].room_name}</div></div>`)
 						}
 					})
@@ -111,10 +101,10 @@
 						// console.log(error);
 					});
 			};
-			$("#close_chat").click(()=>{
+			$("#close_chat").click(() => {
 				window.location.reload()
 			})
-			var roomname=undefined;
+			var roomname = undefined;
 			const goRoom = (obj) => {
 				$("#modal_window_chat").show();
 				socket = io.connect()
@@ -128,16 +118,17 @@
 					params: { member_id: roomname }
 				}).then((result) => {
 					console.log(result.data);
-					let chatcont=result.data.content.chat_content.split("//")
-					console.log("chatcontent",chatcont)
-					for(let i of chatcont){
-						if(Number(i.split("&&")[0])==Number(result.data.mynum)){
+					let chatcont = result.data.content.chat_content.split("//")
+					console.log("chatcontent", chatcont)
+					for (let i of chatcont) {
+						console.log('hcat', i)
+						if (Number(i.split("&&")[0]) == Number(result.data.mynum)) {
 							$(".messages").append(`<div class="message my-message">
 								<div>
 									<div class="text">${i.split("&&")[1]}</div>
 								</div>
 							</div>`)
-						}else{
+						} else {
 							$(".messages").append(`<div class="message other-message">
 								<div>
 									<div class="text">${i.split("&&")[1]}</div>
@@ -148,31 +139,36 @@
 					socket.emit("roomentry", result.data.roomname);
 				});
 				$("#chat-cont").on("keyup", (key) => {
-					// console.log(key);
+					console.log(key.target.value);
+
 					if (key.keyCode == 13) {
-						socket.emit("sendto",{roomname:roomname,msg:key.target.value})
-						$(".messages").append(`<div class="message my-message">
+						if ($("#chat-cont").val().trim() != '') {
+							socket.emit("sendto", { roomname: roomname, msg: key.target.value })
+							$(".messages").append(`<div class="message my-message">
 							<div>
 								<div class="text">${key.target.value}</div>
 							</div>
 						</div>`)
-						axios({
-							url: "/api/storechat",
-							method: "post",
-							data: { content: key.target.value,roomname:roomname }
-						}).then((result) => {
-							console.log("콘솔로그",result.data);
-							socket.emit("roomentry", "hi im entry");
-						});
-						$("#chat-cont").val("")
+							axios({
+								url: "/api/storechat",
+								method: "post",
+								data: { key: key, content: key.target.value, roomname: roomname }
+							}).then((result) => {
+								console.log("콘솔로그", result.data);
+								socket.emit("roomentry", "hi im entry");
+							});
+							$("#chat-cont").val("")
+							let chatBox = document.querySelector(".messages");
+							chatBox.scrollTo(0, chatBox.scrollHeight)
+						}
 					}
 				});
-				socket.on("recieve",(msg)=>{
-					console.log("recieve",msg)
+				socket.on("recieve", (msg) => {
+					console.log("recieve", msg)
 				})
 
 			}
-			
+
 
 			const Jimm = () => {
 				var cell = document.getElementById("ClickPage");
@@ -275,5 +271,6 @@
 				}
 			};
 		</script>
-	</body>
+</body>
+
 </html>
