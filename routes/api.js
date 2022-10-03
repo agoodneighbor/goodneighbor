@@ -40,15 +40,20 @@ const upload = multer({
 
 const memberController = require("../Controller/MemberController");
 const productController = require("../Controller/ProductController");
+const chatController=require("../Controller/ChatController");
 
-router.get("/", memberController.member); // 멤버 콘트롤러.멤버
-router.get("/profile", memberController.accessProfile); // 프로필 접근 성공 여부 확인
+router.get("/takeroom",chatController.takeChat);
+router.get("/takechatlist",chatController.takeRoomList);
+router.get("/takecontent",chatController.takeChatContant);
+router.post("/storechat",chatController.storeChat);
 
-router.get("/product", productController.products); // 로그인 하지 않은 프로턱트 페이지 렌더
-router.get("/product/:search", productController.products);
-router.get("/detail/:id", productController.showDetail);
 
-router.get("/jimm", productController.Jimm);
-router.get("/myproduct", productController.Myproduct);
+router.post("/assign", memberController.asign);
+router.post("/login", memberController.login);
+router.get("/logout", memberController.Logout);
+router.post("/additem", upload, productController.ProductAdd);
+
+router.post("/like", productController.DoJimm);
+router.post("/checkJimm", productController.checkJimm);
 
 module.exports = router;
