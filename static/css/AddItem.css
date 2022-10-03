@@ -55,6 +55,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	font-size: var(--textFont1);
 }
 
 .UploadPage {
@@ -143,47 +145,32 @@ img {
     margin-left: 8%;
 } */
 .categoryOption {
-    margin-left: 10%;
-    margin-bottom: 10px;
-    width: 80px;
-    margin-top: 18px;
-    padding: 6px 10px;
-    font-size: 0.9rem;
-    appearance: none;
-    outline: none;
-    font-size: 17px;
+	margin-left: 10%;
+	margin-bottom: 20px;
+	margin-top: 25px;
+	width: 97px;
+	padding: 6px 10px;
+	font-size: 0.9rem;
+	appearance: none;
+	outline: none;
+
+	font-size: 17px;
 }
 
 .categoryOption:hover {
-    border: 3px solid green;
+	border: 3px solid green;
 }
 
 
 .price {
 	text-align: center;
 	margin-bottom: 20px;
+
+	font-size: var(--textFont2);
 }
 
 
 .givebtn {
-    cursor: pointer;
-    display: inline-block;
-    background-color: #1cc778;
-    color: white;
-    padding: 0 68px;
-    letter-spacing: 5px;
-}
-
-.givebtn:hover {
-    color: black;
-}
-
-.clicked {
-    background-color: yellowgreen;
-}
-
-
-.price > div {
 	cursor: pointer;
 	display: inline-block;
 	background-color: #1cc778;
@@ -192,18 +179,37 @@ img {
 	letter-spacing: 5px;
 }
 
-.price > div:hover {
+
+.clicked {
+	background-color: yellowgreen;
+}
+
+
+.price>div {
+	cursor: pointer;
+	display: inline-block;
+	background-color: #1cc778;
+	color: white;
+	padding: 0 68px;
+	letter-spacing: 5px;
+}
+
+.price>div:hover {
 	color: black;
 }
 
 .itemName {
 	text-align: center;
 	height: 80px;
+
+	font-size: var(--textFont2);
 }
 
 .itemDetail {
 	text-align: center;
 	height: 100px;
+
+	font-size: var(--textFont2);
 }
 
 textarea#ItemDetail {
@@ -211,7 +217,9 @@ textarea#ItemDetail {
 	height: 100%;
 	background-color: whitesmoke;
 	border: none;
-	font-size: initial;
+
+	font-size: var(--textFont2);
+
 }
 
 input {
@@ -229,4 +237,6 @@ input {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+
+	font-size: var(--textFont2);
 }
