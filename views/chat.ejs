@@ -1,7 +1,7 @@
 <div id="modal_window_chat" class="modal_back">
 	<div class="modalPage">
-        <div class="chat_box">
-            <div id="close_chat" class="c_b">
+		<div class="chat_box">
+			<div id="close_chat" class="c_b">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="16"
@@ -15,6 +15,7 @@
 					/>
 				</svg>
 			</div>
+
             <div class="messages">
 						
 							<div class="message my-message">
@@ -38,56 +39,56 @@
 
         </div>
     </div>
+
 </div>
 
-
-
-
 <script>
-	var socket=undefined;
+	var socket = undefined;
 	$(".dialog-status").click((key) => {
 		$("#modal_window_chat").show();
-		socket=io.connect()
-		const pid=Number("<%=product_detail_info['member_id']%>");
-		let roomname=undefined;
+		socket = io.connect();
+		const pid = Number("<%=product_detail_info['member_id']%>");
+		let roomname = undefined;
 		console.log(pid);
 		axios({
 			url: "/api/takeroom",
 			method: "get",
-			params: { member_id: pid }
+			params: { member_id: pid },
 		}).then((result) => {
-			roomname=result.data;
+			roomname = result.data;
 			console.log(result.data);
-            socket.emit("roomentry", result.data);
+			socket.emit("roomentry", result.data);
 		});
 
 		$("#chat-cont").on("keyup", (key) => {
 			// console.log(key);
 			if (key.keyCode == 13) {
+
 				socket.emit("sendto",{roomname:roomname,msg:key.target.value})
 				$(".messages").append(`<div>${key.target.value}</div>`)
 				axios({
 					url: "/api/storechat",
 					method: "post",
-					data: { content: key.target.value,roomname:roomname }
+					data: { content: key.target.value, roomname: roomname },
 				}).then((result) => {
 					console.log(result.data);
 					socket.emit("roomentry", "hi im entry");
 				});
 			}
 		});
-		socket.on("recieve",(msg)=>{
-			console.log("revieve",msg);
-		})
-	})
-	
-    $("#close_chat").click(()=>{
-        $("#modal_window_chat").hide();
-    })
+		socket.on("recieve", (msg) => {
+			console.log("revieve", msg);
+		});
+	});
+
+	$("#close_chat").click(() => {
+		$("#modal_window_chat").hide();
+	});
 
 	$("#chat-cont").on("keyup", (key) => {
 		// console.log(key);
 		if (key.keyCode == 13) {
+
 			$(".messages").append(`<div>${key.target.value}</div>`)
 		}
 	});
@@ -97,3 +98,4 @@ function MsgSend(){
 }
 
 </script>
+
