@@ -179,21 +179,18 @@
 		const uploadMin = stringExam.split(" ")["4"].split(":")["1"]
 		const uploadTime = `${stringExam.split(" ")["4"].split(":")["0"]}시 ${stringExam.split(" ")["4"].split(":")["1"]
 			}분`;
-		console.log(stringExam, uploadMin)
 		const productImgArr = "<%=product_detail_info['product_img_src']%>";
+		const uploadDateTime = document.querySelector(".upload-time");
 
 		// db에서 받은 날짜를 숫자로 변환
 		const now = () => {
 			const currentday = new Date().getDate();
-
 			if (currentday > uploadDate) return `${currentday - uploadDate} 일전`;
 			else if (currentday > uploadDate) return `${currentday - uploadDate} 일전`;
 			else return `${uploadYear}년 ${currentMonth(uploadMonth)}월 ${uploadDate}일 ${uploadTime}`;
 		};
 
-		const uploadDateTime = document.querySelector(".upload-time");
 		uploadDateTime.textContent = now();
-
 		//false일때만 axios가 실행되도록 함 이런건 프론트딴에서 해결해야 백엔드에 과부하가 안가요! 사실 저희 프로젝트는 작아서 상관없지만서도
 		jjimBtn.addEventListener("click", () => {
 			const jjimBool = Boolean(jjimBtn.classList.contains(CLICKED_CLASS));
@@ -228,13 +225,16 @@
 		const FILL_COLOR_CLASS = "fill-color";
 		const HIDDEN_CLASS = "hidden";
 
+		const leftBtn = document.querySelector(".arrow.left");
+		const rightBtn = document.querySelector(".arrow.right");
+		const TRANSFORM_CLASS = "transform";
+
 		const clickDot = () => {
 			if (dots.length === 1) {
 				dots[0].classList.add(FILL_COLOR_CLASS);
 				arrowWrapper.classList.add(HIDDEN_CLASS);
 			} else {
 				dots[0].classList.add(FILL_COLOR_CLASS);
-
 				dots.forEach((el, index) => {
 					el.addEventListener("click", () => {
 						move1(index);
@@ -254,10 +254,6 @@
 			}
 			dots[index].classList.add(FILL_COLOR_CLASS);
 		}
-
-		const leftBtn = document.querySelector(".arrow.left");
-		const rightBtn = document.querySelector(".arrow.right");
-		const TRANSFORM_CLASS = "transform";
 
 		function leftArrow() {
 			if (dots[0].classList.contains(FILL_COLOR_CLASS)) move1(2);
