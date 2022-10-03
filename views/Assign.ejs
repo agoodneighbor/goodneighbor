@@ -1,0 +1,101 @@
+<div class="modal-cont-Assign">
+	<div class="Login_Logo">
+		<Strong style="margin-top: 20px">Assign</Strong>
+	</div>
+	<div class="close_btn" onclick="close_Assign()">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="16"
+			height="16"
+			fill="currentColor"
+			class="bi bi-x-lg"
+			viewBox="0 0 16 16"
+		>
+			<path
+				d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+			/>
+		</svg>
+	</div>
+	<div class="detail_user">
+		<div class="map_div">
+			<div id="map" style="width: 100%; height: 80%"></div>
+			<script
+				type="text/javascript"
+				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1d8a3b5411575a63527efe44dd798dfe&libraries=services"
+			></script>
+		</div>
+		<div class="input-tag">
+			<input
+				id="checkpoint"
+				class="assign_input"
+				type="text"
+				placeholder="주소 ex)xx시/xx도/xx동/xx로/12 3개 이상"
+			/>
+			<div id="b" onclick="CheckPoint(this)">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					fill="currentColor"
+					class="bi bi-cursor-fill"
+					viewBox="0 0 16 16"
+				>
+					<path
+						d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"
+					/>
+				</svg>
+			</div>
+		</div>
+		<div id="OkButton"></div>
+		<div
+			class="detail_user"
+			style="
+				height: 420px;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+			"
+		>
+			<form
+				style="
+					width: 100%;
+					display: flex;
+					align-items: center;
+					flex-direction: column;
+				"
+			>
+				<input
+					style="height: 60px; width: 90%; margin-bottom: 30px"
+					id="ID"
+					class="assign_input"
+					type="text"
+					placeholder="아이디:소문자 + 숫자 + 언더바/하이픈 허용 4~20자리"
+					autocomplete="username"
+					required
+				/>
+				<input
+					style="height: 60px; width: 90%; margin-bottom: 30px"
+					id="password"
+					class="assign_input"
+					type="password"
+					placeholder="비밀번호:8 ~ 16자 영문, 숫자, 특수문자를 최소 한가지씩 조합"
+					autocomplete="current-password"
+					required
+				/>
+				<input
+					style="height: 60px; width: 90%; margin-bottom: 30px"
+					id="name"
+					class="assign_input"
+					type="text"
+					placeholder="이름"
+					required
+				/>
+			</form>
+			<div id="submitButton">
+				<button onclick="submitButton()" class="custom-btn btn-3">
+					<span>회원가입 하기</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

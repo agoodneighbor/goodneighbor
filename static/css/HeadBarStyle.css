@@ -1,0 +1,179 @@
+:root {
+	--navbarMenuFont: 25px;
+}
+
+@font-face {
+	font-family: 'BinggraeSamanco-Bold';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/BinggraeSamanco-Bold.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+* {
+	font-family: "BinggraeSamanco-Bold";
+}
+
+.mainBar {
+	height: 400px;
+	width: 100%;
+	background-color: aqua;
+}
+
+.navMenu {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 30px;
+}
+
+.navBar {
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	height: 80px;
+	background-color: transparent;
+	display: flex;
+	width: 100vw;
+	align-items: center;
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	/* margin-left: 400px; */
+	cursor: pointer;
+	font-size: var(--navbarMenuFont);
+}
+
+.menu.find {
+	height: 40px;
+	width: 215px;
+}
+
+.menu.find:focus {
+	outline: 1px solid #1cc778;
+}
+
+.menu.icon {
+	font-size: 22px;
+	margin-left: 5px;
+	margin-right: 62px;
+}
+
+.menu.go>a {
+	text-decoration: none;
+	color: initial;
+}
+
+.LoginMenu {
+	position: absolute;
+	right: 0px;
+	width: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Login {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-size: var(--navbarMenuFont);
+}
+
+.Assign {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-size: var(--navbarMenuFont);
+}
+
+.Assign>a {
+	text-decoration: none;
+	color: initial;
+}
+
+.Logo {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* width: 20%; */
+	margin-left: 45px;
+	margin-right: 54px;
+}
+
+i.fa-solid.fa-people-roof {
+	font-size: 23px;
+}
+
+.Logo-title {
+	margin-left: 5px;
+	margin-right: 70px;
+	font-size: 25px;
+}
+.logo-title-a {
+	text-decoration: none;
+	color: forestgreen;
+}
+.logo-title-a:hover {
+	color: hotpink;
+}
+
+.side {
+	position: fixed;
+	height: 100vh;
+	width: 150px;
+	left: -150px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	transition: 0.5s;
+	z-index: 10000;
+}
+
+/* .hamberger {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+} */
+
+@media screen and (max-width: 950px) {
+	.menu.go {
+		display: none;
+	}
+
+	.menu.find {
+		height: 40px;
+		width: 215px;
+	}
+
+	.LoginMenu {
+		width: 150px;
+	}
+}
+
+@media screen and (max-width: 740px) {
+	.menu.go {
+		display: none;
+	}
+
+	.Logo {
+		margin-right: 0;
+	}
+}
+
+@media screen and (max-width: 660px) {
+	.Logo {
+		display: none;
+	}
+}

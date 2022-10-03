@@ -1,0 +1,44 @@
+.modal_back {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 100;
+
+}
+
+.modalPage {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.chat_box{
+    height: 600px;
+    width: 400px;
+    background-color: white;
+    position: relative;
+}
+
+.c_b{
+    position: absolute;
+    right: 3px;
+}
+.chat_content{
+    position: relative;
+    top: 40px;
+    padding-top:20px;
+    width: 100%;
+    height: 80%;
+    background-color: green;
+}
+
+#chat-cont{
+    position: relative;
+    top: 40px;
+}

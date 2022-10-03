@@ -1,0 +1,252 @@
+.profile-body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.show-profile {
+	width: 70%;
+	position: relative;
+	top: 100px;
+	box-shadow: 0px 0px 5px gray;
+	display: flex;
+	margin-bottom: 30px;
+}
+
+.profile-img {
+	background-color: antiquewhite;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.profile-info {
+	width: 100%;
+	background-color: aqua;
+	display: flex;
+}
+
+@media screen and (max-width: 900px) {
+	.profile-img {
+		width: 100%;
+		background-color: antiquewhite;
+	}
+
+	.profile-info {
+		width: 100%;
+		background-color: aqua;
+	}
+
+	.show-profile {
+		display: block;
+	}
+}
+
+input {
+	width: 80%;
+	height: 50px;
+	border: none;
+	overflow: visible;
+	background-color: #f2f2f2;
+}
+
+.filebox input[type="file"] {
+	/* 파일 필드 숨기기 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+input:focus {
+	outline: none;
+}
+
+.inputList {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 60%;
+	padding-top: 20px;
+}
+
+.ButtonList {
+	position: relative;
+	top: 100px;
+
+	width: 70%;
+	height: 100px;
+	display: flex;
+}
+
+.btnDiv {
+	height: 100%;
+	width: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+.btnDiv:hover {
+	background-color: #f2f2f2;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.ClickPage {
+	/* width: 70%; */
+	position: relative;
+	top: 100px;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+.myProfile {
+	width: 100%;
+}
+
+.babo {
+	width: 200px;
+	height: 200px;
+}
+
+/*
+.MyProduct {
+    width: 95%;
+    height: 150px;
+    border: 1px solid black;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+
+}
+
+.MyPimg {
+    width: 95%;
+     height: 250px;
+     border: 1px solid black;
+    width: 100%;
+    height: 70%;
+}
+
+.product-frame {
+     background-color: gray;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 1rem;
+    background-color: whitesmoke;
+    height: 300px;
+    width: 230px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 1rem 0 2rem 1rem;
+    padding: 1rem;
+    border: 1px solid gray;
+}
+
+.Product_info {
+    width: 95%;
+    height: 100px;
+    border: 1px solid black;
+    padding-left: 10px;
+}
+*/
+
+/* .product-item {
+    margin-bottom: 1rem;
+    background-color: whitesmoke;
+    height: 300px;
+    width: 230px;
+    cursor: pointer;
+
+    padding: 0;
+    margin-right: 12px;
+} */
+.product-item {
+	display: grid;
+	gap: 15px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+}
+
+.product-item-window {
+	margin-bottom: 1rem;
+	background-color: whitesmoke;
+	height: 300px;
+	width: 230px;
+	cursor: pointer;
+}
+
+@media screen and (min-width:550px) {
+	.product-item {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (min-width:768px) {
+	.product-item {
+
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media screen and (min-width:1024px) {
+	.product-item {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* .MyPimg img {
+    height: 70%;
+    width: 100%;
+}  */
+.mypimg {
+	width: 100%;
+	height: 200px;
+}
+
+.product-info-wrapper {
+	margin-left: 20px;
+	margin-top: 10px;
+
+	/* a.product-item-window {
+	text-decoration: none;
+	color: initial;
+} */
+
+	.MyPimg {
+		width: 100%;
+		height: 70%;
+	}
+
+	.product-info-wrapper {
+		padding-left: 10px;
+
+	}
+
+	.product-name {
+		font-size: 18px;
+		margin-bottom: 7px;
+	}
+
+	.product-price-wrapper {
+		display: flex;
+		justify-content: space-between;
+	}

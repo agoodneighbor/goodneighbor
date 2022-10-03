@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="../static/css/upload.css" />
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<%-include("Head.ejs")%>
+	</head>
+	<body>
+		<div class="container">
+			<div class="container__btn-body">
+				<a id="container-btn" class="container__button" href="#">
+					<i class="fa-solid fa-plus"></i>
+				</a>
+			</div>
+			<div id="popup" class="popup">
+				<div class="popup__body">
+					<div class="popup__items">
+						<div class="upload__container">
+							<div class="wrapper">
+								<div class="upload__img">
+									<img />
+								</div>
+								<div class="upload-content">
+									<div class="upload__icon">
+										<i
+											class="fa-solid fa-cloud-arrow-up"
+											style="font-size: 50px"
+										></i>
+									</div>
+									<div class="upload__text">No file chosen, yet!</div>
+								</div>
+							</div>
+							<input id="default-btn" type="file" hidden />
+							<button onclick="defaultBtnActive()" id="custom-btn">
+								choose a file
+							</button>
+						</div>
+
+						<form class="upload__form">
+							<p>
+								<select class="upload__list" name="category">
+									<option name="category" value="카테고리">카테고리</option>
+									<option value="과일">과일</option>
+									<option value="야채">야채</option>
+								</select>
+							</p>
+							<p>
+								<input
+									class="upload__title"
+									type="text"
+									name="upload-name"
+									placeholder="상품명"
+								/>
+							</p>
+							<p>
+								<input
+									class="upload__price"
+									type="text"
+									name="upload-price"
+									placeholder="가격"
+								/>
+							</p>
+							<p>
+								<textarea
+									class="upload__content"
+									type="text"
+									name="upload-explain"
+									placeholder="상품설명"
+								></textarea>
+							</p>
+							<a id="popup-nook" class="popup__button" href="#">취소</a>
+							<a id="popup-ok" class="popup__button" href="#">올리기</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			var containerBtn = document.getElementById("container-btn");
+			var popUp = document.getElementById("popup");
+
+			var popupNook = document.getElementById("popup-nook");
+			var popupOk = document.getElementById("popup-ok");
+			//upload
+			const defaultBtn = document.querySelector("#default-btn");
+			const customBtn = document.querySelector("#custom-btn");
+			const uploadImg = document.querySelector("img");
+
+			function showPopup(arg) {
+				containerBtn.classList.add("hidden");
+				popUp.classList.add("popup--active");
+			}
+			function hidePopup(arg) {
+				popUp.classList.remove("popup--active");
+			}
+
+			containerBtn.onclick = showPopup;
+			popupNook.onclick = hidePopup;
+
+			popupOk.onclick = function () {};
+			// 이미지이름 상품명 상품내용 사진 업로드시간
+
+			//업로드사진
+			function defaultBtnActive() {
+				defaultBtn.click();
+			}
+			defaultBtn.addEventListener("change", function () {
+				const file = this.files[0];
+				if (file) {
+					const reader = new FileReader();
+					reader.onload = function () {
+						const result = reader.result;
+						uploadImg.src = result;
+					};
+					reader.readAsDataURL(file);
+				}
+			});
+		</script>
+	</body>
+</html>
