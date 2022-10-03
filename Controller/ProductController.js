@@ -1,14 +1,7 @@
 "use strict";
 
 const { Model, where } = require("sequelize");
-const {
-	Product,
-	WishList,
-	OrderList,
-	Member,
-	Address,
-	ImgUrl,
-} = require("../Model");
+const { Product, WishList, OrderList, Member, Address } = require("../Model");
 const sequelize = require("sequelize");
 const session = require("express-session");
 const Op = sequelize.Op;
@@ -23,7 +16,6 @@ exports.products = async (req, res) => {
 	if (req.session.user !== undefined) {
 		is_login = true;
 		let include = [{ model: Address, attributes: ["city", "dong"] }];
-
 		const result = await Member.findOne({
 			include: include,
 			where: { member_id: Number(req.session.user) },
@@ -132,7 +124,7 @@ exports.showDetail = async (req, res) => {
 //찜하기
 exports.DoJimm = async (req, res) => {
 	let member_id = Number(req.session.user);
-	console.log(member_id);
+	// console.log(member_id);
 	let isittrue = false;
 	if (req.session.user == undefined) {
 		isittrue = false;
@@ -143,25 +135,22 @@ exports.DoJimm = async (req, res) => {
 		});
 		isittrue = true;
 	}
-
 	res.send(isittrue);
 };
 //새로 만들어진 함수 일단 주의!! (res send로는 숫자를 보낼수 없습니다!! 알아두셔야되요!! 꼭!!) 문자열로 바꾼후 넘기셔야됩니다 그래서 안된거에요
 exports.checkJimm = async (req, res) => {
-	console.log("checkJim,");
+	// console.log("checkJim,");
 	let product_id = Number(req.body.product_id);
-	//console.log(req)
 	const result = await WishList.findAll({
 		where: { product_id: product_id },
 	});
-	//console.log(result);
 	res.send(String(result.length));
 };
 
 //찜 페이지 조회
 exports.Jimm = async (req, res) => {
 	let member_id = Number(req.session.user);
-	await WishList.findAll({
+	const result = await WishList.findAll({
 		raw: true,
 		include: [
 			{
@@ -169,22 +158,15 @@ exports.Jimm = async (req, res) => {
 			},
 		],
 		where: { member_id: member_id },
-	}).then((result) => {
-		console.log("whislist", result);
-		let dataValues = [];
-		let imgarray = [];
-		for (let i of result) {
-			dataValues.push(i);
-			imgarray.push(i["Product.product_img_src"].split("imgParseStandard")[1]);
-		}
-		res.send({ dataValues: dataValues, img: imgarray });
 	});
-
+	// console.log("whislist", result);
 	let dataValues = [];
+	let imgarray = [];
 	for (let i of result) {
-		dataValues.push(i.dataValues);
+		dataValues.push(i);
+		imgarray.push(i["Product.product_img_src"].split("imgParseStandard")[1]);
 	}
-	res.send(dataValues);
+	res.send({ dataValues: dataValues, img: imgarray });
 };
 
 //내상품 페이지 조회
@@ -201,30 +183,3 @@ exports.Myproduct = async (req, res) => {
 	}
 	res.send(dataValues);
 };
-
-// 요 찝라이크의 문제점1 params로 넘겨준 데이터가 없어용!
-// 2. 데이터 생성할때 우리는 제품아이디랑 유저아이디가 인트인데 여기서는 문자열 (일수도)있어요
-// exports.jjimlike = async (req, res) => {
-// 	console.log(req.body.jjimBool);
-// 	if (req.body.jjimBool) {
-// 		const data = {
-// 			user_id: req.session.user,
-// 			product_id: req.params.product_id,
-// 		};
-// 		WishList.create({ data }).then((result) => {
-// 			res.send(true);
-// 		});
-// 	}
-// 삭제
-// };
-// exports.jjimchecked = async (req, res) => {
-// 	console.log("a");
-// const result = await WishList.findOne({
-// 	where: {
-// 		user_id: req.session.user,
-// 		product_id: req.params.product_id,
-// 	},
-// });
-// if (result) res.send(true);
-// else res.send(false);
-// };

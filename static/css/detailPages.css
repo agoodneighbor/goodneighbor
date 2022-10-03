@@ -14,17 +14,21 @@
 	margin: auto;
 }
 
-/* .section-line {
-	max-width: var(--border-line-length);
-} */
+.section-line {
+	align-self: center;
+	padding: 1rem 0;
+}
+.back-space {
+	width: 40px;
+	height: 40px;
+	filter: brightness(1.1);
+}
 
 .product-info-window {
 	/* width: var(--border-line-length); */
 
 	height: 440px;
 	border-top: 1px solid var(--line-break);
-	margin-top: 2em;
-
 	border-bottom: 1px solid var(--line-break);
 	/* padding: 20px 0; */
 
@@ -143,6 +147,7 @@
 	padding: 0.5rem;
 	color: var(--line-break);
 	min-width: 80px;
+	text-align: center;
 }
 
 .product-content {
@@ -176,6 +181,8 @@
 	justify-content: center;
 }
 
+.product-img:hover,
+.back-space:hover,
 .big-jjim-status:hover,
 .howToDeal:hover,
 .dialog-status:hover,

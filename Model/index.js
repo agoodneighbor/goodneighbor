@@ -117,19 +117,4 @@ db.ChatContent.belongsTo(db.ChatRoom, {
 	onUpdate: "cascade",
 });
 
-// db.ImgUrl = require("./ImgUrl")(sequelize, Sequelize);
-
-// // // #5-1, product_id에 이미지 URL 테이블 FK 연결
-// db.Product.hasMany(db.ImgUrl, {
-// 	foreignKey: "product_id",
-// 	sourceKey: "product_id",
-// 	onUpdate: "cascade",
-// });
-// // #5-2, 이미지 URL 테이블에 product_id FK 연결
-// db.ImgUrl.belongsTo(db.Product, {
-// 	foreignKey: "product_id",
-// 	sourceKey: "product_id",
-// 	onUpdate: "cascade",
-// });
-
 module.exports = db;
