@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>이웃 사촌</title>
-		<link rel="stylesheet" href="/static/css/main/main.css" />
+    <title>이웃 사촌</title>
+    <link rel="stylesheet" href="/static/css/main/main.css" />
 
-		<%- include("Head.ejs") %>
-	</head>
-	<body style="font-family: 'BinggraeSamanco'" class="bodyyy">
-		<%- include("navBar.ejs") %>
-		<!-- <div class="main">
+    <%- include("Head.ejs") %>
+  </head>
+  <body style="font-family: 'BinggraeSamanco'" class="bodyyy">
+    <%- include("navBar.ejs") %>
+    <!-- <div class="main">
       <h1 style="--count: 6;">
 
         <span aria-hidden style="--index: 0;">이웃사촌</span>
@@ -281,10 +281,114 @@
         />
       </svg>
     </div>
+
+    <!-- 마우스 오버 -->
+
+    <div class="imgBody">
+      <div class="images">
+        <img src="/static/img/main/프론트앤드2.png" alt="" />
+        <img src="/static/img/main/ezgif.com-gif-maker (2).gif" alt="" />
+        <img src="/static/img/main/myInfo.gif" alt="" />
+        <img src="/static/img/main/기영 로그인 유아이 및 백엔드.gif" alt="" />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-06.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-01.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-02.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-03.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-04.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-05.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-06.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-01.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-02.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-03.webp"
+          alt=""
+        />
+        <img
+          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-04.webp"
+          alt=""
+        />
+      </div>
+      <div class="contents">
+        <ul class="list">
+          <li
+            class="item"
+            style="color: white; text-align: left; font-weight: bold"
+          >
+            신정혁
+          </li>
+          <li class="item" style="text-align: left">path</li>
+          <li class="item" style="text-align: left">그라데이션</li>
+          <li class="item" style="text-align: left">내용</li>
+          <li class="item" style="text-align: left">내용</li>
+          <li class="item" style="text-align: left">내용</li>
+          <li class="item" style="text-align: left">내용</li>
+          <li class="item" style="text-align: left">내용</li>
+          <li class="item" style="text-align: left">내용</li>
+          <li class="item" style="text-align: left">내용</li>
+          <li class="item" style="text-align: left">내용</li>
+          <li
+            class="item"
+            style="color: white; text-align: right; font-weight: bold"
+          >
+            백엔드
+          </li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li class="item" style="text-align: right">내용</li>
+          <li
+            class="item"
+            style="color: white; text-align: center; font-weight: bold"
+          >
+            팀원 소개
+          </li>
+          <li class="item">이지영 백엔드</li>
+          <li class="item">윤유나 프론트</li>
+          <li class="item">송기영 백앤드</li>
+          <li class="item">신정혁 프론트</li>
+        </ul>
+      </div>
+    </div>
+
     <!-- <script src="svg.js"></script> -->
     <!-- a tag for my tutorial channel link -->
 
-    <script>
+    <script type="module">
       // Inspired by https://dashgo.com/
 
       const content1 = document.querySelector(".content1");
@@ -348,17 +452,17 @@
       function scrollHandler() {
         const scrollY = window.scrollY + window.innerHeight * 0.8;
         path1.style.strokeDashoffset = calcDashoffset(
-          scrollY,
+          scrollY + 300,
           content1,
           path1Length
         );
         path2.style.strokeDashoffset = calcDashoffset(
-          scrollY - 250,
+          scrollY - 100,
           content2,
           path2Length
         );
         path3.style.strokeDashoffset = calcDashoffset(
-          scrollY,
+          scrollY + 150,
           content3,
           path3Length
         );
@@ -368,12 +472,12 @@
           path4Length
         );
         path5.style.strokeDashoffset = calcDashoffset(
-          scrollY + 400,
+          scrollY + 600,
           content5,
           path5Length
         );
         path6.style.strokeDashoffset = calcDashoffset(
-          scrollY + 100,
+          scrollY + 250,
           content6,
           path6Length
         );
@@ -399,6 +503,96 @@
       // }
 
       // document.body.addEventListener('click', REPLAY)
+
+      // 마우스 오버
+      import gsap from "https://cdn.skypack.dev/gsap";
+
+      const mouseFixEl = document.querySelector(".images");
+      const mouseFixImagesEl = document.querySelectorAll(".images img");
+      const listItemsEl = document.querySelectorAll(".item");
+      const mousePos = {
+        x: 0,
+        y: 0,
+      };
+      let currentScrollPos = 0;
+
+      const fadeIn = (index) => {
+        const fadeInEl = mouseFixImagesEl[index];
+
+        gsap.set(fadeInEl, {
+          zIndex: 2,
+        });
+        gsap.to(fadeInEl, {
+          duration: 0.4,
+          ease: "power2.out",
+          opacity: 1,
+        });
+      };
+
+      const fadeOut = (index) => {
+        const fadeOutEl = mouseFixImagesEl[index];
+
+        gsap.set(fadeOutEl, {
+          zIndex: 1,
+        });
+        gsap.to(fadeOutEl, {
+          duration: 0.4,
+          ease: "power2.out",
+          opacity: 0,
+        });
+      };
+
+      window.addEventListener("mousemove", (e) => {
+        mousePos.x = e.clientX;
+        mousePos.y = e.clientY;
+
+        gsap.to(mouseFixEl, {
+          duration: 0.6,
+          ease: "power2.out",
+          x: mousePos.x,
+          y: mousePos.y,
+        });
+      });
+
+      for (let i = 0; i < listItemsEl.length; i++) {
+        listItemsEl[i].addEventListener("mouseenter", () => {
+          const targetIndex = i;
+
+          fadeIn(targetIndex);
+        });
+        listItemsEl[i].addEventListener("mouseleave", () => {
+          const targetIndex = i;
+
+          fadeOut(targetIndex);
+        });
+      }
+
+      window.addEventListener("scroll", () => {
+        currentScrollPos = window.pageYOffset + mousePos.y;
+
+        for (let i = 0; i < listItemsEl.length; i++) {
+          const rect = listItemsEl[i].getBoundingClientRect();
+          const startX = rect.left;
+          const startY = rect.top + window.pageYOffset;
+          const endX = rect.right;
+          const endY = startY + rect.height;
+
+          if (
+            currentScrollPos >= startY &&
+            currentScrollPos <= endY &&
+            mousePos.x >= startX &&
+            mousePos.x <= endX
+          ) {
+            const targetIndex = i;
+
+            fadeIn(targetIndex);
+          } else {
+            const targetIndex = i;
+
+            fadeOut(targetIndex);
+          }
+        }
+      });
     </script>
 
     <% if(is_login){ %> <%- include("AddItem.ejs") %> <% } %>
