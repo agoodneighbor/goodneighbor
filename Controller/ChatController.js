@@ -38,6 +38,7 @@ exports.takeRoomList = async (req, res) => {
 }
 
 exports.storeChat = async (req, res) => {
+    console.log("한번 일어나야되는데 ㅠㅠㅠ")
     const roomid = await ChatRoom.findOne({
         where: { room_name: req.body.roomname }
     })
@@ -77,7 +78,7 @@ exports.takeChatContant = async (req, res) => {
         where: { room_id: result[0].dataValues.room_id }
     })
     //console.log(content);
-    res.send({ content: content, roomname: req.query.member_id });
+    res.send({ content: content, roomname: req.query.member_id ,mynum:req.session.user });
 }
 
 exports.takeChat = async (req, res) => {
@@ -93,7 +94,7 @@ exports.takeChat = async (req, res) => {
     const result = await ChatRoom.findAll({
         where: { room_name: roomName },
     })
-    ////console.log(result);
+    console.log(result);
     if (result.length == 0) {
         const makeroom = await ChatRoom.create({
             room_name: roomName

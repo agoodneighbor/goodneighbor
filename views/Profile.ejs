@@ -46,14 +46,50 @@
 				<div class="introduce-myself"></div>
 				<div class="change-my-introduce">소개글 수정</div>
 			</div>
+
 		</div>
+
+
+
 		<div class="ButtonList">
-			<div class="btnDiv" onclick="change()">회원정보 수정</div>
+			<div class="btnDiv" onclick="change()">체팅방 리스트</div>
 			<div class="btnDiv" onclick="fire()">회원탈퇴</div>
 			<div class="btnDiv" onclick="Jimm()">찜 리스트 보기</div>
 			<div class="btnDiv" onclick="Myproduct()">내상품 보기</div>
 		</div>
 		<div id="ClickPage" class="ClickPage"></div>
+
+		<div id="modal_window_chat" class="modal_back">
+			<div class="modalPage">
+				<div class="chat_box">
+					<div id="close_chat" class="c_b">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							fill="currentColor"
+							class="bi bi-x-lg"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+							/>
+						</svg>
+					</div>
+		
+					<div class="messages">
+								
+									<div class="update">abc 입장햇어</div>
+					</div>
+								<div class="textbox">
+									<input type="text" id="chat-cont" >
+									<button id="send-message" onclick="MsgSend()">Send</button>
+								</div>
+		
+				</div>
+			</div>
+		
+		</div>
 		<script>
 			const change = () => {
 				var cell = document.getElementById("ClickPage");
@@ -82,31 +118,53 @@
 			const goRoom = (obj) => {
 				$("#modal_window_chat").show();
 				socket = io.connect()
-				console.log('obj',obj)
-				console.log('$obj',$(obj))
+				//console.log('obj',obj)
+				//console.log('$obj',$(obj))
 				roomname = $(obj).children(".chat-name").text();
-				console.log(roomname);
+				//console.log(roomname);
 				axios({
 					url: "/api/takecontent",
 					method: "get",
 					params: { member_id: roomname }
 				}).then((result) => {
 					console.log(result.data);
+					let chatcont=result.data.content.chat_content.split("//")
+					console.log("chatcontent",chatcont)
+					for(let i of chatcont){
+						if(Number(i.split("&&")[0])==Number(result.data.mynum)){
+							$(".messages").append(`<div class="message my-message">
+								<div>
+									<div class="text">${i.split("&&")[1]}</div>
+								</div>
+							</div>`)
+						}else{
+							$(".messages").append(`<div class="message other-message">
+								<div>
+									<div class="text">${i.split("&&")[1]}</div>
+								</div>
+							</div> `)
+						}
+					}
 					socket.emit("roomentry", result.data.roomname);
 				});
 				$("#chat-cont").on("keyup", (key) => {
 					// console.log(key);
 					if (key.keyCode == 13) {
 						socket.emit("sendto",{roomname:roomname,msg:key.target.value})
-						$(".chat_content").append(`<div>${key.target.value}</div>`)
+						$(".messages").append(`<div class="message my-message">
+							<div>
+								<div class="text">${key.target.value}</div>
+							</div>
+						</div>`)
 						axios({
 							url: "/api/storechat",
 							method: "post",
 							data: { content: key.target.value,roomname:roomname }
 						}).then((result) => {
-							console.log(result.data);
+							console.log("콘솔로그",result.data);
 							socket.emit("roomentry", "hi im entry");
 						});
+						$("#chat-cont").val("")
 					}
 				});
 				socket.on("recieve",(msg)=>{
