@@ -127,8 +127,8 @@ left: 45%;
   }
   .con4-text{
     position: absolute;
-    top: 7%;
-    left: 60%;
+    top: 10%;
+    left: 40%;
     font-size: 3rem;
     color: white;
   }
@@ -456,6 +456,7 @@ li {
 @media screen and (max-width: 768px) {
   .images img{
     top: 100px;
+
 
   }
 }
