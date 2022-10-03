@@ -24,14 +24,15 @@ exports.products = async (req, res) => {
 		is_login = true;
 		let include = [{ model: Address, attributes: ["city", "dong"] }];
 
-		const result = await Member.findOne({ include: include ,
-				where:{member_id:Number(req.session.user)}
+		const result = await Member.findOne({
+			include: include,
+			where: { member_id: Number(req.session.user) },
 		});
 		//myPoint = result.address.dataValues;
 		serchCategory = result.address.dataValues;
 	}
-	console.log("serchcate",serchCategory);
-	console.log("mypoint",myPoint);
+	console.log("serchcate", serchCategory);
+	console.log("mypoint", myPoint);
 
 	const result = await Product.findAll({
 		include: [
@@ -160,8 +161,23 @@ exports.checkJimm = async (req, res) => {
 //찜 페이지 조회
 exports.Jimm = async (req, res) => {
 	let member_id = Number(req.session.user);
-	const result = await WishList.findAll({
+	await WishList.findAll({
+		raw: true,
+		include: [
+			{
+				model: Product,
+			},
+		],
 		where: { member_id: member_id },
+	}).then((result) => {
+		console.log("whislist", result);
+		let dataValues = [];
+		let imgarray = [];
+		for (let i of result) {
+			dataValues.push(i);
+			imgarray.push(i["Product.product_img_src"].split("imgParseStandard")[1]);
+		}
+		res.send({ dataValues: dataValues, img: imgarray });
 	});
 
 	let dataValues = [];
