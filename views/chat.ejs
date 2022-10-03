@@ -18,23 +18,10 @@
 
             <div class="messages">
 						
-							<div class="message my-message">
-								<div>
-									<div class="name">you</div>
-									<div class="text">hi</div>
-								</div>
-							</div>
-							<div class="update">abc 입장햇어</div>
-							<div class="message other-message">
-								<div>
-									<div class="name">abc</div>
-									<div class="text">hi</div>
-								</div>
-							</div> 
             </div>
 						<div class="textbox">
 							<input type="text" id="chat-cont" >
-							<button id="send-message" onclick="MsgSend()">Send</button>
+							<button id="send-message">Send</button>
 						</div>
 
         </div>
@@ -57,6 +44,31 @@
 		}).then((result) => {
 			roomname = result.data;
 			console.log(result.data);
+			axios({
+				url: "/api/takecontent",
+				method: "get",
+				params: { member_id: roomname }
+			}).then((result) => {
+				console.log(result.data);
+				let chatcont=result.data.content.chat_content.split("//")
+				console.log("chatcontent",chatcont)
+				for(let i of chatcont){
+					if(Number(i.split("&&")[0])==Number(result.data.mynum)){
+						$(".messages").append(`<div class="message my-message">
+							<div>
+								<div class="text">${i.split("&&")[1]}</div>
+							</div>
+						</div>`)
+					}else{
+						$(".messages").append(`<div class="message other-message">
+							<div>
+								<div class="text">${i.split("&&")[1]}</div>
+							</div>
+						</div> `)
+					}
+				}
+				socket.emit("roomentry", result.data.roomname);
+			});
 			socket.emit("roomentry", result.data);
 		});
 
@@ -65,7 +77,11 @@
 			if (key.keyCode == 13) {
 
 				socket.emit("sendto",{roomname:roomname,msg:key.target.value})
-				$(".messages").append(`<div>${key.target.value}</div>`)
+				$(".messages").append(`<div class="message my-message">
+					<div>
+						<div class="text">${key.target.value}</div>
+					</div>
+				</div>`)
 				axios({
 					url: "/api/storechat",
 					method: "post",
@@ -74,6 +90,7 @@
 					console.log(result.data);
 					socket.emit("roomentry", "hi im entry");
 				});
+				$("#chat-cont").val("")
 			}
 		});
 		socket.on("recieve", (msg) => {
@@ -85,17 +102,8 @@
 		$("#modal_window_chat").hide();
 	});
 
-	$("#chat-cont").on("keyup", (key) => {
-		// console.log(key);
-		if (key.keyCode == 13) {
+	
 
-			$(".messages").append(`<div>${key.target.value}</div>`)
-		}
-	});
-
-function MsgSend(){
-	alert('gggggg')
-}
 
 </script>
 
