@@ -137,6 +137,8 @@
 							</div> `)
 						}
 					}
+					let chatBox = document.querySelector(".messages");
+					chatBox.scrollTo(0, chatBox.scrollHeight)
 					socket.emit("roomentry", result.data.roomname);
 				});
 				$("#chat-cont").on("keyup", (key) => {
