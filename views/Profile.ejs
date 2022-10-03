@@ -158,6 +158,8 @@
 								socket.emit("roomentry", "hi im entry");
 							});
 							$("#chat-cont").val("")
+							let chatBox = document.querySelector(".messages");
+							chatBox.scrollTo(0, chatBox.scrollHeight)
 						}
 					}
 				});
