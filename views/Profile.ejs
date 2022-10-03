@@ -104,7 +104,7 @@
 					.then((response) => {
 						console.log(response.data);
 						for (let i=0;i<response.data.takeroom.length;i++) {
-							$("#ClickPage").append(`<div data-value="${response.data.takeroom[i]}" onclick="goRoom(this)">${response.data.ananta[i]}<div class="chat-name">${response.data.takeroom[i].room_name}</div></div>`)
+							$("#ClickPage").append(`<div class="chat-name-div" data-value="${response.data.takeroom[i]}" onclick="goRoom(this)">${response.data.ananta[i]}<div class="chat-name">${response.data.takeroom[i].room_name}</div></div>`)
 						}
 					})
 					.catch((error) => {
