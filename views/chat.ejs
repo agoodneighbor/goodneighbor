@@ -32,15 +32,35 @@
 		$("#modal_window_chat").show();
 		socket=io.connect()
 		const pid=Number("<%=product_detail_info['member_id']%>");
+		let roomname=undefined;
 		console.log(pid);
 		axios({
 			url: "/api/takeroom",
 			method: "get",
 			params: { member_id: pid }
 		}).then((result) => {
+			roomname=result.data;
 			console.log(result.data);
             socket.emit("roomentry", result.data);
 		});
+		$("#chat-cont").on("keyup", (key) => {
+			// console.log(key);
+			if (key.keyCode == 13) {
+				socket.emit("sendto",{roomname:roomname,msg:key.target.value})
+				$(".chat_content").append(`<div>${key.target.value}</div>`)
+				axios({
+					url: "/api/storechat",
+					method: "post",
+					data: { content: key.target.value,roomname:roomname }
+				}).then((result) => {
+					console.log(result.data);
+					socket.emit("roomentry", "hi im entry");
+				});
+			}
+		});
+		socket.on("recieve",(msg)=>{
+			console.log("revieve",msg);
+		})
 	})
 	
     $("#close_chat").click(()=>{

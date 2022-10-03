@@ -40,9 +40,13 @@ io.on("connection", (socket) => {
 	console.log(socket.id);
 
 	socket.on("roomentry", (msg) => {
-        console.log(msg)
+        console.log("msg",msg)
 		socket.join(msg);
     })
+	socket.on("sendto",(msg)=>{
+		console.log(msg);
+		socket.broadcast.to(msg.roomname).emit("recieve",msg.msg)
+	})
 
 });
 

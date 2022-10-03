@@ -16,16 +16,16 @@ const Op = sequelize.Op;
 
 exports.takeRoomList = async (req, res) => {
     const result = await ChatRoom.findAll();
-    console.log(result);
+    //console.log(result);
     let takeroom = [];
     let check = "(" + String(req.session.user) + ")";
     for (let i of result) {
-        console.log(i.dataValues);
+        //console.log(i.dataValues);
         if (i.dataValues.room_name.indexOf(check) !== -1) {
             takeroom.push(i.dataValues);
         }
     }
-    console.log(takeroom);
+    //console.log(takeroom);
     res.send(takeroom);
 }
 
@@ -33,19 +33,19 @@ exports.storeChat = async (req, res) => {
     const roomid = await ChatRoom.findOne({
         where: { room_name: req.body.roomname }
     })
-    //console.log("roomid", roomid);
+    ////console.log("roomid", roomid);
     const isexist = await ChatContent.findOne({ where: { room_id: roomid.dataValues.room_id } })
-    //console.log(isexist)
+    ////console.log(isexist)
 
     if (isexist == null) {
-        await ChatContent.create({room_id:Number(roomid.dataValues.room_id),chat_content:req.body.content})
+        await ChatContent.create({room_id:Number(roomid.dataValues.room_id),chat_content:String(req.session.user)+"&&"+req.body.content})
     } else {
         const result = await ChatContent.update(
             {
                 chat_content: Sequelize.fn(
                     "CONCAT",
                     Sequelize.col("chat_content.chat_content"),
-                    "//"+req.body.content
+                    "//"+String(req.session.user)+"&&"+req.body.content
                 ),
             },
             {
@@ -54,7 +54,7 @@ exports.storeChat = async (req, res) => {
                 },
             }
         );
-        console.log("add result",result);
+        //console.log("add result",result);
     }
 
 }
@@ -63,34 +63,34 @@ exports.takeChatContant = async (req, res) => {
     const result = await ChatRoom.findAll({
         where: { room_name: req.query.member_id },
     })
-    console.log(req.query.member_id);
-    console.log(result);
+    //console.log(req.query.member_id);
+    //console.log(result);
     const content = await ChatContent.findOne({
         where: { room_id: result[0].dataValues.room_id }
     })
-    console.log(content);
-    res.send(content);
+    //console.log(content);
+    res.send({content:content,roomname:req.query.member_id});
 }
 
 exports.takeChat = async (req, res) => {
     let isroomexist = false;
     let roomName = ""
-    console.log("roomname:", req.query.member_id);
     if (Number(req.query.member_id) > Number(req.session.user)) {
         roomName = "(" + String(req.session.user) + ")" + "+" + "(" + String(req.query.member_id) + ")";
     }
     else {
         roomName = "(" + String(req.query.member_id) + ")" + "+" + "(" + String(req.session.user) + ")";
     }
+    console.log("roomname:", roomName);
     const result = await ChatRoom.findAll({
         where: { room_name: roomName },
     })
-    //console.log(result);
+    ////console.log(result);
     if (result.length == 0) {
         const makeroom = await ChatRoom.create({
             room_name: roomName
         })
-        //console.log(makeroom)
+        ////console.log(makeroom)
     } else {
         isroomexist = true;
     }

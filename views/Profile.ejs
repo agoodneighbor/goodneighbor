@@ -85,23 +85,29 @@
 					params: { member_id: roomname }
 				}).then((result) => {
 					console.log(result.data);
-					socket.emit("roomentry", "hi im entry");
+					socket.emit("roomentry", result.data.roomname);
 				});
+				$("#chat-cont").on("keyup", (key) => {
+					// console.log(key);
+					if (key.keyCode == 13) {
+						socket.emit("sendto",{roomname:roomname,msg:key.target.value})
+						$(".chat_content").append(`<div>${key.target.value}</div>`)
+						axios({
+							url: "/api/storechat",
+							method: "post",
+							data: { content: key.target.value,roomname:roomname }
+						}).then((result) => {
+							console.log(result.data);
+							socket.emit("roomentry", "hi im entry");
+						});
+					}
+				});
+				socket.on("recieve",(msg)=>{
+					console.log("recieve",msg)
+				})
+
 			}
-			$("#chat-cont").on("keyup", (key) => {
-				// console.log(key);
-				if (key.keyCode == 13) {
-					$(".chat_content").append(`<div>${key.target.value}</div>`)
-					axios({
-						url: "/api/storechat",
-						method: "post",
-						data: { content: key.target.value,roomname:roomname }
-					}).then((result) => {
-						console.log(result.data);
-						socket.emit("roomentry", "hi im entry");
-					});
-				}
-			});
+			
 
 
 			const Jimm = () => {
