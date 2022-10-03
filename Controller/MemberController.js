@@ -66,9 +66,10 @@ exports.Logout = async (req, res) => {
 		//세션정보가 존재하는 경우
 		await req.session.destroy(function (err) {
 			if (err) console.log(err);
-			else res.send(true);
+			else console.log("Logout");
 		});
 	}
+	res.redirect("/")
 };
 //회원정보 수정
 exports.accessProfile = async (req, res) => {
