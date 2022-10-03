@@ -42,3 +42,6 @@
     position: relative;
     top: 40px;
 }
+.chat-name{
+    visibility: hidden;
+}
