@@ -17,11 +17,7 @@
 			<section class="section-line"></section>
 			<section class="product-info-window">
 				<div class="product-pic">
-					<img
-						class="product-img"
-						src="/<%=product_img_src[1]%>"
-						alt="product-img"
-					/>
+					<img class="product-img" src="/<%=product_img_src[1]%>" alt="product-img" />
 					<div class="indicator-arrow">
 						<div class="arrow-wrapper">
 							<img class="arrow left" src="/static/img/left-arrow.png" />
@@ -50,24 +46,10 @@
 						</div>
 						<div class="product-content">
 							<ul class="jjim-list">
+								<li><img class="heart" src="/static/img/heart16.png" />&nbsp;&nbsp;<%=Like%></li>
+								<li><img class="view-count" src="/static/img/see.png" />&nbsp;&nbsp;46</li>
 								<li>
-									<img
-										class="heart"
-										src="/static/img/heart16.png"
-									/>&nbsp;&nbsp;4 (히트수)
-								</li>
-								<li>
-									<img
-										class="view-count"
-										src="/static/img/see.png"
-									/>&nbsp;&nbsp;46
-								</li>
-
-								<li>
-									<img
-										class="upload-times"
-										src="/static/img/clock96.png"
-									/>&nbsp;
+									<img class="upload-times" src="/static/img/clock96.png" />&nbsp;
 									<div class="upload-time"></div>
 								</li>
 							</ul>
@@ -75,25 +57,31 @@
 					</div>
 					<div class="product-deal">
 						<div class="big-jjim-status">
-							<img class="heart-big" src="/static/img/heart30.png" />
-							찜
+							<img class="heart-big" src="/static/img/heart30.png" /> 찜
 						</div>
 						<div class="dialog-status">대화 신청</div>
-						<!-- <div>
-							<img class="live-heart" src="/static/img/heart.gif" alt="heart" />
-						</div> -->
 					</div>
 				</div>
 			</section>
 			<section class="product-recommend-wrapper">
-				<div class="product-recommand">
-					<div class="recommands">1</div>
-					<div class="recommands">2</div>
-					<div class="recommands">3</div>
-					<div class="recommands">4</div>
-					<div class="recommands">5</div>
-				</div>
-			</section>
+
+
+				<section class="recommands">
+					<div class="btn left"><</div>
+					<% for (let i = 0; i < detailImgArr.length; i++){ %>
+					<a class="blank-sm-recommend-window" href="#">
+						<img style='height: 100%' src="/<%= detailImgArr[i] %>" alt="" />
+						<!-- <div class="small-item-title"><%= detailImgArr[i] %></div> -->
+					</a>
+					<% } %>
+					<!-- <div class="black-sm-recommand-window"><img src="" />img</div>
+					<div class="black-sm-recommand-window"><img src="" />img</div>
+					<div class="black-sm-recommand-window"><img src="" />img</div>
+					<div class="black-sm-recommand-window"><img src="" />img</div>
+					<div class="black-sm-recommand-window"><img src="" />img</div> -->
+					<div class="btn right">></div>
+				</section>
+
 			<section class="product-detail-info-wrapper">
 				<div class="product-detail-info">상품정보</div>
 				<div class="proruct-content">
@@ -106,7 +94,7 @@
 			const ex = "<%=product_img_src%>";
 			const stringExam = "<%=product_detail_info['product_time']%>";
 			const product_id = "<%=product_detail_info['product_id']%>";
-			console.log(product_id)
+			// console.log(product_id)
 			const jjimBtn = document.querySelector(".big-jjim-status");
 			const CLICKED_CLASS = "clicked";
 			// product아이디를 백으로 넘겨줌
@@ -116,8 +104,11 @@
 				data:{product_id:product_id}
 			}).then((result) => {
 				console.log(result.data);
-				if (Number(result.data)) jjimBtn.classList.add(CLICKED_CLASS);
-				else jjimBtn.classList.remove(CLICKED_CLASS);
+				if (Number(result.data)) {
+					jjimBtn.classList.add(CLICKED_CLASS);
+					heartIcon.src = "/static/img/heart.gif";
+				} else {
+					jjimBtn.classList.remove(CLICKED_CLASS)};
 			});
 
 			const currentMonth = (month) => {
@@ -191,7 +182,7 @@
 							// console.log(error);
 						});
 				}
-				
+
 			});
 			// click dot to move imgs
 			const productImg = document.querySelector(".product-img");

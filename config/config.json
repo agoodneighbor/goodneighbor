@@ -1,9 +1,9 @@
 {
 	"development": {
-		"host": "192.168.0.59",
+		"host": "192.168.45.244",
 		"database": "good_neighbors",
 		"username": "user",
-		"password": "Codingstudy99",
+		"password": "sqlQlqjs!1",
 		"dialect": "mysql",
 		"port": "3306"
 	},

@@ -7,7 +7,7 @@ exports.member = (req, res) => {
 	if (req.session.user !== undefined) {
 		is_login = true;
 	}
-	console.log(is_login);
+	// console.log(is_login);
 	res.render("index", { is_login: is_login });
 };
 exports.asign = async (req, res) => {
@@ -56,7 +56,7 @@ exports.login = async (req, res) => {
 	}
 	if (isOkay) {
 		req.session.user = currnet_member_id;
-		console.log(req.session.user);
+		// console.log(req.session.user);
 	}
 	res.send(isOkay);
 };
