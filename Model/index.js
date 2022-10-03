@@ -16,6 +16,8 @@ db.Address = require("./SignUp/Address")(sequelize, Sequelize);
 db.Product = require("./Product/Product")(sequelize, Sequelize);
 db.OrderList = require("./Product/OrderList")(sequelize, Sequelize);
 db.WishList = require("./Product/WishList")(sequelize, Sequelize);
+db.ChatRoom = require("./Chat/ChatRoom")(sequelize, Sequelize);
+db.ChatContent = require("./Chat/ChatContent")(sequelize, Sequelize);
 
 // #1-1, 주소테이블에 회원 가입 foreign key 연결
 db.Address.hasOne(db.Member, {
@@ -98,6 +100,20 @@ db.Product.hasMany(db.WishList, {
 db.WishList.belongsTo(db.Product, {
 	foreignKey: "product_id",
 	targetKey: "product_id",
+	onUpdate: "cascade",
+});
+
+//# 5-1 체팅룸과 컨텐츠 포린키 연결
+db.ChatRoom.hasMany(db.ChatContent, {
+	foreignKey: "room_id",
+	sourceKey: "room_id",
+	onUpdate: "cascade",
+});
+
+//# 5-1 체팅룸과 컨텐츠 포린키 연결
+db.ChatContent.belongsTo(db.ChatRoom, {
+	foreignKey: "room_id",
+	sourceKey: "room_id",
 	onUpdate: "cascade",
 });
 
