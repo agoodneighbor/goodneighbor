@@ -1,6 +1,7 @@
 :root {
 	--line-color: gray;
 	--line-break: #000;
+	--border-line-length: 1124px;
 }
 * {
 	box-sizing: border-box;
@@ -8,23 +9,28 @@
 }
 .main-wrapper {
 	width: 100%;
-	min-width: 920px;
+	/* min-width: 1024px; */
 	padding: 0 4rem;
 	margin: auto;
-	z-index: 0;
 }
 
 .section-line {
-	border-bottom: 1px solid var(--line-break);
-	padding: 2em 0;
+	align-self: center;
+	padding: 1rem 0;
+}
+.back-space {
+	width: 40px;
+	height: 40px;
+	filter: brightness(1.1);
 }
 
 .product-info-window {
-	min-width: 960px;
+	/* width: var(--border-line-length); */
 
 	height: 440px;
+	border-top: 1px solid var(--line-break);
 	border-bottom: 1px solid var(--line-break);
-	padding: 20px 0;
+	/* padding: 20px 0; */
 
 	display: grid;
 	grid-template-columns: 442px 1fr;
@@ -33,7 +39,7 @@
 
 .product-info-wrapper {
 	padding-top: 2rem;
-	width: 648px;
+	/* width: 648px; */
 }
 
 .product-pic {
@@ -109,7 +115,7 @@
 }
 
 .product-status {
-	width: 100%;
+	/* width: 100%; */
 	position: relative;
 }
 
@@ -118,17 +124,18 @@
 	justify-content: space-around;
 }
 .product-name-title {
-	height: 120px;
+	max-height: 120px;
+	padding: 0 1rem;
 }
 .img-wrapper {
 	border: 1px solid black;
 }
-.product-name > h2 {
-	font-size: 3rem;
+.product-name > .product-name-title {
+	font-size: 2rem;
 	font-weight: 600;
 }
 .product-price {
-	font-size: 2rem;
+	font-size: 1.4rem;
 	display: flex;
 	gap: 16px;
 	justify-content: center;
@@ -139,7 +146,8 @@
 	border: 1px solid var(--line-color);
 	padding: 0.5rem;
 	color: var(--line-break);
-	min-width: 100px;
+	min-width: 80px;
+	text-align: center;
 }
 
 .product-content {
@@ -173,10 +181,13 @@
 	justify-content: center;
 }
 
+.product-img:hover,
+.back-space:hover,
 .big-jjim-status:hover,
 .howToDeal:hover,
 .dialog-status:hover,
-.heart-big:hover {
+.heart-big:hover,
+.btn:hover {
 	cursor: pointer;
 	border-color: forestgreen;
 	color: forestgreen;
@@ -206,7 +217,7 @@
 .product-deal {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	padding: 1rem 1rem 2px 1rem;
+	padding: 1rem;
 	gap: 1rem;
 	position: absolute;
 	bottom: 0;
@@ -215,6 +226,7 @@
 
 .product-detail-info-wrapper {
 	padding-top: 2rem;
+	width: var(--border-line-length);
 }
 
 .product-detail-info {
@@ -226,4 +238,25 @@
 
 .proruct-content {
 	padding: 1rem 0;
+}
+
+.recommands {
+	display: flex;
+	gap: 2rem;
+	justify-content: center;
+	align-items: center;
+
+	padding-top: 2rem;
+}
+
+.blank-sm-recommend-window {
+	width: 161px;
+	height: 141px;
+	border: 1px solid #000;
+	display: block;
+}
+
+.btn.left,
+.btn.right {
+	font-size: 2rem;
 }
