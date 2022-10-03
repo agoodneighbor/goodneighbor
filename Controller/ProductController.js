@@ -154,13 +154,20 @@ exports.checkJimm =async (req,res)=>{
 exports.Jimm = async (req, res) => {
 	let member_id = Number(req.session.user);
 	await WishList.findAll({
+		raw:true,
+		include:[{
+			model:Product
+		}],
 		where: { member_id: member_id },
 	}).then((result) => {
+		console.log("whislist",result);
 		let dataValues = [];
+		let imgarray=[];
 		for (let i of result) {
-			dataValues.push(i.dataValues);
+			dataValues.push(i);
+			imgarray.push(i["Product.product_img_src"].split("imgParseStandard")[1])
 		}
-		res.send(dataValues);
+		res.send({dataValues:dataValues,img:imgarray});
 	});
 };
 
