@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>이웃 사촌</title>
-		<link rel="stylesheet" href="/static/css/main/main.css" />
+    <title>이웃 사촌</title>
+    <link rel="stylesheet" href="/static/css/main/main.css" />
 
-		<%- include("Head.ejs") %>
-	</head>
-	<body style="font-family: 'BinggraeSamanco'" class="bodyyy">
-		<%- include("navBar.ejs") %>
-		<!-- <div class="main">
+    <%- include("Head.ejs") %>
+  </head>
+  <body style="font-family: 'BinggraeSamanco'" class="bodyyy">
+    <%- include("navBar.ejs") %>
+    <!-- <div class="main">
       <h1 style="--count: 6;">
 
         <span aria-hidden style="--index: 0;">이웃사촌</span>
@@ -286,16 +286,10 @@
 
     <div class="imgBody">
       <div class="images">
-        <img src="/static/img/main/프론트앤드.png" alt="" />
-        <img src="/static/img/main/이미지오버.png" alt="" />
-        <img
-          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-04.webp"
-          alt=""
-        />
-        <img
-          src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-05.webp"
-          alt=""
-        />
+        <img src="/static/img/main/프론트앤드2.png" alt="" />
+        <img src="/static/img/main/ezgif.com-gif-maker (2).gif" alt="" />
+        <img src="/static/img/main/myInfo.gif" alt="" />
+        <img src="/static/img/main/기영 로그인 유아이 및 백엔드.gif" alt="" />
         <img
           src="https://hisamikurita.github.io/sample-images/dist/assets/images/sample-06.webp"
           alt=""
@@ -347,7 +341,7 @@
             class="item"
             style="color: white; text-align: left; font-weight: bold"
           >
-            프론트엔드
+            신정혁
           </li>
           <li class="item" style="text-align: left">path</li>
           <li class="item" style="text-align: left">그라데이션</li>
@@ -458,17 +452,17 @@
       function scrollHandler() {
         const scrollY = window.scrollY + window.innerHeight * 0.8;
         path1.style.strokeDashoffset = calcDashoffset(
-          scrollY,
+          scrollY + 300,
           content1,
           path1Length
         );
         path2.style.strokeDashoffset = calcDashoffset(
-          scrollY - 250,
+          scrollY - 100,
           content2,
           path2Length
         );
         path3.style.strokeDashoffset = calcDashoffset(
-          scrollY,
+          scrollY + 150,
           content3,
           path3Length
         );
@@ -478,12 +472,12 @@
           path4Length
         );
         path5.style.strokeDashoffset = calcDashoffset(
-          scrollY + 400,
+          scrollY + 600,
           content5,
           path5Length
         );
         path6.style.strokeDashoffset = calcDashoffset(
-          scrollY + 100,
+          scrollY + 250,
           content6,
           path6Length
         );
