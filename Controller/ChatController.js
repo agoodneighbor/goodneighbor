@@ -39,16 +39,18 @@ exports.takeRoomList = async (req, res) => {
 
 exports.storeChat = async (req, res) => {
     console.log("한번 일어나야되는데 ㅠㅠㅠ")
+    console.log(req.body.key);
     const roomid = await ChatRoom.findOne({
         where: { room_name: req.body.roomname }
     })
     ////console.log("roomid", roomid);
     const isexist = await ChatContent.findOne({ where: { room_id: roomid.dataValues.room_id } })
-    ////console.log(isexist)
+    console.log(isexist)
 
     if (isexist == null) {
         await ChatContent.create({ room_id: Number(roomid.dataValues.room_id), chat_content: String(req.session.user) + "&&" + req.body.content })
     } else {
+        console.log("control",req.body.content);
         const result = await ChatContent.update(
             {
                 chat_content: Sequelize.fn(
