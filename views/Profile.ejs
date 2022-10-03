@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<%- include("Head.ejs") %>
+	<head>
+		<%- include("Head.ejs") %>
 		<link rel="stylesheet" href="../static/css/Profile.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
 			integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-			crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<link href="/static/css/chat.css" rel="stylesheet" />
-</head>
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
 
-<body class="profile-body">
-	<%- include("navBar.ejs") %>
+	<body class="profile-body">
+		<%- include("navBar.ejs") %>
 		<div class="show-profile">
 			<div class="profile-img">
-				<div style="width: 300px; height: 300px; background-color: black">
-					이미지
+				<div class="profile-inner-img">
+					<div class="member-img">
+						<img src="/static/img/member-icon.svg" alt="member-icon" />
+					</div>
+					<div class="member-name">멤버이름</div>
 				</div>
 			</div>
-			<div class="profile-info"></div>
+			<div class="profile-info">
+				<div class="profile-member-big-name">멤버 큰 이름(상점 이름)</div>
+				<div class="seller-info">
+					<div class="openDate">
+						<img class="seller-icon" src="/static/img/market-open.png" />상점
+						오픈 날짜
+					</div>
+					<div class="shop-visitor">
+						<img class="seller-icon" src="/static/img/visitor.png" />상점 방문객
+						수
+					</div>
+					<div class="sales-counter">
+						<img class="seller-icon" src="/static/img/bag.png" />상품 판매 횟수
+					</div>
+					<div class="delivery-counter">
+						<img class="seller-icon" src="/static/img/delivery.png" />택배 발송
+						횟수
+					</div>
+				</div>
+				<div class="introduce-myself"></div>
+				<div class="change-my-introduce">소개글 수정</div>
+			</div>
 		</div>
 		<div class="ButtonList">
-			<div class="btnDiv" onclick="change()">체팅방 리스트</div>
+			<div class="btnDiv" onclick="change()">회원정보 수정</div>
 			<div class="btnDiv" onclick="fire()">회원탈퇴</div>
 			<div class="btnDiv" onclick="Jimm()">찜 리스트 보기</div>
 			<div class="btnDiv" onclick="Myproduct()">내상품 보기</div>
 		</div>
 		<div id="ClickPage" class="ClickPage"></div>
-
-		<div id="modal_window_chat" class="modal_back">
-			<div class="modalPage">
-				<div class="chat_box">
-					<div id="close_chat" class="c_b">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-							class="bi bi-x-lg" viewBox="0 0 16 16">
-							<path
-								d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-						</svg>
-					</div>
-					<div class="chat_content">
-
-					</div>
-					<input type="text" id="chat-cont">
-				</div>
-			</div>
-		</div>
-
 		<script>
-
 			const change = () => {
 				var cell = document.getElementById("ClickPage");
 				while (cell.hasChildNodes()) {
@@ -109,7 +115,6 @@
 			}
 			
 
-
 			const Jimm = () => {
 				var cell = document.getElementById("ClickPage");
 				while (cell.hasChildNodes()) {
@@ -122,17 +127,40 @@
 					params: { data: "Jimm" },
 				})
 					.then((response) => {
-						// console.log(response.data);
+						console.log(response.data);
+						$(".ClickPage").append(`
+							<div class="overflow-hidden">
+								<div id="ProductRow"></div>
+							</div>`);
+						var html = "<div class='product-item'>";
+						let productsInfo = response.data.dataValues;
+						let productsImg = response.data.img;
+						for (let i = 0; i < productsInfo.length; i++) {
+							let arr = ["교환", "나눔"];
+							html += `<div class="product-item-window">
+								<img class="mypimg" src="${productsImg[i]}" alt="" />
+								<div class="product-info-wrapper">
+									<div class="product-name">${productsInfo[i]["Product.product_name"]}</div>
+									<div class="product-price-wrapper">
+										<div class="product-price">${productsInfo[i]["Product.product_price"]}</div>
+									</div>
+								</div>
+							</div>`;
+						}
+						html += `</div>`;
+						$("#ProductRow").html(html);
 					})
 					.catch((error) => {
 						// console.log(error);
 					});
-				$(".ClickPage").append(`<div id="ProductRow" class="row g-4">
-                  </div>`);
-				$("#ProductRow").append(`<div class="col-3">
-                    <div class="MyPimg p-3 border bg-light">Custom column padding</div>
-                  </div>`)
-			}
+				$(".ClickPage").append(`<div id="ProductRow" class="row g-4"></div>`);
+				$("#ProductRow").append(
+					`<div class="col-3">
+						<div class="MyPimg p-3 border bg-light">Custom column padding</div>
+						</div>`
+				);
+			};
+
 			const Myproduct = () => {
 				var cell = document.getElementById("ClickPage");
 				while (cell.hasChildNodes()) {
@@ -142,49 +170,51 @@
 					url: "/myproduct",
 					method: "get",
 					// post방식 일때는 params가 data로 변경
-					params: { data: "myproduct" }
-				}).then((response) => {
-					console.log(response.data);
-					$(".ClickPage").append(`<div class="overflow-hidden">
-                            <div id="ProductRow">
-                            </div>
-                          </div>`)
-					var html = "<div class='product-item'>";
-					for (let i of response.data) {
-						let str = String(new Date(i.product_time)).split(" ");
-						let arr = ["교환", "나눔"]
-						html += `
-                                <div class="product-item-window">
-                                    <img class="mypimg" src="${i.product_img_src}" alt="">    
-                                    
-                                    <div class="product-info-wrapper">
-                                        <div class="product-name">${i.product_name
-							}</div>
-                                        <div class="product-price-wrapper">
-                                            <div class="product-price">${arr[i.product_price]}</div>
-                                            <div class="product-upload-time">${new Date(i.product_time).getDay() + "월" + " " + str[2] + "일"}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-					}
-					html += `</div>`;
-					$("#ProductRow").html(html);
+					params: { data: "myproduct" },
 				})
+					.then((response) => {
+						console.log("response.data :", response.data, 1111);
+						$(".ClickPage").append(`
+							<div class="overflow-hidden">
+								<div id="ProductRow"></div>
+							</div>
+						`);
+						var html = "<div class='product-item'>";
+						for (let i of response.data) {
+							// console.log()
+							let str = String(new Date(i.product_time)).split(" ");
+							let updateTime = new Date(i.product_time).getDay();
+							let arr = ["교환", "나눔"];
+							html += `<div class="product-item-window">
+								<img class="mypimg" src="${i.product_img_src}" alt="" />
+								<div class="product-info-wrapper">
+									<div class="product-name">${i.product_name}</div>
+									<div class="product-price-wrapper">
+										<div class="product-price">${arr[i.product_price]}</div>
+											<div class="product-upload-time">
+												${updateTime + "월" + " " + str[2] + "일"}
+											</div>
+										</div>
+									</div>
+								</div>
+							`;
+						}
+						html += `</div>`;
+						$("#ProductRow").html(html);
+					})
 					.catch((error) => {
 						console.log(error);
 					});
-			}
+			};
 			const fire = () => {
 				var cell = document.getElementById("ClickPage");
 				while (cell.hasChildNodes()) {
 					cell.removeChild(cell.firstChild);
 				}
 				if (confirm("진짜? 진짜 삭제 할거임?")) {
-					"삭제"
+					("삭제");
 				}
-			}
+			};
 		</script>
-</body>
-
+	</body>
 </html>
