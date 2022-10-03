@@ -105,6 +105,7 @@
 	box-shadow: 0px 0px 5px grey;
 	font-size: xx-large;
 	margin-bottom: 3px;
+	border-radius: 10px;
 }
 
 .chat-name-div:hover {
