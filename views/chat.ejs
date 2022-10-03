@@ -91,6 +91,13 @@
 		});
 		socket.on("recieve", (msg) => {
 			console.log("revieve", msg);
+			$(".messages").append(`<div class="message other-message">
+				<div>
+					<div class="text">${msg}</div>
+				</div>
+			</div> `)
+			let chatBox = document.querySelector(".messages");
+					chatBox.scrollTo(0, chatBox.scrollHeight)
 		});
 	});
 

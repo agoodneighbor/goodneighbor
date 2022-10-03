@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
 		socket.join(msg);
     })
 	socket.on("sendto",(msg)=>{
-		console.log(msg);
+		console.log("msg",msg);
 		socket.broadcast.to(msg.roomname).emit("recieve",msg.msg)
 	})
 
