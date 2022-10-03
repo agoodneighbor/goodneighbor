@@ -38,6 +38,7 @@
     border: none;
     overflow: visible;
     background-color: #f2f2f2;
+    border-radius: 10px;
 }
 
 .input:focus {
@@ -102,9 +103,10 @@
     width: 80%;
     height: 40px;
     color: #fff;
-    background-color: #1cc778;
+    background-color: #36b8f5;
     /* padding: 10px 25px; */
     font-weight: 500;
     border: 0;
     outline: none;
+    border-radius: 10px;
 }
