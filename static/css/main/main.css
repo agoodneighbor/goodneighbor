@@ -26,8 +26,6 @@
   50%{background-position:100% 48%}
   100%{background-position:0% 53%}
 }
-
-
 @font-face {
   font-family: 'BinggraeSamanco';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/BinggraeSamanco.woff') format('woff');
@@ -41,7 +39,6 @@
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
-
 }
 .header-text {
   position: absolute;
@@ -62,7 +59,6 @@ left: 5%;
   stroke: white;
   stroke-width: 1.5px;
 }
-
 .path1 , .header-text{
   stroke:white;
   stroke-dasharray: 7000;
@@ -88,7 +84,6 @@ left: 20%;
     top: 50%;
   }
 }
-
 
 .content3 {
 position: relative;
@@ -254,9 +249,9 @@ left: 45%;
 /* .path2 {
   stroke: white;
 }
-
-
-
+​
+​
+​
 .path3 {
   stroke: white;
 }
@@ -287,7 +282,6 @@ left: 45%;
     transform: translate3d(0, 40px, 0);
   }
 }
-
 
 /* 카드이미지 */
 /* *:not(head, script, svg, svg *),
@@ -456,7 +450,6 @@ li {
 @media screen and (max-width: 768px) {
   .images img{
     top: 100px;
-
 
   }
 }
