@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script
-			src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-			integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://code.jquery.com/jquery-3.6.1.min.js"
-			integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
-			integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		></script>
-		<script
-			src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-			integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
-			crossorigin="anonymous"
-		></script>
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-			crossorigin="anonymous"
-		></script>
-		<script
-			type="text/javascript"
-			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1d8a3b5411575a63527efe44dd798dfe&libraries=services"
-		></script>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-			integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<link rel="stylesheet" href="/static/css/detailPages.css" />
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-		<link rel="icon" type="image/x-icon" href="/static/img/favneighbor.png" />
-		<link href="/static/css/chat.css" rel="stylesheet" />
-		<title><%=product_detail_info["product_name"]%></title>
-		<script>
-		</script>
-	</head>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+	<script
+	src="https://code.jquery.com/jquery-3.6.1.min.js"
+	integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+	crossorigin="anonymous"
+></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+	integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+	crossorigin="anonymous"
+	referrerpolicy="no-referrer"
+></script>
+<script
+	src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+	integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+	crossorigin="anonymous"
+></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous"
+/>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+	crossorigin="anonymous"
+></script>
+<script
+	type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1d8a3b5411575a63527efe44dd798dfe&libraries=services"
+></script>
+<link
+	rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+	integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+	crossorigin="anonymous"
+	referrerpolicy="no-referrer"
+/>
+	<link rel="stylesheet" href="/static/css/detailPages.css" />
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<link rel="icon" type="image/x-icon" href="/static/img/favneighbor.png" />
+	<link href="/static/css/chat.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../static/css/footer.css" />
+	<title>
+		<%=product_detail_info["product_name"]%>
+	</title>
+	<script>
+		const menu = ["yachae", "fruits"];
+	</script>
+</head>
+
 <body>
 	<main class="main-wrapper">
 		<section class="section-line">
@@ -68,56 +70,42 @@
 						<img class="arrow hidden left" src="/static/img/left-arrow.png" />
 						<img class="arrow hidden right" src="/static/img/right-arrow.png" />
 					</div>
-					<div class="indicator">
-						<% for (let i=1; i < product_img_src.length; i++) { %>
+				</div>
+				<div class="indicator">
+					<% for (let i=1; i < product_img_src.length; i++) { %>
 						<span class="indicator-dot"></span>
 						<% } %>
-					</div>
 				</div>
+			</div>
 
-				<div class="product-status">
-					<div class="product-title">
-						<div class="product-info-wrapper">
-							<div class="product-name">
-								<h2 class="product-name-title">
-									<%=product_detail_info["product_name"]%>
-								</h2>
-								<div class="product-price">
-									<div class="howToDeal">교 환</div>
-									<div class="howToDeal">나 눔</div>
-								</div>
-							</div>
-							<div class="product-content">
-								<ul class="jjim-list">
-									<li>
-										<img
-											class="heart"
-											src="/static/img/heart16.png"
-										/>&nbsp;&nbsp;<%=Like%>
-									</li>
-									<li>
-
-										<img
-											class="view-count"
-											src="/static/img/see.png"
-										/><span class='random-number'>&nbsp;&nbsp;</span>
-									</li>
-									<li>
-										<img
-											class="upload-times"
-											src="/static/img/clock96.png"
-										/>&nbsp;
-										<div class="upload-time"></div>
-									</li>
-								</ul>
+			<div class="product-status">
+				<div class="product-title">
+					<div class="product-info-wrapper">
+						<div class="product-name">
+							<h2 class="product-name-title">
+								<%=product_detail_info["product_name"]%>
+							</h2>
+							<div class="product-price">
+								<div class="howToDeal">교 환</div>
+								<div class="howToDeal">나 눔</div>
 							</div>
 						</div>
-						<div class="product-deal">
-							<div class="big-jjim-status">
-								<img class="heart-big" src="/static/img/heart30.png" /> 찜
-							</div>
-							<div class="dialog-status">대화 신청</div>
+						<div class="product-content">
+							<ul class="jjim-list">
+								<li><img class="heart" src="/static/img/heart16.png" />&nbsp;&nbsp;<%=Like%></li>
+								<li><img class="view-count" src="/static/img/see.png" />&nbsp;&nbsp;46</li>
+								<li>
+									<img class="upload-times" src="/static/img/clock96.png" />&nbsp;
+									<div class="upload-time"></div>
+								</li>
+							</ul>
 						</div>
+					</div>
+					<div class="product-deal">
+						<div class="big-jjim-status">
+							<img class="heart-big" src="/static/img/heart30.png" /> 찜
+						</div>
+						<div class="dialog-status">대화 신청</div>
 					</div>
 				</div>
 			</section>
@@ -126,16 +114,15 @@
 				<section class="recommands">
 
 					<!-- 왜 9부터 시작인지 알 수 없음 -->
-					<% for (let i = 9; i < detailImgArr.length; i++){ %>
-					<a class="blank-sm-recommend-window" href="#">
-						<img style="height: 100%" src="/<%= detailImgArr[i] %>" alt="" />
+					<% for (let i = 0; i < detailImgArr.length; i++){ %>
+						<a class="blank-sm-recommend-window" href="#">
+						<img style='height: 100%' src="/<%= detailImgArr[i] %>" alt="" />
 						<!-- <div class="small-item-title"><%= detailImgArr[i] %></div> -->
 					</a>
 					<% } %>
 
 				</section>
 			</section>
-
 			<section class="product-detail-info-wrapper">
 				<div class="product-detail-info">상품정보</div>
 				<div class="proruct-content">
@@ -147,15 +134,8 @@
 		<%- include("footer.ejs") %>
 
 		<script>
-			// 뷰수 난수
-			const randomNumber = document.querySelector('.random-number');
-			let viewCounter = Math.floor(Math.random()) * 10;
-			console.log(viewCounter);
-
-			const backSpace = document.querySelector(".back-space");
-			backSpace.addEventListener("click", () => {
-				document.location = "http://localhost:8000/product";
-			});
+			const backSpace = document.querySelector('.back-space')
+			backSpace.addEventListener('click',()=>{document.location = 'http://localhost:8000/product'})
 			const ex = "<%=product_img_src%>";
 			const stringExam = "<%=product_detail_info['product_time']%>";
 			const product_id = "<%=product_detail_info['product_id']%>";
@@ -168,148 +148,150 @@
 			axios({
 				url: "/api/checkJimm",
 				method: "post",
-				data: { product_id: product_id },
+				data:{product_id:product_id}
 			}).then((result) => {
 				console.log(result.data);
 				if (Number(result.data)) {
 					jjimBtn.classList.add(CLICKED_CLASS);
 					heartIcon.src = "/static/img/heart.gif";
 				} else {
-					jjimBtn.classList.remove(CLICKED_CLASS);
-				}
+					jjimBtn.classList.remove(CLICKED_CLASS)};
 			});
-			// 날짜를 숫자로 변환
-			const currentMonth = (month) => {
-				let currentmonth = "";
-				const months = {
-					Jan: 1,
-					Fab: 2,
-					Mar: 3,
-					Apr: 4,
-					May: 5,
-					Jun: 6,
-					Jul: 7,
-					Aug: 8,
-					Sep: 9,
-					Oct: 10,
-					Nov: 11,
-				};
-				return (currentmonth = months[month]);
+		// 날짜를 숫자로 변환
+		const currentMonth = (month) => {
+			let currentmonth = "";
+			const months = {
+				Jan: 1,
+				Fab: 2,
+				Mar: 3,
+				Apr: 4,
+				May: 5,
+				Jun: 6,
+				Jul: 7,
+				Aug: 8,
+				Sep: 9,
+				Oct: 10,
+				Nov: 11,
 			};
+			return (currentmonth = months[month]);
+		};
 
-			const uploadYear = stringExam.split(" ")["3"];
-			const uploadMonth = stringExam.split(" ")["1"];
-			const uploadDate = stringExam.split(" ")["2"];
-			const uploadMin = stringExam.split(" ")["4"].split(":")["1"];
-			const uploadTime = `${stringExam.split(" ")["4"].split(":")["0"]}시 ${
-				stringExam.split(" ")["4"].split(":")["1"]
+		const uploadYear = stringExam.split(" ")["3"];
+		const uploadMonth = stringExam.split(" ")["1"];
+		const uploadDate = stringExam.split(" ")["2"];
+		const uploadMin = stringExam.split(" ")["4"].split(":")["1"]
+		const uploadTime = `${stringExam.split(" ")["4"].split(":")["0"]}시 ${stringExam.split(" ")["4"].split(":")["1"]
 			}분`;
-			const productImgArr = "<%=product_detail_info['product_img_src']%>";
-			const uploadDateTime = document.querySelector(".upload-time");
+		console.log(stringExam, uploadMin)
+		const productImgArr = "<%=product_detail_info['product_img_src']%>";
 
-			// db에서 받은 날짜를 숫자로 변환
-			const now = () => {
-				const currentday = new Date().getDate();
-				if (currentday > uploadDate) return `${currentday - uploadDate} 일전`;
-				else if (currentday > uploadDate)
-					return `${currentday - uploadDate} 일전`;
-				else
-					return `${uploadYear}년 ${currentMonth(
-						uploadMonth
-					)}월 ${uploadDate}일 ${uploadTime}`;
-			};
+		// db에서 받은 날짜를 숫자로 변환
+		const now = () => {
+			const currentday = new Date().getDate();
 
-			uploadDateTime.textContent = now();
-			//false일때만 axios가 실행되도록 함 이런건 프론트딴에서 해결해야 백엔드에 과부하가 안가요! 사실 저희 프로젝트는 작아서 상관없지만서도
-			jjimBtn.addEventListener("click", () => {
-				const jjimBool = Boolean(jjimBtn.classList.contains(CLICKED_CLASS));
-				if (jjimBool) {
-					console.log("ㅁ");
-				} else {
-					heartIcon.src = "/static/img/heart.gif";
-					axios({
-						url: "/api/like",
-						method: "post",
-						// post방식 일때는 params가 data로 변경
-						data: {
-							product_id: product_id,
-						},
-					}).then((response) => {
+			if (currentday > uploadDate) return `${currentday - uploadDate} 일전`;
+			else if (currentday > uploadDate) return `${currentday - uploadDate} 일전`;
+			else return `${uploadYear}년 ${currentMonth(uploadMonth)}월 ${uploadDate}일 ${uploadTime}`;
+		};
+
+		const uploadDateTime = document.querySelector(".upload-time");
+		uploadDateTime.textContent = now();
+
+		//false일때만 axios가 실행되도록 함 이런건 프론트딴에서 해결해야 백엔드에 과부하가 안가요! 사실 저희 프로젝트는 작아서 상관없지만서도
+		jjimBtn.addEventListener("click", () => {
+			const jjimBool = Boolean(jjimBtn.classList.contains(CLICKED_CLASS));
+			if (jjimBool) {
+				console.log("ㅁ");
+			} else {
+				heartIcon.src = "/static/img/heart.gif";
+				axios({
+					url: "/api/like",
+					method: "post",
+					// post방식 일때는 params가 data로 변경
+					data: {
+						product_id: product_id
+					},
+				})
+					.then((response) => {
 						console.log(response.data);
 						if (response.data) {
 							jjimBtn.classList.add(CLICKED_CLASS);
-						} else {
-							alert("로그인 해주세요");
 						}
+						else {
+							alert("로그인 해주세요")
+						}
+					})
+				}
+
+			});
+		// click dot to move imgs
+		const productImg = document.querySelector(".product-img");
+		const dots = document.querySelectorAll(".indicator-dot");
+		const arrowWrapper = document.querySelector(".arrow-wrapper");
+		const FILL_COLOR_CLASS = "fill-color";
+		const HIDDEN_CLASS = "hidden";
+
+		const clickDot = () => {
+			if (dots.length === 1) {
+				dots[0].classList.add(FILL_COLOR_CLASS);
+				arrowWrapper.classList.add(HIDDEN_CLASS);
+			} else {
+				dots[0].classList.add(FILL_COLOR_CLASS);
+
+				dots.forEach((el, index) => {
+					el.addEventListener("click", () => {
+						move1(index);
 					});
-				}
-			});
-			// click dot to move imgs
-			const productImg = document.querySelector(".product-img");
-			const dots = document.querySelectorAll(".indicator-dot");
-			const arrowWrapper = document.querySelector(".arrow-wrapper");
-			const FILL_COLOR_CLASS = "fill-color";
-			const HIDDEN_CLASS = "hidden";
-
-			const leftBtn = document.querySelector(".arrow.left");
-			const rightBtn = document.querySelector(".arrow.right");
-			const TRANSFORM_CLASS = "transform";
-
-			const clickDot = () => {
-				if (dots.length === 1) {
-					dots[0].classList.add(FILL_COLOR_CLASS);
-					arrowWrapper.classList.add(HIDDEN_CLASS);
-				} else {
-					dots[0].classList.add(FILL_COLOR_CLASS);
-					dots.forEach((el, index) => {
-						el.addEventListener("click", () => {
-							move1(index);
-						});
-					});
-					return clickDot;
-				}
-			};
-			clickDot();
-
-			function move1(index) {
-				if (index === 1) productImg.src = `/<%=product_img_src[2]%>`;
-				else if (index === 0) productImg.src = `/<%=product_img_src[1]%>`;
-				else if (index === 2) productImg.src = `/<%=product_img_src[3]%>`;
-				for (let i = 0; i < dots.length; i++) {
-					dots[i].classList.remove(FILL_COLOR_CLASS);
-				}
-				dots[index].classList.add(FILL_COLOR_CLASS);
-			}
-
-			function leftArrow() {
-				if (dots[0].classList.contains(FILL_COLOR_CLASS)) move1(2);
-				else if (dots[1].classList.contains(FILL_COLOR_CLASS)) move1(0);
-				else if (dots[2].classList.contains(FILL_COLOR_CLASS)) move1(1);
-			}
-
-			function rightArrow() {
-				if (dots[0].classList.contains(FILL_COLOR_CLASS)) move1(1);
-				else if (dots[1].classList.contains(FILL_COLOR_CLASS)) move1(2);
-				else if (dots[2].classList.contains(FILL_COLOR_CLASS)) move1(0);
-			}
-			// 화살표 click 이벤트
-			leftBtn.addEventListener("click", leftArrow);
-			rightBtn.addEventListener("click", rightArrow);
-
-			// product-pic에 hover하면 화살표 보이게 함
-			const productPic = document.querySelector(".product-pic");
-			const arrow = document.querySelectorAll(".arrow");
-
-			productPic.addEventListener("mouseover", () => {
-				arrow.forEach((el) => {
-					el.classList.remove(HIDDEN_CLASS);
 				});
-			});
-			productPic.addEventListener("mouseleave", () => {
-				arrow.forEach((el) => {
-					el.classList.add(HIDDEN_CLASS);
-				});
-			});
-		</script>
-	</body>
+				return clickDot;
+			}
+		};
+		clickDot();
+
+		function move1(index) {
+			if (index === 1) productImg.src = `/<%=product_img_src[2]%>`;
+			else if (index === 0) productImg.src = `/<%=product_img_src[1]%>`;
+			else if (index === 2) productImg.src = `/<%=product_img_src[3]%>`;
+			for (let i = 0; i < dots.length; i++) {
+				dots[i].classList.remove(FILL_COLOR_CLASS);
+			}
+			dots[index].classList.add(FILL_COLOR_CLASS);
+		}
+
+		const leftBtn = document.querySelector(".arrow.left");
+		const rightBtn = document.querySelector(".arrow.right");
+		const TRANSFORM_CLASS = "transform";
+
+		function leftArrow() {
+			if (dots[0].classList.contains(FILL_COLOR_CLASS)) move1(2);
+			else if (dots[1].classList.contains(FILL_COLOR_CLASS)) move1(0);
+			else if (dots[2].classList.contains(FILL_COLOR_CLASS)) move1(1);
+		}
+
+		function rightArrow() {
+			if (dots[0].classList.contains(FILL_COLOR_CLASS)) move1(1);
+			else if (dots[1].classList.contains(FILL_COLOR_CLASS)) move1(2);
+			else if (dots[2].classList.contains(FILL_COLOR_CLASS)) move1(0);
+		}
+		// 화살표 click 이벤트
+		leftBtn.addEventListener("click", leftArrow);
+		rightBtn.addEventListener("click", rightArrow);
+
+		// product-pic에 hover하면 화살표 보이게 함
+		const productPic = document.querySelector('.product-pic')
+		const arrow = document.querySelectorAll('.arrow')
+
+		productPic.addEventListener('mouseover', ()=>{
+			arrow.forEach(el=>{
+				el.classList.remove(HIDDEN_CLASS)
+			})
+		});
+		productPic.addEventListener('mouseleave', ()=>{
+			arrow.forEach(el=>{
+				el.classList.add(HIDDEN_CLASS)
+			})
+		});
+	</script>
+</body>
+
 </html>
