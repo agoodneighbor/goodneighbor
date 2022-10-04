@@ -26,56 +26,6 @@
   50%{background-position:100% 48%}
   100%{background-position:0% 53%}
 }
-
-
-
-/* 
-body{
-  margin:0;
-  height:100vh;
-  display:grid;
-  place-items:center;
-  background-color:black;
-  
-}
-
-.gallery{
- 
-  position:relative;
-  width:300px;
-  height:400px;
-  transform-style:preserve-3d;
-  animation:rotate 35s linear infinite;
-  z-index: 2;
-}
-
-@keyframes rotate{
-  from{
-    transform:perspective(1200px) rotateY(0deg);
-  }
-  
-  to{
-    transform:perspective(1200px) rotateY(360deg);
-  }
-}
-
-.gallery span{
-  position:absolute;
-  width:100%;
-  height:100%;
-  transform-origin:center;
-  transform-style:preserve-3d;
-  transform:rotateY(calc(var(--i) * 45deg)) translateZ(380px);
-}
-
-.gallery span img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-} */
-/* @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500&family=Pacifico&display=swap"); */
-
 @font-face {
   font-family: 'BinggraeSamanco';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/BinggraeSamanco.woff') format('woff');
@@ -84,12 +34,11 @@ body{
 }
 
 .header {
-  
+
   /* background-color:white; */
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
-
 }
 .header-text {
   position: absolute;
@@ -110,7 +59,6 @@ left: 5%;
   stroke: white;
   stroke-width: 1.5px;
 }
-
 .path1 , .header-text{
   stroke:white;
   stroke-dasharray: 7000;
@@ -136,7 +84,6 @@ left: 20%;
     top: 50%;
   }
 }
-
 
 .content3 {
 position: relative;
@@ -175,8 +122,8 @@ left: 45%;
   }
   .con4-text{
     position: absolute;
-    top: 7%;
-    left: 60%;
+    top: 10%;
+    left: 40%;
     font-size: 3rem;
     color: white;
   }
@@ -217,7 +164,7 @@ left: 45%;
         font-size: 2rem;
       }
     }
-    
+
     .con5-text2 {
       position: absolute;
       top: 70%;
@@ -228,7 +175,7 @@ left: 45%;
     @media screen and (max-width: 768px) {
       .con5-text2 {
         font-size: 2rem;
-    
+
       }
     }
 
@@ -271,7 +218,7 @@ left: 45%;
 
 .content7 {
   position: relative;
-  
+
   top: 300px;
 
 }
@@ -282,7 +229,7 @@ left: 45%;
 
 .content8 {
   position: relative;
-  
+
   top: 100px;
 
 }
@@ -302,9 +249,9 @@ left: 45%;
 /* .path2 {
   stroke: white;
 }
-
-
-
+​
+​
+​
 .path3 {
   stroke: white;
 }
@@ -335,7 +282,6 @@ left: 45%;
     transform: translate3d(0, 40px, 0);
   }
 }
-
 
 /* 카드이미지 */
 /* *:not(head, script, svg, svg *),
@@ -369,7 +315,7 @@ left: 45%;
   background: white;
   padding: 5vmin;
   border-radius: 2vmin;
-  
+
 }
 
 .carddd h2 {
@@ -509,8 +455,18 @@ h1 span[aria-hidden] {
     slide var(--slide-duration) var(--delay) var(--slide-count) backwards ease-in,
     slide-to calc(var(--slide-duration) * 0.5) calc(var(--delay) + (var(--slide-duration) * var(--slide-count))) forwards cubic-bezier(.87,1.4,.87,1.4);
   top: 50%;
- 
   transform: translate(0, -50%);
+  top: -350px;
+  left: -240px;
+  width: 1500px;
+  height: 1000px;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+}
+@media screen and (max-width: 768px) {
+  .images img{
+    top: 100px;
 
   --block: calc(100% / var(--count));
   clip-path: inset(
@@ -538,3 +494,7 @@ h1 span:nth-of-type(even) {
     transform: translate(-50%, -50%) translateX(calc(var(--distance) * -1));
   }
 } */
+/* 마우스 오버 */
+.contents li:hover {
+  color: #5caaef;
+}
