@@ -96,10 +96,11 @@
 										/>&nbsp;&nbsp;<%=Like%>
 									</li>
 									<li>
+
 										<img
 											class="view-count"
 											src="/static/img/see.png"
-										/>&nbsp;&nbsp;46
+										/><span class='random-number'>&nbsp;&nbsp;</span>
 									</li>
 									<li>
 										<img
@@ -123,7 +124,7 @@
 
 			<section class="product-recommend-wrapper">
 				<section class="recommands">
-					<!-- <div class="btn left"><</div> -->
+
 					<!-- 왜 9부터 시작인지 알 수 없음 -->
 					<% for (let i = 9; i < detailImgArr.length; i++){ %>
 					<a class="blank-sm-recommend-window" href="#">
@@ -131,7 +132,7 @@
 						<!-- <div class="small-item-title"><%= detailImgArr[i] %></div> -->
 					</a>
 					<% } %>
-					<!-- <div class="btn right">></div> -->
+
 				</section>
 			</section>
 
@@ -146,6 +147,11 @@
 		<%- include("footer.ejs") %>
 
 		<script>
+			// 뷰수 난수
+			const randomNumber = document.querySelector('.random-number');
+			let viewCounter = Math.floor(Math.random()) * 10;
+			console.log(viewCounter);
+
 			const backSpace = document.querySelector(".back-space");
 			backSpace.addEventListener("click", () => {
 				document.location = "http://localhost:8000/product";
