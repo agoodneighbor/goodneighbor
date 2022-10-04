@@ -450,15 +450,12 @@ h1 span:not([aria-hidden]) {
 h1 span[aria-hidden] {
   --delay: calc(var(--index) * var(--slide-step));
   position: absolute;
-<<<<<<< HEAD
   display: inline-block;
   animation:
     slide var(--slide-duration) var(--delay) var(--slide-count) backwards ease-in,
     slide-to calc(var(--slide-duration) * 0.5) calc(var(--delay) + (var(--slide-duration) * var(--slide-count))) forwards cubic-bezier(.87,1.4,.87,1.4);
   top: 50%;
-
   transform: translate(0, -50%);
-=======
   top: -350px;
   left: -240px;
   width: 1500px;
@@ -470,7 +467,6 @@ h1 span[aria-hidden] {
 @media screen and (max-width: 768px) {
   .images img{
     top: 100px;
->>>>>>> upstream/header
 
   --block: calc(100% / var(--count));
   clip-path: inset(
@@ -493,15 +489,12 @@ h1 span:nth-of-type(even) {
   }
 }
 
-<<<<<<< HEAD
 @keyframes slide-to {
   0% {
     transform: translate(-50%, -50%) translateX(calc(var(--distance) * -1));
   }
 } */
-=======
 /* 마우스 오버 */
 .contents li:hover {
   color: #5caaef;
 }
->>>>>>> upstream/header
