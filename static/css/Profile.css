@@ -1,5 +1,7 @@
 :root {
 	--border-setting: 1px solid rgb(242, 240, 240);
+	--main-color: #36b8f5;
+	--media-white-bg-color: #fff;
 }
 .profile-body {
 	display: flex;
@@ -13,15 +15,17 @@
 	/* width: 100%; */
 	min-width: 1024px;
 	position: relative;
-	box-shadow: 0px 0px 5px grey;
+	box-shadow: 0px 0px 2px var(--main-color);
 	display: grid;
 	grid-template-columns: 340px 1fr;
 	margin: 80px 20px 40px 20px;
+	border-radius: 12px;
 }
 
 .profile-img {
-	background-color: forestgreen;
+	background-color: var(--main-color);
 	padding: 20px;
+	border-radius: 12px 0 0 12px;
 }
 .profile-inner-img {
 	position: relative;
@@ -42,7 +46,12 @@
 	left: 50%;
 	transform: translate(-50%, -70%);
 }
-
+#menu-find {
+	border: 1px solid var(--main-color);
+	border-radius: 4px;
+	margin-right: 0.8rem;
+	background-color: var(--media-white-bg-color);
+}
 .profile-info {
 	width: 100%;
 	padding: 0 20px;
@@ -56,8 +65,8 @@
 .seller-info {
 	display: flex;
 	align-items: center;
-	border-top: var(--border-setting);
-	border-bottom: var(--border-setting);
+	border-top: 1px solid var(--main-color);
+	border-bottom: 1px solid var(--main-color);
 	gap: 2rem;
 	padding: 1.5rem 0;
 	margin-bottom: 8px;
@@ -70,14 +79,15 @@
 
 .introduce-myself:hover {
 	cursor: pointer;
-	border: 1px solid rgb(100, 255, 100);
+	border: 1px solid var(--main-color);
 }
 .change-my-introduce {
 	margin: 1rem 0;
 	padding: 0 8px;
 	width: 72px;
-	background-color: rgb(50, 196, 89);
+	background-color: var(--main-color);
 	color: aliceblue;
+	border-radius: 4px;
 }
 .change-my-introduce:hover {
 	cursor: pointer;
@@ -86,14 +96,30 @@
 @media screen and (max-width: 900px) {
 	.profile-img {
 		width: 100%;
-		background-color: antiquewhite;
+		background-color: var(--media-white-bg-color);
+		padding: 80px 20px 0 20px;
+		border-top: 1px solid var(--main-color);
+		border-bottom: 1px solid var(--main-color);
+	}
+
+	.show-profile {
+		box-shadow: none;
+	}
+
+	#menu-find {
+		background-color: #cceefe;
+		border-radius: 4px;
+		margin-right: 0.8rem;
 	}
 
 	.profile-info {
 		width: 100%;
-		background-color: aqua;
+		background-color: var(--media-white-bg-color);
 	}
 
+	.seller-info {
+		border-color: var(--main-color);
+	}
 	.show-profile {
 		display: block;
 	}
@@ -104,7 +130,7 @@ input {
 	height: 50px;
 	border: none;
 	overflow: visible;
-	background-color: #f2f2f2;
+	background-color: var(--main-color);
 }
 
 .filebox input[type="file"] {
