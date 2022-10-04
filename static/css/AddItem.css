@@ -78,6 +78,7 @@
 	margin-left: 33px;
 	display: flex;
 	background-color: whitesmoke;
+	border-radius: 10px;
 }
 
 .CameraImg {
@@ -134,28 +135,21 @@ img {
 	height: 100%;
 }
 
-
-/* .categoryOption {
-    height: 32px;
-    width: 8rem;
-    margin-top: 15px;
-    margin-bottom: 22px;
-    margin-left: 8%;
-} */
 .categoryOption {
-    margin-left: 10%;
-    margin-bottom: 10px;
-    width: 80px;
-    margin-top: 18px;
-    padding: 6px 10px;
-    font-size: 0.9rem;
-    appearance: none;
-    outline: none;
-    font-size: 17px;
+	margin-left: 10%;
+	margin-bottom: 20px;
+	margin-top: 25px;
+	width: 97px;
+	padding: 6px 10px;
+	font-size: 0.9rem;
+	appearance: none;
+	outline: none;
+	border-radius: 10px;
+	font-size: 17px;
 }
 
 .categoryOption:hover {
-    border: 3px solid green;
+	border: 3px solid #36b8f5;
 }
 
 
@@ -166,12 +160,13 @@ img {
 
 
 .givebtn {
-    cursor: pointer;
-    display: inline-block;
-    background-color: #1cc778;
-    color: white;
-    padding: 0 68px;
-    letter-spacing: 5px;
+
+	cursor: pointer;
+	display: inline-block;
+	background-color: #36b8f5;
+	color: white;
+	padding: 0 68px;
+	letter-spacing: 5px;
 }
 
 .givebtn:hover {
@@ -179,22 +174,25 @@ img {
 }
 
 .clicked {
-    background-color: yellowgreen;
+
+	background-color: #1cc778;
 }
 
 
 .price > div {
 	cursor: pointer;
 	display: inline-block;
-	background-color: #1cc778;
+	background-color: #36b8f5;
 	color: white;
 	padding: 0 68px;
 	letter-spacing: 5px;
+	border-radius: 10px;
 }
 
-.price > div:hover {
+
+/* .price>div:hover {
 	color: black;
-}
+} */
 
 .itemName {
 	text-align: center;
@@ -220,6 +218,7 @@ input {
 	border: none;
 	overflow: visible;
 	background-color: #f2f2f2;
+	border-radius: 10px;
 }
 
 .addbtn {
