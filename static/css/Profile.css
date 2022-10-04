@@ -185,9 +185,7 @@ input:focus {
 	/* width: 70%; */
 	position: relative;
 	top: 100px;
-	padding-top: 20px;
-	margin-bottom: 20px;
-	width: 800px;
+	margin-bottom: 100px;
 }
 
 .myProfile {

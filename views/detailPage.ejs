@@ -53,34 +53,20 @@
 		<link href="/static/css/chat.css" rel="stylesheet" />
 		<title><%=product_detail_info["product_name"]%></title>
 		<script>
-			const menu = ["yachae", "fruits"];
 		</script>
 	</head>
-
-	<body>
-		<main class="main-wrapper">
-			<section class="section-line">
-				<img
-					class="back-space"
-					src="/static/img/back-space.gif"
-					alt="back-space"
-				/>
-			</section>
-			<section class="product-info-window">
-				<div class="product-pic">
-					<img
-						class="product-img"
-						src="/<%=product_img_src[1]%>"
-						alt="product-img"
-					/>
-					<div class="indicator-arrow">
-						<div class="arrow-wrapper">
-							<img class="arrow hidden left" src="/static/img/left-arrow.png" />
-							<img
-								class="arrow hidden right"
-								src="/static/img/right-arrow.png"
-							/>
-						</div>
+<body>
+	<main class="main-wrapper">
+		<section class="section-line">
+			<img class='back-space' src="/static/img/back-space.gif" alt="back-space">
+		</section>
+		<section class="product-info-window">
+			<div class="product-pic">
+				<img class="product-img" src="/<%=product_img_src[1]%>" alt="product-img" />
+				<div class="indicator-arrow">
+					<div class="arrow-wrapper">
+						<img class="arrow hidden left" src="/static/img/left-arrow.png" />
+						<img class="arrow hidden right" src="/static/img/right-arrow.png" />
 					</div>
 					<div class="indicator">
 						<% for (let i=1; i < product_img_src.length; i++) { %>
@@ -157,7 +143,8 @@
 			</section>
 			<%- include("chat.ejs") %>
 		</main>
-		<footer></footer>
+		<%- include("footer.ejs") %>
+
 		<script>
 			const backSpace = document.querySelector(".back-space");
 			backSpace.addEventListener("click", () => {

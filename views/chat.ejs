@@ -2,20 +2,14 @@
 	<div class="modalPage">
 		<div class="chat_box">
 			<div id="close_chat" class="c_b">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="16"
-					height="16"
-					fill="currentColor"
-					class="bi bi-x-lg"
-					viewBox="0 0 16 16"
-				>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+					viewBox="0 0 16 16">
 					<path
-						d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
-					/>
+						d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
 				</svg>
 			</div>
 
+<<<<<<< HEAD
 			<div class="messages"></div>
 			<div class="textbox">
 				<input type="text" id="chat-cont" />
@@ -23,6 +17,19 @@
 			</div>
 		</div>
 	</div>
+=======
+			<div class="messages">
+
+			</div>
+			<div class="textbox">
+				<input type="text" id="chat-cont">
+				<button id="send-message">Send</button>
+			</div>
+
+		</div>
+	</div>
+
+>>>>>>> upstream/header
 </div>
 
 <script>
@@ -46,15 +53,24 @@
 				params: { member_id: roomname },
 			}).then((result) => {
 				console.log(result.data);
+<<<<<<< HEAD
 				let chatcont = result.data.content.chat_content.split("//");
 				console.log("chatcontent", chatcont);
+=======
+				let chatcont = result.data.content.chat_content.split("//")
+				console.log("chatcontent", chatcont)
+>>>>>>> upstream/header
 				for (let i of chatcont) {
 					if (Number(i.split("&&")[0]) == Number(result.data.mynum)) {
 						$(".messages").append(`<div class="message my-message">
 							<div>
 								<div class="text">${i.split("&&")[1]}</div>
 							</div>
+<<<<<<< HEAD
 						</div>`);
+=======
+						</div>`)
+>>>>>>> upstream/header
 					} else {
 						$(".messages").append(`<div class="message other-message">
 							<div>
@@ -63,6 +79,8 @@
 						</div> `);
 					}
 				}
+				let chatBox = document.querySelector(".messages");
+				chatBox.scrollTo(0, chatBox.scrollHeight)
 				socket.emit("roomentry", result.data.roomname);
 			});
 			socket.emit("roomentry", result.data);
@@ -71,28 +89,47 @@
 		$("#chat-cont").on("keyup", (key) => {
 			// console.log(key);
 			if (key.keyCode == 13) {
-				socket.emit("sendto", { roomname: roomname, msg: key.target.value });
-				$(".messages").append(`<div class="message my-message">
+				if ($("#chat-cont").val().trim() == '') {
+					socket.emit("sendto", { roomname: roomname, msg: key.target.value })
+					$(".messages").append(`<div class="message my-message">
 					<div>
 						<div class="text">${key.target.value}</div>
 					</div>
-				</div>`);
-				axios({
-					url: "/api/storechat",
-					method: "post",
-					data: { content: key.target.value, roomname: roomname },
-				}).then((result) => {
-					console.log(result.data);
-					socket.emit("roomentry", "hi im entry");
-				});
-				$("#chat-cont").val("");
+				</div>`)
+					axios({
+						url: "/api/storechat",
+						method: "post",
+						data: { content: key.target.value, roomname: roomname },
+					}).then((result) => {
+						console.log(result.data);
+						socket.emit("roomentry", "hi im entry");
+					});
+					$("#chat-cont").val("");
+					let chatBox = document.querySelector(".messages");
+					chatBox.scrollTo(0, chatBox.scrollHeight)
+				}
 			}
 		});
 		socket.on("recieve", (msg) => {
 			console.log("revieve", msg);
+			$(".messages").append(`<div class="message other-message">
+				<div>
+					<div class="text">${msg}</div>
+				</div>
+			</div> `)
+			let chatBox = document.querySelector(".messages");
+					chatBox.scrollTo(0, chatBox.scrollHeight)
 		});
 	});
 	$("#close_chat").click(() => {
 		$("#modal_window_chat").hide();
 	});
+<<<<<<< HEAD
 </script>
+=======
+
+
+
+
+</script>
+>>>>>>> upstream/header
