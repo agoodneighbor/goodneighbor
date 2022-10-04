@@ -48,6 +48,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<link rel="icon" type="image/x-icon" href="/static/img/favneighbor.png" />
 	<link href="/static/css/chat.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../static/css/footer.css" />
 	<title>
 		<%=product_detail_info["product_name"]%>
 	</title>
@@ -130,7 +131,8 @@
 			</section>
 			<%- include("chat.ejs") %>
 		</main>
-		<footer></footer>
+		<%- include("footer.ejs") %>
+
 		<script>
 			const backSpace = document.querySelector('.back-space')
 			backSpace.addEventListener('click',()=>{document.location = 'http://localhost:8000/product'})
