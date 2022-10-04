@@ -34,7 +34,7 @@
 				</svg>
 			</div>
 			<div class="UploadLogo">
-				<Strong>업로드</Strong>
+				<Strong>Upload</Strong>
 			</div>
 			<div class="UploadPage">
                 <div class="price">
@@ -70,13 +70,27 @@
 						</div>
 					</div>
 					<div class="imgDiv"></div>
-				</div>	
-				
-				<select class="categoryOption" name="category" >
-						<option selected>카테고리<i class="fa-sharp fa-solid fa-caret-down"></i></option>
-						<option id="vege" type="category" value="야채">야채</option>
+				</div>
+
+<!--                 
+                <select class="categoryOption" name="category" >
+                    <option selected>카테고리<i class="fa-solid fa-arrow-down"></i></option>
+                    <option type="category" value="야채">야채</option>
+                    <option type="category" value="과일">과일</option>
+                </select>
+                 -->
+
+				<div class="categoryOption">
+					<select
+						name="category"
+						class="categoryOption form-select form-select-sm"
+						aria-label=".form-select-sm example"
+					>
+						<option selected>카테고리</option>
+						<option id="vagi" type="category" value="야채">야채</option>
 						<option id="fruit" type="category" value="과일">과일</option>
-				</select>
+					</select>
+				</div>
 
 				<div class="itemName">
 					<input

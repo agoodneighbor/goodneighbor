@@ -57,4 +57,3 @@ router.post("/like", productController.DoJimm);
 router.post("/checkJimm", productController.checkJimm);
 
 module.exports = router;
-

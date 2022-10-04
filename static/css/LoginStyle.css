@@ -59,8 +59,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    font-size: var(--textFont1);
 }
 
 .input_div {
@@ -71,8 +69,6 @@
     justify-content: center;
     flex-direction: column;
 
-    font-size: var(--textFont2);
-
 }
 
 .Login_Button {
@@ -82,8 +78,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    font-size: var(--textFont2);
 }
 
 .custom-btn:hover {
@@ -103,10 +97,19 @@
     width: 80%;
     height: 40px;
     color: #fff;
+
     background-color: #36b8f5;
-    /* padding: 10px 25px; */
+
     font-weight: 500;
     border: 0;
+    /* background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block; */
+    /* box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1); */
     outline: none;
     border-radius: 10px;
 }

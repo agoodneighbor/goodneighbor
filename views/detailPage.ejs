@@ -112,17 +112,17 @@
 
 			<section class="product-recommend-wrapper">
 				<section class="recommands">
-					<!-- <div class="btn left"><</div> -->
+
 					<!-- 왜 9부터 시작인지 알 수 없음 -->
-					<% for (let i = 9; i < detailImgArr.length; i++){ %>
+					<% for (let i = 0; i < detailImgArr.length; i++){ %>
 						<a class="blank-sm-recommend-window" href="#">
 						<img style='height: 100%' src="/<%= detailImgArr[i] %>" alt="" />
 						<!-- <div class="small-item-title"><%= detailImgArr[i] %></div> -->
 					</a>
 					<% } %>
-					<!-- <div class="btn right">></div> -->
-				</section>
 
+				</section>
+			</section>
 			<section class="product-detail-info-wrapper">
 				<div class="product-detail-info">상품정보</div>
 				<div class="proruct-content">

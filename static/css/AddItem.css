@@ -55,8 +55,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	font-size: var(--textFont1);
 }
 
 .UploadPage {
@@ -158,12 +156,11 @@ img {
 .price {
 	text-align: center;
 	margin-bottom: 20px;
-
-	font-size: var(--textFont2);
 }
 
 
 .givebtn {
+
 	cursor: pointer;
 	display: inline-block;
 	background-color: #36b8f5;
@@ -172,13 +169,17 @@ img {
 	letter-spacing: 5px;
 }
 
+.givebtn:hover {
+    color: black;
+}
 
 .clicked {
+
 	background-color: #1cc778;
 }
 
 
-.price>div {
+.price > div {
 	cursor: pointer;
 	display: inline-block;
 	background-color: #36b8f5;
@@ -188,6 +189,7 @@ img {
 	border-radius: 10px;
 }
 
+
 /* .price>div:hover {
 	color: black;
 } */
@@ -195,15 +197,11 @@ img {
 .itemName {
 	text-align: center;
 	height: 80px;
-
-	font-size: var(--textFont2);
 }
 
 .itemDetail {
 	text-align: center;
 	height: 100px;
-
-	font-size: var(--textFont2);
 }
 
 textarea#ItemDetail {
@@ -211,9 +209,7 @@ textarea#ItemDetail {
 	height: 100%;
 	background-color: whitesmoke;
 	border: none;
-
-	font-size: var(--textFont2);
-
+	font-size: initial;
 }
 
 input {
@@ -232,6 +228,4 @@ input {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-
-	font-size: var(--textFont2);
 }
