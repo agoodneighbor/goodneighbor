@@ -96,6 +96,10 @@ exports.serchProduct = async (req, res) => {
 };
 
 exports.showDetail = async (req, res) => {
+	let is_login = false;
+	if (req.session.user !== undefined) {
+		is_login = true;
+	}
 	let product_id = req.params.id;
 	const result = await Product.findAll({
 		//raw:true,
@@ -103,7 +107,11 @@ exports.showDetail = async (req, res) => {
 		where: { product_id: Number(product_id) },
 	});
 	// console.log("img", result[0].product_img_src.split("imgParseStandard"));
-	// console.log("result", result);
+	console.log("result", result);
+	let cantalk=true;
+	if(Number(result[0].dataValues["member_id"])==Number(req.session.user)){
+		cantalk=false
+	}
 	const anotherResult = await Product.findAll();
 	console.log("anotherResult : ", anotherResult[0]);
 	let detailImgArr = [];
@@ -118,6 +126,8 @@ exports.showDetail = async (req, res) => {
 		Like: result[0].dataValues.wish_lists.length,
 		product_img_src: result[0].product_img_src.split("imgParseStandard"),
 		detailImgArr: detailImgArr,
+		is_login:is_login,
+		cantalk:cantalk
 	});
 };
 

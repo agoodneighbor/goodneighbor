@@ -1,162 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<%- include("Head.ejs") %>
+
+<head>
+	<%- include("Head.ejs") %>
 
 		<link rel="stylesheet" href="../static/css/product.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
 			integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-	</head>
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-	<body>
-		<%- include("navBar.ejs") %>
-
-		<div
-			id="carouselExampleDark"
-			class="carousel carousel slide"
-			data-bs-ride="carousel"
-		>
-			<div class="carousel-indicators">
-				<button
-					type="button"
-					data-bs-target="#carouselExampleIndicators"
-					data-bs-slide-to="0"
-					class="active"
-					aria-current="true"
-					aria-label="Slide 1"
-				></button>
-				<button
-					type="button"
-					data-bs-target="#carouselExampleIndicators"
-					data-bs-slide-to="1"
-					aria-label="Slide 2"
-				></button>
-				<button
-					type="button"
-					data-bs-target="#carouselExampleIndicators"
-					data-bs-slide-to="2"
-					aria-label="Slide 3"
-				></button>
-			</div>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img
-						src=".././static/img/main/green2.jpg"
-						class="d-block w-100"
-						alt="..."
-					/>
-
-					<div class="carousel-caption d-md-block">
-						<h1>이웃사촌</h1>
-						<!-- <h4>이웃끼리 신선하게 먹어볼까?</h4> -->
-					</div>
+<body>
+	<%- include("navBar.ejs") %>
+		<div class="cont">
+			<div class="pos" style="background-color:#D8E3E7;display:flex; justify-content:center; width: 100vw; position:reletive;height:100vh;">
+				<div class="product-text">
+					상품 목록
 				</div>
-				<div class="carousel-item" data-bs-interval="2000">
-					<img
-						src=".././static/img/main/vege7.jpg"
-						class="d-block w-100"
-						alt="..."
-					/>
+				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="512.000000pt" height="512.000000pt"
+					viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+					<g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="none" stroke="black"
+						stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+						<path class="path path1" d="M2108 4700 c-107 -17 -183 -41 -283 -90 -297 -144 -490 -408 -536
+-733 l-12 -85 -171 -5 c-137 -3 -184 -9 -236 -25 -188 -61 -327 -206 -387
+-402 -15 -49 -17 -141 -21 -805 -4 -807 1 -925 44 -1094 25 -100 91 -249 145
+-328 49 -70 166 -190 234 -238 120 -85 278 -152 433 -182 108 -21 755 -30 792
+-11 64 35 89 130 50 193 -37 60 -61 65 -327 65 -386 0 -519 19 -678 95 -148
+72 -254 176 -326 320 -92 188 -102 301 -97 1200 4 788 0 748 96 845 104 103
+-20 95 1412 95 1431 0 1308 8 1411 -94 59 -59 60 -63 90 -215 24 -127 137
+-177 228 -100 47 39 54 80 31 193 -10 53 -26 116 -35 141 -50 140 -193 270
+-355 322 -52 16 -100 22 -236 25 l-171 5 -12 85 c-55 389 -344 711 -721 803
+-97 23 -277 33 -362 20z m306 -290 c120 -30 208 -82 307 -180 69 -68 94 -102
+127 -170 44 -89 72 -182 72 -237 l0 -33 -680 0 -680 0 0 33 c0 54 28 147 70
+233 62 127 179 242 318 313 120 61 320 79 466 41z" />
+						<path class="path path2" d="M2760 2776 c-30 -6 -73 -21 -95 -31 -63 -30 -138 -112 -166 -180
+l-24 -60 0 -725 c0 -720 0 -725 22 -795 59 -188 189 -314 379 -367 78 -22 88
+-22 809 -23 816 0 824 0 953 65 138 70 239 197 279 356 16 63 18 132 18 764 0
+628 -2 700 -17 750 -33 106 -111 189 -216 232 l-57 23 -915 2 c-693 1 -928 -1
+-970 -11z m1871 -285 l24 -19 3 -669 c2 -453 -1 -685 -8 -720 -17 -80 -64
+-142 -134 -178 l-60 -30 -750 0 -751 0 -60 30 c-67 34 -117 91 -137 158 -10
+32 -13 199 -13 720 l0 679 28 24 28 24 903 0 c875 0 905 -1 927 -19z" />
+						<path class="path path3" d="M4124 2220 c-44 -18 -71 -65 -78 -137 -21 -209 -196 -339 -405 -303
+-158 27 -261 134 -280 289 -5 37 -14 78 -21 90 -19 36 -70 61 -124 61 -43 0
+-53 -4 -87 -39 -38 -38 -39 -40 -39 -113 0 -257 202 -493 476 -554 96 -21 240
+-15 334 15 126 39 260 142 331 253 73 113 109 298 74 372 -10 21 -32 47 -49
+57 -32 20 -95 24 -132 9z" />
+					</g>
+				</svg>
 
-					<div class="carousel-caption d-md-block">
-						<h1>이웃사촌</h1>
-						<!-- <h4>이웃끼리 신선하게 먹어볼까?</h4> -->
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img
-						src=".././static/img/main/vege4.jpg"
-						class="d-block w-100"
-						alt="..."
-					/>
-
-					<div class="carousel-caption d-md-block">
-						<h1>이웃사촌</h1>
-						<!-- <h4>이웃끼리 신선하게 먹어볼까?</h4> -->
-					</div>
-				</div>
 			</div>
-			<button
-				class="carousel-control-prev"
-				type="button"
-				data-bs-target="#carouselExampleDark"
-				data-bs-slide="prev"
-			>
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button
-				class="carousel-control-next"
-				type="button"
-				data-bs-target="#carouselExampleDark"
-				data-bs-slide="next"
-			>
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button>
-		</div>
-		<div class="sideimg">
-			<div class="sidetitle">
-				<div>금방 시드는 야채와 과일을</div>
-				<div>&nbsp;&nbsp;&nbsp;신선하게 나눠먹는 우리사이</div>
-			</div>
-			<div class="sidelogo">
-				<div><i class="fa-solid fa-people-roof"></i></div>
-				<div class="logoname">이웃사촌</div>
-			</div>
-		</div>
-		<div class="product-title">상품목록</div>
-
-		<div class="container">
 			<section class="product-item">
 				<% for (let i=0; i < dataValues.length; i++){ %>
-				<a
-					class="product-item-window"
-					href="/detail/<%= dataValues[i]['product_id'] %>"
-				>
-					<% var pro =
-					dataValues[i]['product_img_src'].split("imgParseStandard"); %>
+					<a class="product-item-window" href="/detail/<%= dataValues[i]['product_id'] %>">
+						<% var pro=dataValues[i]['product_img_src'].split("imgParseStandard"); %>
 
-					<img src="/<%= pro[1] %>" alt="" />
-					<input
-						id="product_id"
-						class="product-id"
-						value="<%= dataValues[i]['product_id'] %>"
-					/>
-					<div class="product-info-wrapper">
-						<div class="product-name"><%= dataValues[i]['product_name'] %></div>
-						<div class="product-price-wrapper">
-							<div class="product-price">
-								<%= dataValues[i]['product_price'] %>
+							<img src="/<%= pro[1] %>" alt="" />
+							<input id="product_id" class="product-id" value="<%= dataValues[i]['product_id'] %>" />
+							<div class="product-info-wrapper">
+								<div class="product-name">
+									<%= dataValues[i]['product_name'] %>
+								</div>
+								<div class="product-price-wrapper">
+									<div class="product-price">
+										<%= dataValues[i]['product_price'] %>
+									</div>
+									<div class="product-upload-time">
+										<%= datetime_arr[i]%>
+									</div>
+								</div>
 							</div>
-							<div class="product-upload-time"><%= datetime_arr[i]%></div>
-						</div>
-					</div>
-				</a>
-				<% } %>
+					</a>
+					<% } %>
 			</section>
 		</div>
 		<%- include("footer.ejs") %>
-		<script>
-			const goDetail = (obj) => {
-				axios({
-					url: "/api/detail",
-					method: "post",
-					// post방식 일때는 params가 data로 변경
-					data: { product_id: $(obj).children("#product_id").val() },
-				})
-					.then((response) => {
-						console.log(response);
+			
+			<script>
+				$(document).ready(function(){
+					setTimeout(()=>{
+						$('html, body').scrollTop($(".pos").height())
+					},3000)
+				});
+				console.log();
+				const path1 = document.querySelector(".path3");
+				const path1Length = path1.getTotalLength();
+				console.log(path1Length)
+				const goDetail = (obj) => {
+					axios({
+						url: "/api/detail",
+						method: "post",
+						// post방식 일때는 params가 data로 변경
+						data: { product_id: $(obj).children("#product_id").val() },
 					})
-					.catch((error) => {
-						console.log(error);
-					});
-			};
-		</script>
-	</body>
+						.then((response) => {
+							console.log(response);
+						})
+						.catch((error) => {
+							console.log(error);
+						});
+				};
+			</script>
+</body>
+
 </html>

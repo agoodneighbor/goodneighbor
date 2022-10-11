@@ -73,7 +73,7 @@
 		$("#chat-cont").on("keyup", (key) => {
 			// console.log(key);
 			if (key.keyCode == 13) {
-				if ($("#chat-cont").val().trim() == "") {
+				if ($("#chat-cont").val().trim() != "") {
 					socket.emit("sendto", { roomname: roomname, msg: key.target.value });
 					$(".messages").append(`<div class="message my-message">
 					<div>

@@ -63,7 +63,6 @@ left: 5%;
   stroke:white;
   stroke-dasharray: 7000;
   animation: drawPath1 6s linear, floating 6.2s linear infinite;
-
 }
 
 .content1 {
