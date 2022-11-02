@@ -1,5 +1,4 @@
-# goodneighbor
-이웃끼리 거래하자 - 위치 기반 거래 플랫폼 :: 이웃사촌
+# 이웃끼리 거래하자 - 위치 기반 거래 플랫폼 :: 이웃사촌
 
 ![good1](https://user-images.githubusercontent.com/71423455/199411357-bb809a41-be6f-4cc7-a327-13c0621736a9.png)
 
